@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azer Rached | Marketing Strategist & Growth Expert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #c5a572;
+            --accent-light: #d4af77;
+            --text-light: #e8e8e8;
+            --text-dark: #1a1a2e;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            font-family: 'Arial', sans-serif;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(197, 165, 114, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(197, 165, 114, 0.05) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem auto;
+            max-width: 1000px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--accent);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(197, 165, 114, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            letter-spacing: 1px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--accent);
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+
+        .cta-primary:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            opacity: 0.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-light);
+            opacity: 0.85;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlights {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--accent);
+            padding: 2rem;
+        }
+
+        .highlight-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-item h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .highlight-item p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Case Studies */
+        .case-studies-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .case-study {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(197, 165, 114, 0.2);
+            padding: 3rem;
+            transition: all 0.3s;
+        }
+
+        .case-study:hover {
+            border-color: var(--accent);
+            background: rgba(197, 165, 114, 0.03);
+        }
+
+        .case-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .case-study h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .case-study h4 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .case-section {
+            margin: 2rem 0;
+        }
+
+        .case-section h5 {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .case-section p, .case-section ul {
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        .case-section ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .case-section li {
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .case-section li::before {
+            content: '→';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--accent);
+        }
+
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(197, 165, 114, 0.2);
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(197, 165, 114, 0.2);
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            background: rgba(197, 165, 114, 0.03);
+        }
+
+        .skill-category h4 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            margin-bottom: 0.75rem;
+            opacity: 0.8;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-category li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--accent);
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            border: 2px solid var(--accent);
+            transition: all 0.3s;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .contact-link:hover {
+            background: var(--accent);
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-results {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">AZER RACHED</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Marketing Strategist & Growth Expert</div>
+            <h1>AZER RACHED</h1>
+            <p class="hero-subtitle">Transforming Data into Revenue, Ideas into Growth</p>
+            <p class="hero-description">
+                Performance-driven marketing professional with proven entrepreneurial track record. 
+                Specialized in multi-channel acquisition, viral content creation, and data-driven decision making.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">30K+</span>
+                    <span class="stat-label">Community Built</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">20M+</span>
+                    <span class="stat-label">Organic Views</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50K€</span>
+                    <span class="stat-label">Quarterly Revenue</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+
+            <a href="mailto:azerrached3@gmail.com?subject=Let's Work Together - Portfolio Inquiry&body=Hi Azer,%0D%0A%0D%0AI came across your portfolio and I'm interested in discussing potential opportunities.%0D%0A%0D%0A" class="cta-primary">Let's Work Together</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <div class="section-label">Who I Am</div>
+            <h2 class="section-title">Strategic Marketing Professional</h2>
+            <p class="section-description">
+                Results-oriented marketer with entrepreneurial DNA and a passion for creating scalable growth systems
+            </p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Following my immigration to France, I'm seeking to leverage my expertise in a dynamic environment—whether through full-time employment, freelance projects, or an alternance program while completing my Graduate degree.
+                </p>
+                <p>
+                    My approach combines analytical rigor with creative experimentation. I've built communities from zero to 30K+ followers, generated substantial revenue through strategic positioning, and consistently delivered projects ahead of schedule while reducing costs.
+                </p>
+                <p>
+                    My superpower? Creating revenue-generating systems that work while you sleep—from viral content strategies to optimized sales funnels and multi-channel acquisition frameworks.
+                </p>
+            </div>
+
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <h4>🎯 Core Philosophy</h4>
+                    <p>Every marketing dollar must tell a story—and that story must end with measurable ROI.</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>🚀 What Drives Me</h4>
+                    <p>The intersection of data analytics, creative storytelling, and business growth. I thrive in the space where numbers meet narrative.</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>🌍 Global Perspective</h4>
+                    <p>Fluent in 7 languages. My multicultural background enables me to craft campaigns that resonate across borders and demographics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="section-header">
+            <div class="section-label">Case Studies</div>
+            <h2 class="section-title">Proven Results</h2>
+            <p class="section-description">
+                A selection of projects showcasing strategic thinking, execution excellence, and measurable impact
+            </p>
+        </div>
+
+        <div class="case-studies-grid">
+            <!-- Case Study 1 -->
+            <div class="case-study">
+                <div class="case-meta">
+                    <span>2024 - Present</span>
+                    <span>Digital Marketing</span>
+                    <span>Personal Brand</span>
+                </div>
+                <h3>Building a 30K+ Community from Zero</h3>
+                <h4>Multi-Platform Content Strategy & Monetization</h4>
+
+                <div class="case-section">
+                    <h5>The Challenge</h5>
+                    <p>
+                        Starting from scratch with no audience, limited budget, and a saturated digital landscape. 
+                        Goal: Build an engaged community and create multiple revenue streams through content while establishing credibility as a digital entrepreneur and marketing expert.
+                    </p>
+                </div>
+
+                <div class="case-section">
+                    <h5>Strategy & Execution</h5>
+                    <ul>
+                        <li>Deep trend analysis and platform-specific content adaptation (Instagram, TikTok, YouTube, LinkedIn)</li>
+                        <li>Data-driven content calendar based on engagement patterns and algorithm insights</li>
+                        <li>Strategic storytelling combining business insights, personal development, and lifestyle content</li>
+                        <li>Value-first approach to build authentic connections and thought leadership positioning</li>
+                        <li>Diversified monetization strategy: dropshipping, affiliate partnerships, and sponsored content</li>
+                        <li>Sales funnel optimization and testing for maximum conversion rates</li>
+                        <li>Community engagement tactics to boost organic reach and viral potential</li>
+                    </ul>
+                </div>
+
+                <div class="case-section">
+                    <h5>Learning & Mentorship</h5>
+                    <p style="opacity: 0.85;">
+                        Applied frameworks and strategies learned from top-tier mentors including Andy Elliott (The Elliott Group - high-performance closing techniques), 
+                        Sabri Suby (Sell Like Crazy - direct response marketing), Dean Graziosi (content marketing mastery), and industry mentor <em>[Mentor handle to be added]</em>.
+                    </p>
+                </div>
+
+                <div class="case-results">
+                    <div class="result-item">
+                        <span class="result-value">30K+</span>
+                        <span class="result-label">Followers Acquired</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">20M+</span>
+                        <span class="result-label">Organic Views</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">Multiple</span>
+                        <span class="result-label">Revenue Streams</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="case-study">
+                <div class="case-meta">
+                    <span>2023 - 2024</span>
+                    <span>Project Management</span>
+                    <span>HealthTech</span>
+                </div>
+                <h3>RealSmile Paris: Digital Healthcare Platform</h3>
+                <h4>End-to-End Digital Patient Journey for French Dental Aligners</h4>
+
+                <div class="case-section">
+                    <h5>The Challenge</h5>
+                    <p>
+                        Lead the complete development of RealSmile's digital ecosystem—a French dental aligner company based in Paris (5 rue Maurice Bourdet, 75016). 
+                        Create a seamless, fully digitalized patient journey connecting patients with experienced orthodontists through web and mobile platforms.
+                    </p>
+                </div>
+
+                <div class="case-section">
+                    <h5>Strategy & Execution</h5>
+                    <ul>
+                        <li>Full-stack project oversight: Website (realsmile.fr) + Mobile app ("My Realsmile") from conception to launch</li>
+                        <li>Developed "My Realsmile" mobile app featuring dental aligner reminders and video consultations with dentists</li>
+                        <li>UX optimization focused on patient journey, appointment booking, and treatment tracking</li>
+                        <li>Coordination of cross-functional teams (tech, design, medical professionals, marketing)</li>
+                        <li>Built social media presence and digital marketing strategy (Facebook: 1,039+ followers)</li>
+                        <li>Budget optimization and resource management using Agile methodology</li>
+                    </ul>
+                </div>
+
+                <div class="case-section">
+                    <h5>Platform Features Delivered</h5>
+                    <ul>
+                        <li>Responsive website with treatment information and online booking system</li>
+                        <li>Mobile app with push notifications for aligner wear reminders</li>
+                        <li>Integrated video consultation system for remote orthodontist check-ins</li>
+                        <li>Patient dashboard for treatment progress tracking</li>
+                        <li>Digital marketing integration (Facebook, Google presence)</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(197, 165, 114, 0.05); border-left: 3px solid var(--accent);">
+                    <p style="opacity: 0.85; line-height: 1.8;">
+                        <strong style="color: var(--accent);">Project Links:</strong><br>
+                        🌐 Website: <a href="https://realsmile.fr" target="_blank" style="color: var(--accent-light);">realsmile.fr</a><br>
+                        📱 Mobile App: "My Realsmile" on Google Play<br>
+                        📘 Social: <a href="https://www.facebook.com/RealSmileAligner" target="_blank" style="color: var(--accent-light);">Real Smile Aligner on Facebook</a>
+                    </p>
+                </div>
+
+                <div class="case-results">
+                    <div class="result-item">
+                        <span class="result-value">-10 Days</span>
+                        <span class="result-label">Ahead of Schedule</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">-7%</span>
+                        <span class="result-label">Cost Reduction</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">100%</span>
+                        <span class="result-label">Digital Journey</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="case-study">
+                <div class="case-meta">
+                    <span>2021 - 2023</span>
+                    <span>Entrepreneurship</span>
+                    <span>Tourism</span>
+                </div>
+                <h3>RTS Voyages: Premium Travel Agency</h3>
+                <h4>Building a Family Business from Zero to 50K€ Quarterly Revenue</h4>
+
+                <div class="case-section">
+                    <h5>The Challenge</h5>
+                    <p>
+                        Create and scale a premium travel agency in Jemmel, Tunisia in a competitive market with limited initial capital. 
+                        Build a recognizable brand and achieve sustainable profitability while establishing a family business focused on personalized, high-end travel experiences.
+                    </p>
+                </div>
+
+                <div class="case-section">
+                    <h5>Strategy & Execution</h5>
+                    <ul>
+                        <li>Premium brand positioning focused on personalized luxury travel experiences</li>
+                        <li>Developed differentiated value proposition in a crowded tourism market</li>
+                        <li>Targeted marketing strategy focused on high-value customer segments seeking bespoke services</li>
+                        <li>Built digital presence through social media and word-of-mouth marketing</li>
+                        <li>End-to-end customer experience optimization from booking to post-trip follow-up</li>
+                        <li>Strategic pricing and custom package design for maximum perceived value</li>
+                        <li>Transformed concept into profitable family-operated business with sustainable revenue streams</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(197, 165, 114, 0.05); border-left: 3px solid var(--accent);">
+                    <p style="opacity: 0.85; line-height: 1.8;">
+                        <strong style="color: var(--accent);">Business Context:</strong><br>
+                        📍 Location: Jemmel, Tunisia<br>
+                        🏢 Type: Family-owned boutique travel agency<br>
+                        📘 Social: <a href="https://www.facebook.com/RTSJEMMEL" target="_blank" style="color: var(--accent-light);">RTS Voyages on Facebook</a><br>
+                        <em style="font-size: 0.9rem; opacity: 0.7;">Note: Operated prior to immigration to France in 2024</em>
+                    </p>
+                </div>
+
+                <div class="case-results">
+                    <div class="result-item">
+                        <span class="result-value">~50K€</span>
+                        <span class="result-label">Quarterly Revenue</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">Premium</span>
+                        <span class="result-label">Brand Position</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">0 to 1</span>
+                        <span class="result-label">Family Business Built</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="expertise">
+        <div class="section-header">
+            <div class="section-label">Expertise</div>
+            <h2 class="section-title">Skills & Capabilities</h2>
+            <p class="section-description">
+                A comprehensive toolkit built through hands-on experience and continuous learning
+            </p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Marketing & Growth</h4>
+                <ul>
+                    <li>Performance Marketing</li>
+                    <li>Multi-Channel Acquisition</li>
+                    <li>Content Strategy</li>
+                    <li>Social Media Marketing</li>
+                    <li>SEO/SEM</li>
+                    <li>Sales Funnels</li>
+                    <li>A/B Testing</li>
+                    <li>Community Building</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h4>Analytics & Tools</h4>
+                <ul>
+                    <li>Google Analytics & GTM</li>
+                    <li>Meta Ads & Google Ads</li>
+                    <li>SQL & Advanced Excel</li>
+                    <li>CRM Platforms</li>
+                    <li>UTM Tracking</li>
+                    <li>Data Visualization</li>
+                    <li>KPI Dashboard Design</li>
+                    <li>Shopify & E-commerce</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h4>Business & Leadership</h4>
+                <ul>
+                    <li>Strategic Planning</li>
+                    <li>Project Management</li>
+                    <li>Team Leadership</li>
+                    <li>Budget Optimization</li>
+                    <li>Stakeholder Management</li>
+                    <li>Sales & Negotiation</li>
+                    <li>Client Relations</li>
+                    <li>Business Development</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem; text-align: center; padding: 3rem; background: rgba(197, 165, 114, 0.05); border: 1px solid var(--accent);">
+            <h4 style="color: var(--accent); margin-bottom: 1.5rem; font-size: 1.3rem;">Languages: A Global Perspective</h4>
+            <p style="font-size: 1.1rem; opacity: 0.85;">
+                <strong style="color: var(--accent);">Fluent in 7 languages:</strong> Arabic (native), French (C2), English (C1), Russian (B2), 
+                plus working knowledge of Spanish, Italian, and German
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Let's Create Something Exceptional</h2>
+        <p>Available for CDI, Freelance, or Alternance opportunities in Paris & Île-de-France</p>
+        <div class="contact-buttons">
+            <a href="mailto:azerrached3@gmail.com" class="contact-link">Email Me</a>
+            <a href="tel:+33602560229" class="contact-link">Call: +33 6 02 56 02 29</a>
+            <a href="https://www.linkedin.com/in/azer-rached-239258377/" target="_blank" class="contact-link">LinkedIn</a>
+            <a href="https://linktr.ee/AZER_rached" target="_blank" class="contact-link">All Links</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Azer Rached. All rights reserved. | Based in Paris, France</p>
+    </footer>
+</body>
+</html>
