@@ -684,6 +684,94 @@
             font-weight: 600;
         }
 
+        /* Certification Box */
+        .certification-box {
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background: rgba(139, 92, 246, 0.05);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .certification-box:hover {
+            border-color: var(--purple);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .cert-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .cert-content h5 {
+            color: var(--purple);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .cert-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-detail {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .cert-ref {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .cert-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--purple);
+            text-decoration: none;
+            border: 2px solid var(--purple);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cert-btn:hover {
+            background: var(--purple);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .cert-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
         /* Skills Grid */
         .skills-grid {
             display: grid;
@@ -1088,12 +1176,22 @@
                 </div>
                 
                 <div class="certification-box">
-                    <div class="cert-badge">📜 Formation en cours</div>
+                    <div class="cert-badge">📜 Attestation d'Admission</div>
                     <div class="cert-content">
                         <h5>Graduate Assistant Commercial - STUDI</h5>
                         <p><strong>📍 Paris, France</strong> • Admission confirmée le 20/08/2024</p>
                         <p class="cert-detail">Formation par apprentissage (2025-2026) validée par Illiana Vallognes, Conseillère en Formation</p>
                         <p class="cert-ref">N° déclaration d'activité : 11 75 65568 75 • UAI : 0756369R</p>
+                        <div class="cert-buttons">
+                            <a href="https://drive.google.com/file/d/1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx/preview" target="_blank" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Voir l'attestation
+                            </a>
+                            <a href="https://drive.google.com/uc?export=download&id=1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx" target="_blank" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Télécharger
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1177,6 +1275,16 @@
                         <p><strong>Période :</strong> 20/03/2020 - 25/12/2023</p>
                         <p class="cert-detail">Attestation délivrée par Madame Dalila Amara, Responsable de RTS Travel Service</p>
                         <p class="cert-ref">Matricule Fiscal : 1515678 L/A/M/000 • Adresse : Imm Elbaraka, Bureau N°1, Jemmel, Monastir</p>
+                        <div class="cert-buttons">
+                            <a href="https://drive.google.com/file/d/17_cBlbw1WFdZmCylBlNWTMHLhWlX2evd/preview" target="_blank" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Voir l'attestation
+                            </a>
+                            <a href="https://drive.google.com/uc?export=download&id=17_cBlbw1WFdZmCylBlNWTMHLhWlX2evd" target="_blank" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Télécharger
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1222,6 +1330,16 @@
                         <p><strong>Période :</strong> 06/08/2021 - 25/08/2022</p>
                         <p class="cert-detail">Attestation délivrée par Mr. Sami Mansour, Gérant de la société</p>
                         <p class="cert-ref">Matricule Fiscal : 1722156T • Adresse : Rue Aouled Abid Zermadine Monastir</p>
+                        <div class="cert-buttons">
+                            <a href="https://drive.google.com/file/d/1qQUZMlfPd-6vEB_XEgC1EezC_F3tJ6Mj/preview" target="_blank" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Voir l'attestation
+                            </a>
+                            <a href="https://drive.google.com/uc?export=download&id=1qQUZMlfPd-6vEB_XEgC1EezC_F3tJ6Mj" target="_blank" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Télécharger
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1309,7 +1427,7 @@
     </footer>
 
     <script>
-        // Audio Player
+        // Audio Player Functionality
         const audio = document.getElementById('myAudio');
         const playBtn = document.getElementById('playBtn');
         const audioPlayer = document.getElementById('audioPlayer');
@@ -1319,31 +1437,48 @@
         const pauseIcon2 = document.getElementById('pauseIcon2');
         
         let isPlaying = false;
-        
-        // Set volume
         audio.volume = 0.5;
         
-        // Auto-play function
+        // Auto-play function with multiple fallbacks
         function autoPlay() {
             audio.play()
                 .then(() => {
                     isPlaying = true;
                     updatePlayerUI();
-                    console.log('✅ Audio auto-play réussi');
+                    console.log('✅ Audio démarré automatiquement');
                 })
-                .catch(err => {
-                    console.log('⚠️ Auto-play bloqué, cliquez sur le bouton audio');
-                    // Pulse animation to get attention
-                    audioPlayer.style.animation = 'pulse-glow 1.5s ease-in-out infinite';
+                .catch(() => {
+                    console.log('⚠️ Auto-play bloqué - en attente d\'interaction utilisateur');
+                    audioPlayer.style.animation = 'pulse-glow 1s ease-in-out infinite';
+                    
+                    const startAudio = () => {
+                        audio.play().then(() => {
+                            isPlaying = true;
+                            updatePlayerUI();
+                            audioPlayer.style.animation = 'pulse-glow 3s ease-in-out infinite';
+                            document.removeEventListener('click', startAudio);
+                            document.removeEventListener('touchstart', startAudio);
+                            document.removeEventListener('scroll', startAudio);
+                            document.removeEventListener('keydown', startAudio);
+                        });
+                    };
+                    
+                    document.addEventListener('click', startAudio, { once: true });
+                    document.addEventListener('touchstart', startAudio, { once: true });
+                    document.addEventListener('scroll', startAudio, { once: true });
+                    document.addEventListener('keydown', startAudio, { once: true });
                 });
         }
         
-        // Try auto-play after page load
+        // Try to auto-play immediately
+        autoPlay();
+        
+        // Also try after page fully loads
         window.addEventListener('load', () => {
-            setTimeout(autoPlay, 800);
+            setTimeout(autoPlay, 300);
         });
         
-        // Toggle play/pause
+        // Manual play/pause toggle
         playBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (isPlaying) {
@@ -1354,10 +1489,10 @@
                 isPlaying = true;
             }
             updatePlayerUI();
-            audioPlayer.style.animation = 'none';
+            audioPlayer.style.animation = 'pulse-glow 3s ease-in-out infinite';
         });
         
-        // Update UI
+        // Update UI based on play state
         function updatePlayerUI() {
             if (isPlaying) {
                 playIcon.style.display = 'none';
@@ -1372,7 +1507,7 @@
             }
         }
         
-        // Audio ended event
+        // Handle audio end
         audio.addEventListener('ended', () => {
             isPlaying = false;
             updatePlayerUI();
@@ -1388,7 +1523,7 @@
             }
         });
         
-        // Smooth scroll
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1402,7 +1537,7 @@
             });
         });
         
-        // Intersection Observer for animations
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1417,7 +1552,7 @@
             });
         }, observerOptions);
         
-        // Observe all sections
+        // Observe all sections for animations
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(30px)';
