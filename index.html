@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azer Rached | Expert Marketing & Croissance</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
 
@@ -17,8 +18,10 @@
             --primary: #0a0a0f;
             --secondary: #141420;
             --accent: #00d4ff;
+            --accent-glow: #00ffff;
             --purple: #8b5cf6;
             --pink: #ec4899;
+            --orange: #f59e0b;
             --text-light: #e8e8f0;
             --text-muted: #a0a0b8;
         }
@@ -39,9 +42,9 @@
             100% { background-position: 0% 50%; }
         }
 
-        @keyframes wave-anim {
-            0%, 100% { height: 12px; }
-            50% { height: 30px; }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         body {
@@ -52,7 +55,7 @@
             overflow-x: hidden;
         }
 
-        /* Background Animation */
+        /* Animated Background */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -77,6 +80,7 @@
             background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
             top: -10%;
             left: -10%;
+            animation-delay: 0s;
         }
 
         .orb-2 {
@@ -135,6 +139,10 @@
             transition: all 0.3s;
         }
 
+        .audio-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
         .audio-info {
             display: flex;
             flex-direction: column;
@@ -145,6 +153,7 @@
             color: var(--accent);
             font-weight: 700;
             font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
 
         .audio-subtitle {
@@ -170,6 +179,11 @@
         .wave:nth-child(2) { animation-delay: 0.2s; }
         .wave:nth-child(3) { animation-delay: 0.4s; }
 
+        @keyframes wave-anim {
+            0%, 100% { height: 12px; }
+            50% { height: 30px; }
+        }
+
         .audio-waves.paused .wave {
             animation: none;
             height: 12px;
@@ -185,6 +199,12 @@
             z-index: 9999;
             padding: 1.5rem 0;
             border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
         }
 
         nav .container {
@@ -196,7 +216,7 @@
             align-items: center;
         }
 
-        .logo {
+        nav .logo {
             font-size: 1.5rem;
             font-weight: 900;
             background: linear-gradient(135deg, var(--accent), var(--purple), var(--pink));
@@ -204,6 +224,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradient-shift 3s ease infinite;
+            letter-spacing: 2px;
         }
 
         nav ul {
@@ -215,68 +236,845 @@
         nav a {
             color: var(--text-light);
             text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 600;
-            transition: color 0.3s;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            transition: width 0.3s;
         }
 
         nav a:hover {
             color: var(--accent);
         }
 
-        /* Content */
-        .content {
-            position: relative;
-            z-index: 1;
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
             padding: 8rem 2rem 4rem;
+            z-index: 1;
         }
 
-        .hero {
-            text-align: center;
+        .hero-content {
             max-width: 1200px;
+            text-align: center;
+            position: relative;
+            animation: slideUp 1s ease-out;
         }
 
-        h1 {
-            font-size: 5rem;
+        .hero-badge {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid var(--accent);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: 6rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff, var(--accent), var(--purple));
-            background-size: 200% auto;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent) 30%, var(--purple) 60%, var(--pink) 100%);
+            background-size: 300% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradient-shift 4s ease infinite;
+            line-height: 1.1;
             font-weight: 900;
+            letter-spacing: -2px;
         }
 
-        .subtitle {
-            font-size: 1.5rem;
+        .hero-subtitle {
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
             color: var(--text-muted);
-            margin-bottom: 3rem;
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem auto 3rem;
+            max-width: 1100px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 25px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, var(--accent), var(--purple));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4);
+        }
+
+        .stat-card:hover::before {
+            opacity: 0.15;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        /* CTA Buttons */
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            padding: 1.3rem 3.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--purple), var(--pink));
+            background-size: 200% auto;
             color: white;
             text-decoration: none;
-            border-radius: 50px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             font-weight: 700;
-            transition: all 0.3s;
+            border-radius: 50px;
+            transition: all 0.4s;
             box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: gradient-shift 3s ease infinite;
         }
 
-        .cta-button:hover {
+        .cta-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 50px rgba(0, 212, 255, 0.6);
         }
 
+        .cta-secondary {
+            display: inline-block;
+            padding: 1.3rem 3.5rem;
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 50px;
+            border: 2px solid var(--accent);
+            transition: all 0.4s;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 30px;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text-light);
+        }
+
+        .about-text p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .about-highlights {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 25px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-highlights::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent), var(--purple), var(--pink));
+        }
+
+        .highlight-item {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .highlight-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-item h4 {
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .highlight-item p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Experience Timeline */
+        .experience-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent), var(--purple), var(--pink));
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 4rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 25px;
+            padding: 3rem;
+            transition: all 0.4s;
+        }
+
+        .experience-item:hover {
+            border-color: var(--accent);
+            transform: translateX(15px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3.75rem;
+            top: 3rem;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 30px var(--accent);
+            border: 3px solid var(--primary);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            font-size: 1.15rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .experience-period {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .experience-location {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        .experience-description {
+            color: var(--text-muted);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .experience-achievements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-achievements li {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .experience-achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .experience-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .metric-item {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Certification Box */
+        .certification-box {
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background: rgba(139, 92, 246, 0.05);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .certification-box:hover {
+            border-color: var(--purple);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .cert-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .cert-content h5 {
+            color: var(--purple);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .cert-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-detail {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .cert-ref {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .cert-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--purple);
+            text-decoration: none;
+            border: 2px solid var(--purple);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cert-btn:hover {
+            background: var(--purple);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .cert-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* PDF Preview Modal */
+        .pdf-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .pdf-modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .pdf-modal-content {
+            width: 100%;
+            max-width: 1200px;
+            height: 90vh;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 100px rgba(0, 212, 255, 0.5);
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: scale(0.9) translateY(50px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .pdf-modal-header {
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .pdf-modal-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .pdf-close-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .pdf-close-btn:hover {
+            background: white;
+            color: var(--purple);
+            transform: rotate(90deg);
+        }
+
+        .pdf-iframe {
+            width: 100%;
+            height: calc(100% - 70px);
+            border: none;
+        }
+
+        .pdf-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 25px;
+            padding: 3rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--purple), var(--pink));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category h4 {
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            padding-left: 2rem;
+            position: relative;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+
+        .skill-category li:hover {
+            color: var(--text-light);
+            transform: translateX(8px);
+        }
+
+        .skill-category li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Languages Box */
+        .languages-box {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 3rem;
+            background: rgba(0, 212, 255, 0.05);
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .languages-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .languages-box h4 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .languages-box p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+            position: relative;
+        }
+
+        .languages-box strong {
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-top: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: float 25s ease-in-out infinite;
+        }
+
+        .contact h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            position: relative;
+        }
+
+        .contact p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .contact-link {
+            padding: 1.2rem 2.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--accent);
+            text-decoration: none;
+            border: 2px solid var(--accent);
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .contact-link:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
         /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 3rem;
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-timeline {
+                padding-left: 2rem;
             }
 
             nav ul {
@@ -292,11 +1090,15 @@
             .audio-info {
                 display: none;
             }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Background Animation -->
+    <!-- Animated Background -->
     <div class="bg-animation">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
@@ -316,40 +1118,426 @@
             <div class="audio-title">🎙️ Ma présentation</div>
             <div class="audio-subtitle">Cliquez pour écouter</div>
         </div>
-        <div class="audio-waves paused" id="audioWaves">
+        <div class="audio-waves" id="audioWaves">
             <div class="wave"></div>
             <div class="wave"></div>
             <div class="wave"></div>
         </div>
     </div>
 
-    <!-- Hidden Audio Element -->
     <audio id="myAudio" loop preload="auto">
-        <source src="voiceover.mp3" type="audio/mpeg">
+        <source src="https://soundcloud.com/svvay-18213845/elevenlabs_elevenlabs_2025-10/download" type="audio/mpeg">
     </audio>
+    
+    <!-- SoundCloud Widget (hidden, for audio source) -->
+    <iframe id="soundcloudWidget" style="display:none;" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/svvay-18213845/elevenlabs_elevenlabs_2025-10&color=%2300d4ff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
 
     <!-- Navigation -->
-    <nav>
+    <nav id="mainNav">
         <div class="container">
             <div class="logo">AZER RACHED</div>
             <ul>
                 <li><a href="#about">À Propos</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#expertise">Expertise</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="content">
-        <div class="hero">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🚀 Marketing Manager • Growth Expert</div>
             <h1>AZER RACHED</h1>
-            <p class="subtitle">Expert Marketing & Croissance | Disponible en Alternance</p>
-            <a href="mailto:azerrached3@gmail.com" class="cta-button">Travaillons Ensemble</a>
+            <p class="hero-subtitle">Transformer les Données en Revenus, les Idées en Croissance</p>
+            <p class="hero-description">
+                Marketing Manager orienté résultats avec un parcours entrepreneurial prouvé. Spécialisé en marketing de performance, 
+                acquisition multicanaux et stratégies data-driven. <strong style="color: var(--accent);">Disponible en alternance</strong> pour mettre mon expertise au service 
+                d'une entreprise innovante à Paris.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">30K+</span>
+                    <span class="stat-label">Abonnés</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">20M+</span>
+                    <span class="stat-label">Vues Organiques</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50K€</span>
+                    <span class="stat-label">CA Trimestriel</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">-7%</span>
+                    <span class="stat-label">Réduction Coûts</span>
+                </div>
+            </div>
+
+            <div class="cta-group">
+                <a href="mailto:azerrached3@gmail.com?subject=Opportunité Alternance&body=Bonjour Azer,%0D%0A%0D%0AJ'ai consulté votre portfolio..." class="cta-primary">Travaillons Ensemble</a>
+                <a href="tel:+33602560229" class="cta-secondary">📞 Appelez-moi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <div class="section-badge">Qui Je Suis</div>
+            <h2 class="section-title">Professionnel du Marketing Stratégique</h2>
+            <p class="section-description">
+                Un marketeur orienté résultats avec un ADN entrepreneurial et une passion pour créer des systèmes de croissance scalables
+            </p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Suite à mon immigration en France, je recherche une <strong style="color: var(--accent);">alternance</strong> pour mettre mon expertise au service d'une entreprise 
+                    innovante tout en complétant mon Graduate Assistant Commercial chez STUDI (2025-2026).
+                </p>
+                <p>
+                    Mon approche combine <strong>rigueur analytique</strong> et <strong>expérimentation créative</strong>. J'ai bâti des communautés de 0 à 30K+ abonnés, 
+                    généré des revenus substantiels via un positionnement stratégique premium, et livré des projets en avance tout en 
+                    réduisant les coûts de 7%.
+                </p>
+                <p>
+                    Ma force ? Créer des <strong style="color: var(--accent);">systèmes générateurs de revenus qui fonctionnent 24/7</strong> — des stratégies de contenu viral 
+                    aux funnels de vente optimisés et frameworks d'acquisition multicanaux.
+                </p>
+            </div>
+
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <h4>🎯 Philosophie Centrale</h4>
+                    <p>Chaque euro investi en marketing doit raconter une histoire — et cette histoire doit se terminer par un ROI mesurable.</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>🚀 Ce Qui Me Motive</h4>
+                    <p>L'intersection entre data analytics, storytelling créatif et croissance business. Je m'épanouis là où les chiffres rencontrent le récit.</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>🌍 Perspective Globale</h4>
+                    <p>Maîtrise de 7 langues (Arabe natif, Français C2, Anglais C1, Russe B2 + notions d'Allemand). Mon parcours multiculturel me permet de créer des campagnes qui résonnent au-delà des frontières.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header">
+            <div class="section-badge">Mon Parcours</div>
+            <h2 class="section-title">Expérience Professionnelle</h2>
+            <p class="section-description">
+                Un parcours entrepreneurial diversifié démontrant leadership, innovation et résultats mesurables
+            </p>
+        </div>
+
+        <div class="experience-timeline">
+            <!-- Experience 1 -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Consultant Marketing & Entrepreneur Digital</h3>
+                        <p class="experience-company">Indépendant</p>
+                        <p class="experience-location">📍 Paris, France</p>
+                    </div>
+                    <div class="experience-period">2024 – Présent</div>
+                </div>
+                <p class="experience-description">
+                    Construction d'une communauté de 30K+ abonnés et génération de revenus récurrents via stratégies 
+                    multicanaux et monétisation diversifiée (dropshipping, affiliation, sponsoring).
+                </p>
+                <ul class="experience-achievements">
+                    <li>Croissance communauté 0 → 30K+ abonnés, 20M+ vues organiques via contenu multiplateforme (Instagram, LinkedIn, YouTube, TikTok)</li>
+                    <li>Monétisation diversifiée : dropshipping, affiliation, sponsoring générant revenus récurrents mensuels</li>
+                    <li>Optimisation data-driven : budgets publicitaires et décisions stratégiques basées sur KPIs et analytics</li>
+                    <li>Innovation acquisition : canaux émergents et optimisation funnels pour maximiser conversion</li>
+                </ul>
+                <div class="experience-metrics">
+                    <div class="metric-item">
+                        <span class="metric-value">30K+</span>
+                        <span class="metric-label">Abonnés</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">20M+</span>
+                        <span class="metric-label">Vues</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">Multiple</span>
+                        <span class="metric-label">Revenus</span>
+                    </div>
+                </div>
+                
+                <div class="certification-box">
+                    <div class="cert-badge">📜 Attestation d'Admission</div>
+                    <div class="cert-content">
+                        <h5>Graduate Assistant Commercial - STUDI</h5>
+                        <p><strong>📍 Paris, France</strong> • Admission confirmée le 20/08/2024</p>
+                        <p class="cert-detail">Formation par apprentissage (2025-2026) validée par Illiana Vallognes, Conseillère en Formation</p>
+                        <p class="cert-ref">N° déclaration d'activité : 11 75 65568 75 • UAI : 0756369R</p>
+                        <div class="cert-buttons">
+                            <a href="#" onclick="openPdfModal('https://drive.google.com/file/d/1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx/preview', 'Attestation d\'Admission STUDI'); return false;" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Voir l'attestation
+                            </a>
+                            <a href="https://drive.google.com/uc?export=download&id=1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx" target="_blank" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Télécharger
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Chef de Projet Digital</h3>
+                        <p class="experience-company">RealSmile (Technologies Médicales)</p>
+                        <p class="experience-location">📍 Paris, France</p>
+                    </div>
+                    <div class="experience-period">2023 – 2024</div>
+                </div>
+                <p class="experience-description">
+                    Direction complète du développement de l'écosystème digital RealSmile — plateforme française d'aligneurs 
+                    dentaires avec parcours patient 100% digitalisé (site web + application mobile).
+                </p>
+                <ul class="experience-achievements">
+                    <li>Direction site web + app mobile : parcours patient 100% digitalisé pour soins dentaires internationaux</li>
+                    <li>Coordination équipes pluridisciplinaires (tech, design, médical) : livraison 10 jours en avance</li>
+                    <li>Optimisation budgétaire : réduction coûts 7% vs marché via gestion efficace des ressources</li>
+                    <li>Développement app "My Realsmile" avec rappels aligneurs et consultations vidéo dentistes</li>
+                </ul>
+                <div class="experience-metrics">
+                    <div class="metric-item">
+                        <span class="metric-value">-10j</span>
+                        <span class="metric-label">Avance</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">-7%</span>
+                        <span class="metric-label">Coûts</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">100%</span>
+                        <span class="metric-label">Digital</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience 3 -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Co-Fondateur & Directeur Général</h3>
+                        <p class="experience-company">RTS Voyages (Tourisme Premium)</p>
+                        <p class="experience-location">📍 Jemmel, Monastir, Tunisie</p>
+                    </div>
+                    <div class="experience-period">2021 – 2023</div>
+                </div>
+                <p class="experience-description">
+                    Création et développement d'une agence de voyages premium de 0 à 50K€ CA trimestriel via positionnement 
+                    haut de gamme et stratégie marketing ciblée.
+                </p>
+                <ul class="experience-achievements">
+                    <li>Participation active à la création et au développement stratégique de RTS Travel Service</li>
+                    <li>Définition de la vision, des objectifs et des orientations de l'entreprise</li>
+                    <li>Gestion des partenariats, des investissements et des relations institutionnelles</li>
+                    <li>Supervision des équipes et des opérations quotidiennes</li>
+                    <li>Construction marque haut de gamme via stratégie marketing ciblée et storytelling efficace</li>
+                </ul>
+                <div class="experience-metrics">
+                    <div class="metric-item">
+                        <span class="metric-value">~50K€</span>
+                        <span class="metric-label">CA Trimestriel</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">Premium</span>
+                        <span class="metric-label">Positionnement</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">0→1</span>
+                        <span class="metric-label">Business</span>
+                    </div>
+                </div>
+                
+                <div class="certification-box">
+                    <div class="cert-badge">📜 Attestation de Travail</div>
+                    <div class="cert-content">
+                        <h5>RTS Travel Service - Co-Fondateur</h5>
+                        <p><strong>Période :</strong> 20/03/2020 - 25/12/2023</p>
+                        <p class="cert-detail">Attestation délivrée par Madame Dalila Amara, Responsable de RTS Travel Service</p>
+                        <p class="cert-ref">Matricule Fiscal : 1515678 L/A/M/000 • Adresse : Imm Elbaraka, Bureau N°1, Jemmel, Monastir</p>
+                        <div class="cert-buttons">
+                            <a href="#" onclick="openPdfModal('https://drive.google.com/file/d/17_cBlbw1WFdZmCylBlNWTMHLhWlX2evd/preview', 'Attestation RTS Travel Service'); return false;" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Voir l'attestation
+                            </a>
+                            <a href="https://drive.google.com/uc?export=download&id=17_cBlbw1WFdZmCylBlNWTMHLhWlX2evd" target="_blank" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Télécharger
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience 4 -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Directeur d'Animation Touristique</h3>
+                        <p class="experience-company">DreamTeam Animation</p>
+                        <p class="experience-location">📍 Zermadine, Monastir, Tunisie</p>
+                    </div>
+                    <div class="experience-period">2021 – 2022</div>
+                </div>
+                <p class="experience-description">
+                    Management multi-sites de ~25 membres par établissement sur 5 hôtels. Supervision plannings, 
+                    performance commerciale et satisfaction client.
+                </p>
+                <ul class="experience-achievements">
+                    <li>Management ~25 membres par site (5 établissements) : plannings, supervision, satisfaction client</li>
+                    <li>Performance commerciale : ~25K€/saison via stratégies innovation et ventes on-site</li>
+                    <li>Coordination événements, animations et expériences clients haut de gamme</li>
+                </ul>
+                <div class="experience-metrics">
+                    <div class="metric-item">
+                        <span class="metric-value">~125</span>
+                        <span class="metric-label">Personnes</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">5</span>
+                        <span class="metric-label">Sites</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">~25K€</span>
+                        <span class="metric-label">CA/Saison</span>
+                    </div>
+                </div>
+                
+                <div class="certification-box">
+                    <div class="cert-badge">📜 Attestation de Travail</div>
+                    <div class="cert-content">
+                        <h5>DREAM TEAM ANIMATION - Directeur d'Animation</h5>
+                        <p><strong>Période :</strong> 06/08/2021 - 25/08/2022</p>
+                        <p class="cert-detail">Attestation délivrée par Mr. Sami Mansour, Gérant de la société</p>
+                        <p class="cert-ref">Matricule Fiscal : 1722156T • Adresse : Rue Aouled Abid Zermadine Monastir</p>
+                        <div class="cert-buttons">
+                            <a href="#" onclick="openPdfModal('https://drive.google.com/file/d/1qQUZMlfPd-6vEB_XEgC1EezC_F3tJ6Mj/preview', 'Attestation Dream Team Animation'); return false;" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Voir l'attestation
+                            </a>
+                            <a href="https://drive.google.com/uc?export=download&id=1qQUZMlfPd-6vEB_XEgC1EezC_F3tJ6Mj" target="_blank" class="cert-btn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Télécharger
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="expertise">
+        <div class="section-header">
+            <div class="section-badge">Expertise</div>
+            <h2 class="section-title">Compétences & Capacités</h2>
+            <p class="section-description">
+                Une boîte à outils complète développée à travers l'expérience pratique et l'apprentissage continu
+            </p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Marketing & Croissance</h4>
+                <ul>
+                    <li>Marketing de Performance</li>
+                    <li>Acquisition Multicanaux</li>
+                    <li>Stratégie de Contenu</li>
+                    <li>Social Media Marketing</li>
+                    <li>SEO/SEM</li>
+                    <li>Sales Funnels</li>
+                    <li>A/B Testing</li>
+                    <li>Community Building</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h4>Analytics & Outils</h4>
+                <ul>
+                    <li>Google Analytics & GTM</li>
+                    <li>Meta Ads & Google Ads</li>
+                    <li>SQL & Excel Avancé</li>
+                    <li>Plateformes CRM</li>
+                    <li>Tracking UTM</li>
+                    <li>Visualisation de Données</li>
+                    <li>Design Dashboards KPI</li>
+                    <li>Shopify & E-commerce</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h4>Business & Leadership</h4>
+                <ul>
+                    <li>Planification Stratégique</li>
+                    <li>Gestion de Projet</li>
+                    <li>Leadership d'Équipe</li>
+                    <li>Optimisation Budgétaire</li>
+                    <li>Gestion Parties Prenantes</li>
+                    <li>Vente & Négociation</li>
+                    <li>Relations Clients</li>
+                    <li>Développement Commercial</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="languages-box">
+            <h4>🌍 Langues : Une Perspective Globale</h4>
+            <p>
+                <strong>Maîtrise de 7 langues :</strong> Arabe (natif), Français (C2), Anglais (C1), Russe (B2), 
+                plus notions d'Espagnol, Italien et Allemand
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Créons Quelque Chose d'Exceptionnel</h2>
+        <p>Disponible pour Alternance à Paris & Île-de-France • Graduate STUDI 2025-2026</p>
+        <div class="contact-buttons">
+            <a href="mailto:azerrached3@gmail.com" class="contact-link">✉️ Email</a>
+            <a href="tel:+33602560229" class="contact-link">📞 +33 6 02 56 02 29</a>
+            <a href="https://www.linkedin.com/in/azer-rached-239258377/" target="_blank" class="contact-link">💼 LinkedIn</a>
+            <a href="https://linktr.ee/AZER_rached" target="_blank" class="contact-link">🔗 Tous mes liens</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Azer Rached. Tous droits réservés. | Basé à Paris, France 🇫🇷</p>
+    </footer>
+
+    <!-- PDF Preview Modal -->
+    <div class="pdf-modal" id="pdfModal">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <div class="pdf-modal-title" id="pdfModalTitle">Aperçu du document</div>
+                <button class="pdf-close-btn" onclick="closePdfModal()">✕</button>
+            </div>
+            <div class="pdf-loading" id="pdfLoading">Chargement du document...</div>
+            <iframe class="pdf-iframe" id="pdfIframe" style="display:none;"></iframe>
         </div>
     </div>
 
     <script>
-        // Audio Player Implementation
+        // Audio Player Functionality
         const audio = document.getElementById('myAudio');
         const playBtn = document.getElementById('playBtn');
         const audioPlayer = document.getElementById('audioPlayer');
@@ -359,13 +1547,73 @@
         const pauseIcon2 = document.getElementById('pauseIcon2');
         
         let isPlaying = false;
-        let hasInteracted = false;
+        audio.volume = 0.5;
         
-        // Set volume
-        audio.volume = 0.6;
+        // Check if audio can load
+        audio.addEventListener('loadeddata', () => {
+            console.log('✅ Audio chargé avec succès');
+        });
         
-        // Update UI
-        function updateUI() {
+        audio.addEventListener('error', (e) => {
+            console.log('❌ Erreur de chargement audio:', e);
+            console.log('Essai de source alternative...');
+        });
+        
+        // Auto-play function with multiple fallbacks
+        function autoPlay() {
+            audio.play()
+                .then(() => {
+                    isPlaying = true;
+                    updatePlayerUI();
+                    console.log('✅ Audio démarré automatiquement');
+                })
+                .catch(() => {
+                    console.log('⚠️ Auto-play bloqué - en attente d\'interaction utilisateur');
+                    audioPlayer.style.animation = 'pulse-glow 1s ease-in-out infinite';
+                    
+                    const startAudio = () => {
+                        audio.play().then(() => {
+                            isPlaying = true;
+                            updatePlayerUI();
+                            audioPlayer.style.animation = 'pulse-glow 3s ease-in-out infinite';
+                            document.removeEventListener('click', startAudio);
+                            document.removeEventListener('touchstart', startAudio);
+                            document.removeEventListener('scroll', startAudio);
+                            document.removeEventListener('keydown', startAudio);
+                        });
+                    };
+                    
+                    document.addEventListener('click', startAudio, { once: true });
+                    document.addEventListener('touchstart', startAudio, { once: true });
+                    document.addEventListener('scroll', startAudio, { once: true });
+                    document.addEventListener('keydown', startAudio, { once: true });
+                });
+        }
+        
+        // Try to auto-play immediately
+        autoPlay();
+        
+        // Also try after page fully loads
+        window.addEventListener('load', () => {
+            setTimeout(autoPlay, 300);
+        });
+        
+        // Manual play/pause toggle
+        playBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+            } else {
+                audio.play();
+                isPlaying = true;
+            }
+            updatePlayerUI();
+            audioPlayer.style.animation = 'pulse-glow 3s ease-in-out infinite';
+        });
+        
+        // Update UI based on play state
+        function updatePlayerUI() {
             if (isPlaying) {
                 playIcon.style.display = 'none';
                 pauseIcon1.style.display = 'block';
@@ -379,99 +1627,113 @@
             }
         }
         
-        // Play audio
-        function playAudio() {
-            audio.play().then(() => {
-                isPlaying = true;
-                updateUI();
-                console.log('✅ Audio playing');
-            }).catch(err => {
-                console.log('⚠️ Autoplay blocked:', err.message);
-                isPlaying = false;
-                updateUI();
-            });
-        }
-        
-        // Pause audio
-        function pauseAudio() {
-            audio.pause();
+        // Handle audio end
+        audio.addEventListener('ended', () => {
             isPlaying = false;
-            updateUI();
-        }
+            updatePlayerUI();
+        });
         
-        // Toggle play/pause
-        function toggleAudio() {
-            if (isPlaying) {
-                pauseAudio();
+        // Navbar scroll effect
+        const mainNav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                mainNav.classList.add('scrolled');
             } else {
-                playAudio();
+                mainNav.classList.remove('scrolled');
             }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
+        });
+
+        // PDF Modal Functions
+        function openPdfModal(pdfUrl, title) {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfIframe');
+            const loading = document.getElementById('pdfLoading');
+            const modalTitle = document.getElementById('pdfModalTitle');
+            
+            // Set title
+            modalTitle.textContent = title;
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Show loading
+            loading.style.display = 'block';
+            iframe.style.display = 'none';
+            
+            // Load PDF
+            iframe.src = pdfUrl;
+            
+            // Hide loading when iframe loads
+            iframe.onload = function() {
+                loading.style.display = 'none';
+                iframe.style.display = 'block';
+            };
         }
-        
-        // Button click
-        playBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            hasInteracted = true;
-            toggleAudio();
-        });
-        
-        // Player click
-        audioPlayer.addEventListener('click', () => {
-            hasInteracted = true;
-            toggleAudio();
-        });
-        
-        // Universal interaction handler
-        function handleInteraction() {
-            if (!hasInteracted && !isPlaying) {
-                hasInteracted = true;
-                playAudio();
-            }
-        }
-        
-        // Listen to all interaction events
-        ['click', 'touchstart', 'touchend', 'mousedown', 'keydown', 'scroll'].forEach(event => {
-            document.addEventListener(event, handleInteraction, { once: true, passive: true });
-        });
-        
-        // Try autoplay on load
-        window.addEventListener('load', () => {
+
+        function closePdfModal() {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfIframe');
+            
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Clear iframe after animation
             setTimeout(() => {
-                if (!hasInteracted) playAudio();
-            }, 500);
-        });
-        
-        // Try immediate autoplay
-        setTimeout(() => {
-            if (!hasInteracted) playAudio();
-        }, 300);
-        
-        // Audio events
-        audio.addEventListener('play', () => {
-            isPlaying = true;
-            updateUI();
-        });
-        
-        audio.addEventListener('pause', () => {
-            isPlaying = false;
-            updateUI();
-        });
-        
-        audio.addEventListener('error', (e) => {
-            console.error('❌ Audio error:', e);
-        });
-        
-        audio.addEventListener('loadeddata', () => {
-            console.log('✅ Audio loaded');
-        });
-        
-        // Mobile detection
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        if (isMobile) {
-            console.log('📱 Mobile device detected');
+                iframe.src = '';
+            }, 300);
         }
-        
-        console.log('🎵 Audio system ready');
+
+        // Close modal on background click
+        document.getElementById('pdfModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePdfModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePdfModal();
+            }
+        });
     </script>
 </body>
 </html>
