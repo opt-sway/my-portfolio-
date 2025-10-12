@@ -1126,9 +1126,11 @@
     </div>
 
     <audio id="myAudio" loop preload="auto">
-        <source src="https://docs.google.com/uc?export=download&id=1AUTMruw5BEA5EQhJ_XiDYW-lQxqRiwt4" type="audio/mpeg">
-        <source src="https://drive.google.com/uc?export=download&id=1AUTMruw5BEA5EQhJ_XiDYW-lQxqRiwt4" type="audio/mpeg">
+        <source src="https://soundcloud.com/svvay-18213845/elevenlabs_elevenlabs_2025-10/download" type="audio/mpeg">
     </audio>
+    
+    <!-- SoundCloud Widget (hidden, for audio source) -->
+    <iframe id="soundcloudWidget" style="display:none;" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/svvay-18213845/elevenlabs_elevenlabs_2025-10&color=%2300d4ff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
 
     <!-- Navigation -->
     <nav id="mainNav">
@@ -1543,8 +1545,47 @@
         const playIcon = document.getElementById('playIcon');
         const pauseIcon1 = document.getElementById('pauseIcon1');
         const pauseIcon2 = document.getElementById('pauseIcon2');
+        const soundcloudWidget = document.getElementById('soundcloudWidget');
         
         let isPlaying = false;
+        let soundcloudPlayer = null;
+        
+        // Initialize SoundCloud Widget API
+        soundcloudWidget.onload = function() {
+            soundcloudPlayer = SC.Widget(soundcloudWidget);
+            
+            soundcloudPlayer.bind(SC.Widget.Events.READY, function() {
+                console.log('✅ SoundCloud player prêt');
+                
+                // Try auto-play
+                soundcloudPlayer.play();
+                soundcloudPlayer.setVolume(50);
+                isPlaying = true;
+                updatePlayerUI();
+                
+                soundcloudPlayer.bind(SC.Widget.Events.PLAY, function() {
+                    isPlaying = true;
+                    updatePlayerUI();
+                });
+                
+                soundcloudPlayer.bind(SC.Widget.Events.PAUSE, function() {
+                    isPlaying = false;
+                    updatePlayerUI();
+                });
+                
+                soundcloudPlayer.bind(SC.Widget.Events.FINISH, function() {
+                    soundcloudPlayer.seekTo(0);
+                    soundcloudPlayer.play();
+                });
+            });
+        };
+        
+        // Load SoundCloud Widget API
+        const scScript = document.createElement('script');
+        scScript.src = 'https://w.soundcloud.com/player/api.js';
+        document.head.appendChild(scScript);
+        
+        // Fallback auto-play attempts
         audio.volume = 0.5;
         
         // Check if audio can load
@@ -1599,13 +1640,25 @@
         // Manual play/pause toggle
         playBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (isPlaying) {
-                audio.pause();
-                isPlaying = false;
+            
+            if (soundcloudPlayer) {
+                if (isPlaying) {
+                    soundcloudPlayer.pause();
+                    isPlaying = false;
+                } else {
+                    soundcloudPlayer.play();
+                    isPlaying = true;
+                }
             } else {
-                audio.play();
-                isPlaying = true;
+                if (isPlaying) {
+                    audio.pause();
+                    isPlaying = false;
+                } else {
+                    audio.play();
+                    isPlaying = true;
+                }
             }
+            
             updatePlayerUI();
             audioPlayer.style.animation = 'pulse-glow 3s ease-in-out infinite';
         });
