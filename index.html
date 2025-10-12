@@ -772,6 +772,101 @@
             height: 18px;
         }
 
+        /* PDF Preview Modal */
+        .pdf-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .pdf-modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .pdf-modal-content {
+            width: 100%;
+            max-width: 1200px;
+            height: 90vh;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 100px rgba(0, 212, 255, 0.5);
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: scale(0.9) translateY(50px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .pdf-modal-header {
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .pdf-modal-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .pdf-close-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .pdf-close-btn:hover {
+            background: white;
+            color: var(--purple);
+            transform: rotate(90deg);
+        }
+
+        .pdf-iframe {
+            width: 100%;
+            height: calc(100% - 70px);
+            border: none;
+        }
+
+        .pdf-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
         /* Skills Grid */
         .skills-grid {
             display: grid;
@@ -1030,7 +1125,8 @@
         </div>
     </div>
 
-    <audio id="myAudio" loop>
+    <audio id="myAudio" loop preload="auto">
+        <source src="https://docs.google.com/uc?export=download&id=1AUTMruw5BEA5EQhJ_XiDYW-lQxqRiwt4" type="audio/mpeg">
         <source src="https://drive.google.com/uc?export=download&id=1AUTMruw5BEA5EQhJ_XiDYW-lQxqRiwt4" type="audio/mpeg">
     </audio>
 
@@ -1183,7 +1279,7 @@
                         <p class="cert-detail">Formation par apprentissage (2025-2026) validée par Illiana Vallognes, Conseillère en Formation</p>
                         <p class="cert-ref">N° déclaration d'activité : 11 75 65568 75 • UAI : 0756369R</p>
                         <div class="cert-buttons">
-                            <a href="https://drive.google.com/file/d/1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx/preview" target="_blank" class="cert-btn">
+                            <a href="#" onclick="openPdfModal('https://drive.google.com/file/d/1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx/preview', 'Attestation d\'Admission STUDI'); return false;" class="cert-btn">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                                 Voir l'attestation
                             </a>
@@ -1276,7 +1372,7 @@
                         <p class="cert-detail">Attestation délivrée par Madame Dalila Amara, Responsable de RTS Travel Service</p>
                         <p class="cert-ref">Matricule Fiscal : 1515678 L/A/M/000 • Adresse : Imm Elbaraka, Bureau N°1, Jemmel, Monastir</p>
                         <div class="cert-buttons">
-                            <a href="https://drive.google.com/file/d/17_cBlbw1WFdZmCylBlNWTMHLhWlX2evd/preview" target="_blank" class="cert-btn">
+                            <a href="#" onclick="openPdfModal('https://drive.google.com/file/d/17_cBlbw1WFdZmCylBlNWTMHLhWlX2evd/preview', 'Attestation RTS Travel Service'); return false;" class="cert-btn">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                                 Voir l'attestation
                             </a>
@@ -1331,7 +1427,7 @@
                         <p class="cert-detail">Attestation délivrée par Mr. Sami Mansour, Gérant de la société</p>
                         <p class="cert-ref">Matricule Fiscal : 1722156T • Adresse : Rue Aouled Abid Zermadine Monastir</p>
                         <div class="cert-buttons">
-                            <a href="https://drive.google.com/file/d/1qQUZMlfPd-6vEB_XEgC1EezC_F3tJ6Mj/preview" target="_blank" class="cert-btn">
+                            <a href="#" onclick="openPdfModal('https://drive.google.com/file/d/1qQUZMlfPd-6vEB_XEgC1EezC_F3tJ6Mj/preview', 'Attestation Dream Team Animation'); return false;" class="cert-btn">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                                 Voir l'attestation
                             </a>
@@ -1426,6 +1522,18 @@
         <p>&copy; 2024 Azer Rached. Tous droits réservés. | Basé à Paris, France 🇫🇷</p>
     </footer>
 
+    <!-- PDF Preview Modal -->
+    <div class="pdf-modal" id="pdfModal">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <div class="pdf-modal-title" id="pdfModalTitle">Aperçu du document</div>
+                <button class="pdf-close-btn" onclick="closePdfModal()">✕</button>
+            </div>
+            <div class="pdf-loading" id="pdfLoading">Chargement du document...</div>
+            <iframe class="pdf-iframe" id="pdfIframe" style="display:none;"></iframe>
+        </div>
+    </div>
+
     <script>
         // Audio Player Functionality
         const audio = document.getElementById('myAudio');
@@ -1438,6 +1546,16 @@
         
         let isPlaying = false;
         audio.volume = 0.5;
+        
+        // Check if audio can load
+        audio.addEventListener('loadeddata', () => {
+            console.log('✅ Audio chargé avec succès');
+        });
+        
+        audio.addEventListener('error', (e) => {
+            console.log('❌ Erreur de chargement audio:', e);
+            console.log('Essai de source alternative...');
+        });
         
         // Auto-play function with multiple fallbacks
         function autoPlay() {
@@ -1558,6 +1676,61 @@
             section.style.transform = 'translateY(30px)';
             section.style.transition = 'all 0.8s ease-out';
             observer.observe(section);
+        });
+
+        // PDF Modal Functions
+        function openPdfModal(pdfUrl, title) {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfIframe');
+            const loading = document.getElementById('pdfLoading');
+            const modalTitle = document.getElementById('pdfModalTitle');
+            
+            // Set title
+            modalTitle.textContent = title;
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Show loading
+            loading.style.display = 'block';
+            iframe.style.display = 'none';
+            
+            // Load PDF
+            iframe.src = pdfUrl;
+            
+            // Hide loading when iframe loads
+            iframe.onload = function() {
+                loading.style.display = 'none';
+                iframe.style.display = 'block';
+            };
+        }
+
+        function closePdfModal() {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfIframe');
+            
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Clear iframe after animation
+            setTimeout(() => {
+                iframe.src = '';
+            }, 300);
+        }
+
+        // Close modal on background click
+        document.getElementById('pdfModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePdfModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePdfModal();
+            }
         });
     </script>
 </body>
