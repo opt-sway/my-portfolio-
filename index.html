@@ -113,17 +113,23 @@
             border-radius: 60px;
             border: 2px solid var(--accent);
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 15px;
             box-shadow: 0 10px 50px rgba(0, 212, 255, 0.4);
             animation: pulse-glow 3s ease-in-out infinite;
-            cursor: pointer;
             transition: all 0.3s;
+            min-width: 320px;
         }
 
         .audio-player:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 60px rgba(0, 212, 255, 0.6);
+        }
+
+        .audio-player-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .audio-btn {
@@ -1272,7 +1278,7 @@
                 </div>
                 
                 <div class="certification-box">
-                    <div class="cert-badge">📜 Attestation d'Admission</div>
+                    <div class="cert-badge">📜 Formation en cours</div>
                     <div class="cert-content">
                         <h5>Graduate Assistant Commercial - STUDI</h5>
                         <p><strong>📍 Paris, France</strong> • Admission confirmée le 20/08/2024</p>
@@ -1543,48 +1549,18 @@
         const playIcon = document.getElementById('playIcon');
         const pauseIcon1 = document.getElementById('pauseIcon1');
         const pauseIcon2 = document.getElementById('pauseIcon2');
-        const soundcloudWidget = document.getElementById('soundcloudWidget');
         
         let isPlaying = false;
-        let soundcloudPlayer = null;
-        
-        // Initialize SoundCloud Widget API
-        soundcloudWidget.onload = function() {
-            soundcloudPlayer = SC.Widget(soundcloudWidget);
-            
-            soundcloudPlayer.bind(SC.Widget.Events.READY, function() {
-                console.log('✅ SoundCloud player prêt');
-                
-                // Try auto-play
-                soundcloudPlayer.play();
-                soundcloudPlayer.setVolume(50);
-                isPlaying = true;
-                updatePlayerUI();
-                
-                soundcloudPlayer.bind(SC.Widget.Events.PLAY, function() {
-                    isPlaying = true;
-                    updatePlayerUI();
-                });
-                
-                soundcloudPlayer.bind(SC.Widget.Events.PAUSE, function() {
-                    isPlaying = false;
-                    updatePlayerUI();
-                });
-                
-                soundcloudPlayer.bind(SC.Widget.Events.FINISH, function() {
-                    soundcloudPlayer.seekTo(0);
-                    soundcloudPlayer.play();
-                });
-            });
-        };
-        
-        // Load SoundCloud Widget API
-        const scScript = document.createElement('script');
-        scScript.src = 'https://w.soundcloud.com/player/api.js';
-        document.head.appendChild(scScript);
-        
-        // Fallback auto-play attempts
         audio.volume = 0.5;
+        
+        // Check if audio loads successfully
+        audio.addEventListener('canplay', () => {
+            console.log('✅ Audio prêt à jouer');
+        });
+        
+        audio.addEventListener('loadeddata', () => {
+            console.log('✅ Audio chargé avec succès');
+        });
         
         // Check if audio can load
         audio.addEventListener('loadeddata', () => {
@@ -1592,8 +1568,8 @@
         });
         
         audio.addEventListener('error', (e) => {
-            console.log('❌ Erreur de chargement audio:', e);
-            console.log('Essai de source alternative...');
+            console.log('❌ Erreur audio:', audio.error);
+            console.log('Code:', audio.error ? audio.error.code : 'inconnu');
         });
         
         // Auto-play function with multiple fallbacks
@@ -1639,22 +1615,12 @@
         playBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             
-            if (soundcloudPlayer) {
-                if (isPlaying) {
-                    soundcloudPlayer.pause();
-                    isPlaying = false;
-                } else {
-                    soundcloudPlayer.play();
-                    isPlaying = true;
-                }
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
             } else {
-                if (isPlaying) {
-                    audio.pause();
-                    isPlaying = false;
-                } else {
-                    audio.play();
-                    isPlaying = true;
-                }
+                audio.play();
+                isPlaying = true;
             }
             
             updatePlayerUI();
