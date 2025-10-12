@@ -1104,35 +1104,33 @@
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
     </div>
-<!-- 🎧 Voiceover Autoplay -->
-<audio id="voiceover" autoplay muted>
-  <source src="voiceover.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
 
-<script>
-  // Wait for user's first scroll, click, tap, or key press to unmute and play
-  const audio = document.getElementById('voiceover');
+    <!-- Audio Player -->
+    <div class="audio-player" id="audioPlayer">
+        <button class="audio-btn" id="playBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <polygon id="playIcon" points="5 3 19 12 5 21 5 3"></polygon>
+                <rect id="pauseIcon1" x="6" y="4" width="4" height="16" style="display:none;"></rect>
+                <rect id="pauseIcon2" x="14" y="4" width="4" height="16" style="display:none;"></rect>
+            </svg>
+        </button>
+        <div class="audio-info">
+            <div class="audio-title">🎙️ Ma présentation</div>
+            <div class="audio-subtitle">Cliquez pour écouter</div>
+        </div>
+        <div class="audio-waves" id="audioWaves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+    </div>
 
-  const enableSound = () => {
-    audio.muted = false;
-    audio.play().catch(err => console.log("Playback blocked:", err));
-
-    // Remove all listeners once playback starts
-    document.removeEventListener('click', enableSound);
-    document.removeEventListener('keydown', enableSound);
-    document.removeEventListener('touchstart', enableSound);
-    document.removeEventListener('scroll', enableSound);
-  };
-
-  document.addEventListener('click', enableSound, { once: true });
-  document.addEventListener('keydown', enableSound, { once: true });
-  document.addEventListener('touchstart', enableSound, { once: true });
-  document.addEventListener('scroll', enableSound, { once: true });
-</script>
-
-<!-- 🎧 End of Voiceover Section -->
-
+    <audio id="myAudio" loop preload="auto">
+        <source src="https://soundcloud.com/svvay-18213845/elevenlabs_elevenlabs_2025-10/download" type="audio/mpeg">
+    </audio>
+    
+    <!-- SoundCloud Widget (hidden, for audio source) -->
+    <iframe id="soundcloudWidget" style="display:none;" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/svvay-18213845/elevenlabs_elevenlabs_2025-10&color=%2300d4ff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
 
     <!-- Navigation -->
     <nav id="mainNav">
@@ -1739,6 +1737,3 @@
     </script>
 </body>
 </html>
-
-
-
