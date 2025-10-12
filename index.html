@@ -1111,21 +1111,26 @@
 </audio>
 
 <script>
-  // Wait for user's first click, tap, or key press to unmute and play
+  // Wait for user's first scroll, click, tap, or key press to unmute and play
   const audio = document.getElementById('voiceover');
 
   const enableSound = () => {
     audio.muted = false;
-    audio.play();
+    audio.play().catch(err => console.log("Playback blocked:", err));
+
+    // Remove all listeners once playback starts
     document.removeEventListener('click', enableSound);
     document.removeEventListener('keydown', enableSound);
     document.removeEventListener('touchstart', enableSound);
+    document.removeEventListener('scroll', enableSound);
   };
 
   document.addEventListener('click', enableSound, { once: true });
   document.addEventListener('keydown', enableSound, { once: true });
   document.addEventListener('touchstart', enableSound, { once: true });
+  document.addEventListener('scroll', enableSound, { once: true });
 </script>
+
 <!-- 🎧 End of Voiceover Section -->
 
 
@@ -1734,5 +1739,6 @@
     </script>
 </body>
 </html>
+
 
 
