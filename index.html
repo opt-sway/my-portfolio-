@@ -1098,14 +1098,14 @@
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
+   <!-- Animated Background -->
+<div class="bg-animation">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
 
- <!-- 🎧 Audio Player -->
+<!-- 🎧 Audio Player -->
 <div class="audio-player" id="audioPlayer">
     <button class="audio-btn" id="playBtn" aria-label="Play or pause voiceover">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
@@ -1159,13 +1159,25 @@
         }
     });
 
-    // Ensure autoplay unmute after first click (browser safe)
-    document.addEventListener("click", () => {
-        if (audio.muted) {
+    // 🔊 Auto-start voice-over on first screen touch or click
+    const unlockAudio = () => {
+        if (audio.paused || audio.muted) {
             audio.muted = false;
-            audio.play().catch(() => {});
+            audio.volume = 0.8;
+            audio.play().then(() => {
+                playIcon.style.display = "none";
+                pauseIcon1.style.display = "block";
+                pauseIcon2.style.display = "block";
+                audioWaves.classList.remove("paused");
+            }).catch(() => {});
         }
-    }, { once: true });
+        // remove listeners so it only runs once
+        document.removeEventListener("click", unlockAudio);
+        document.removeEventListener("touchstart", unlockAudio);
+    };
+
+    document.addEventListener("click", unlockAudio, { once: true });
+    document.addEventListener("touchstart", unlockAudio, { once: true });
 
     // Initial setup
     window.addEventListener("load", () => {
@@ -1173,18 +1185,18 @@
     });
 </script>
 
-    <!-- Navigation -->
-    <nav id="mainNav">
-        <div class="container">
-            <div class="logo">AZER RACHED</div>
-            <ul>
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- Navigation -->
+<nav id="mainNav">
+    <div class="container">
+        <div class="logo">AZER RACHED</div>
+        <ul>
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#experience">Expérience</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1778,6 +1790,7 @@
     </script>
 </body>
 </html>
+
 
 
 
