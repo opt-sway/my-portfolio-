@@ -1098,7 +1098,7 @@
     </style>
 </head>
 <body>
-   <!-- Animated Background -->
+ <!-- Animated Background -->
 <div class="bg-animation">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -1159,7 +1159,7 @@
         }
     });
 
-    // 🔊 Auto-start voice-over on first screen touch or click
+    // 🔊 Auto-start on first interaction (click, touch, scroll)
     const unlockAudio = () => {
         if (audio.paused || audio.muted) {
             audio.muted = false;
@@ -1171,13 +1171,16 @@
                 audioWaves.classList.remove("paused");
             }).catch(() => {});
         }
-        // remove listeners so it only runs once
+        // Remove listeners so it runs only once
         document.removeEventListener("click", unlockAudio);
         document.removeEventListener("touchstart", unlockAudio);
+        document.removeEventListener("scroll", unlockAudio);
     };
 
+    // Listen for user engagement: click, touch, scroll
     document.addEventListener("click", unlockAudio, { once: true });
     document.addEventListener("touchstart", unlockAudio, { once: true });
+    document.addEventListener("scroll", unlockAudio, { once: true });
 
     // Initial setup
     window.addEventListener("load", () => {
@@ -1790,6 +1793,7 @@
     </script>
 </body>
 </html>
+
 
 
 
