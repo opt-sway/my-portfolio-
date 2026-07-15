@@ -867,10 +867,113 @@
             font-weight: 600;
         }
 
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(139, 92, 246, 0.25);
+            border-radius: 25px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--purple), var(--pink), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+
+        .project-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.3rem;
+            gap: 1rem;
+        }
+
+        .project-icon {
+            font-size: 2.3rem;
+            filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.5));
+        }
+
+        .project-status {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            color: var(--purple);
+            white-space: nowrap;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .project-role {
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.85;
+            margin-bottom: 1.6rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tech-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            color: var(--accent);
+        }
+
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
         }
 
@@ -1094,217 +1197,8 @@
             .section-title {
                 font-size: 2.5rem;
             }
-        }/* === 📬 Contact Section Enhancements (added manually) === */
-.contact {
-  padding: 100px 20px;
-  text-align: center;
-  color: white;
-}
-
-.contact h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: var(--accent);
-}
-
-.contact p {
-  font-size: 1.2rem;
-  color: #ccc;
-  margin-bottom: 40px;
-}
-
-.contact-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 50px;
-}
-
-.contact-link {
-  padding: 12px 25px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-  border: 1px solid transparent;
-}
-
-.contact-link:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: scale(1.05);
-}
-
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <h2>Créons Quelque Chose d'Exceptionnel</h2>
-    <p>Disponible pour une alternance à Paris & en Île-de-France — Graduate STUDI 2025-2026.</p>
-
-    <div class="contact-buttons">
-        <a href="mailto:azerrached3@gmail.com" class="contact-link">✉️ Email</a>
-        <a href="tel:+33602560229" class="contact-link">📞 +33 6 02 56 02 29</a>
-        <a href="https://www.linkedin.com/in/azer-rached-239258377/" target="_blank" class="contact-link">💼 LinkedIn</a>
-        <a href="https://linktr.ee/AZER_rached" target="_blank" class="contact-link">🔗 Tous mes liens</a>
-    </div>
-
-    <!-- 📬 Embedded Contact Form -->
-    <div class="contact-form-container">
-        <h3>Ou envoyez-moi un message</h3>
-        <form action="https://formspree.io/f/meorppla" method="POST" class="contact-form">
-            <div class="form-group">
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name" required placeholder="Votre nom" />
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="_replyto" required placeholder="Votre email" />
-            </div>
-
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required placeholder="Votre message..."></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary">Envoyer le message</button>
-        </form>
-    </div>
-</section>
-
-<style>
-/* === 📬 Contact Section Enhancements === */
-.contact {
-    padding: 100px 20px;
-    text-align: center;
-    color: white;
-}
-
-.contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: var(--accent);
-}
-
-.contact p {
-    font-size: 1.2rem;
-    color: #ccc;
-    margin-bottom: 40px;
-}
-
-.contact-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 50px;
-}
-
-.contact-link {
-    padding: 12px 25px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-    border: 1px solid transparent;
-}
-
-.contact-link:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: scale(1.05);
-}
-
-/* ✉️ Contact Form Styles */
-.contact-form-container {
-    max-width: 600px;
-    margin: 50px auto;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    position: relative;
-    z-index: 10;
-    pointer-events: auto;
-}
-
-.contact-form-container h3 {
-    margin-bottom: 25px;
-    color: var(--accent);
-    text-align: center;
-    font-size: 1.8rem;
-}
-
-.contact-form .form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.contact-form label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 14px 15px;
-    border: none;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 1rem;
-    outline: none;
-    box-sizing: border-box;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #ccc;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid var(--accent);
-}
-
-.contact-form .btn-primary {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 14px 0;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.contact-form .btn-primary:hover {
-    background: #00bfff;
-    transform: scale(1.05);
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-    .contact-form-container {
-        padding: 30px 20px;
-    }
-    .contact-form .btn-primary {
-        padding: 12px 0;
-        font-size: 1rem;
-    }
-}
-</style>
+        }
+    </style>
 
  <!-- Animated Background -->
 <div class="bg-animation">
@@ -1403,6 +1297,7 @@
         <ul>
             <li><a href="#about">À Propos</a></li>
             <li><a href="#experience">Expérience</a></li>
+            <li><a href="#projects">Projets & IA</a></li>
             <li><a href="#expertise">Expertise</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1412,12 +1307,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">🚀 Marketing Manager • Growth Expert</div>
+            <div class="hero-badge">🚀 Marketing Manager • Growth Expert • Fondateur Tech & IA</div>
             <h1>AZER RACHED</h1>
             <p class="hero-subtitle">Transformer les Données en Revenus, les Idées en Croissance</p>
             <p class="hero-description">
                 Marketing Manager orienté résultats avec un parcours entrepreneurial prouvé. Spécialisé en marketing de performance, 
-                acquisition multicanaux et stratégies data-driven. <strong style="color: var(--accent);">Disponible en alternance</strong> pour mettre mon expertise au service 
+                acquisition multicanaux et stratégies data-driven — et fondateur de plusieurs produits propulsés par l'IA, de 
+                l'orchestration multi-agents à l'automatisation de workflows business. 
+                <strong style="color: var(--accent);">Disponible en alternance</strong> pour mettre mon expertise au service 
                 d'une entreprise innovante à Paris.
             </p>
 
@@ -1708,6 +1605,97 @@
         </div>
     </section>
 
+    <!-- Projects & AI Section -->
+    <section id="projects">
+        <div class="section-header">
+            <div class="section-badge">Innovation & IA</div>
+            <h2 class="section-title">Projets Entrepreneuriaux & IA</h2>
+            <p class="section-description">
+                En parallèle de mon parcours marketing, je conçois et développe des produits propulsés par l'IA — 
+                de l'architecture multi-agents à l'automatisation de workflows business complets
+            </p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-card-top">
+                    <span class="project-icon">🤖</span>
+                    <span class="project-status">En Développement</span>
+                </div>
+                <h3 class="project-title">JobBoaT</h3>
+                <p class="project-role">Fondateur — Plateforme RH augmentée par IA</p>
+                <p class="project-description">
+                    Plateforme SaaS de recrutement B2B construite autour d'un orchestrateur multi-agents ("Collective 
+                    Orchestrator") qui fait délibérer plusieurs IA pour évaluer chaque candidat sur 15 dimensions. 
+                    Repositionnée vers une offre d'outplacement pour entreprises, avec une feuille de route d'acquisition 
+                    B2C et B2B complète.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Orchestration Multi-LLM</span>
+                    <span class="tech-tag">Scoring Automatisé</span>
+                    <span class="tech-tag">SaaS B2B</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-top">
+                    <span class="project-icon">🧠</span>
+                    <span class="project-status">En Développement</span>
+                </div>
+                <h3 class="project-title">VIGIL</h3>
+                <p class="project-role">Fondateur — Espace de Travail IA "Human-in-the-Loop"</p>
+                <p class="project-description">
+                    Environnement de travail assisté par IA conçu autour de la supervision humaine : "Le Conseil" 
+                    orchestre plusieurs IA conseillères pour éclairer une décision, tandis que "Le Bureau" prépare des 
+                    exécutions (ex. trading) qui restent soumises à validation humaine avant tout passage à l'action.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">LLM Orchestration</span>
+                    <span class="tech-tag">Knowledge Graphs</span>
+                    <span class="tech-tag">Human-in-the-Loop</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-top">
+                    <span class="project-icon">🏢</span>
+                    <span class="project-status">Actif — 2026</span>
+                </div>
+                <h3 class="project-title">AZZ&CO LABS</h3>
+                <p class="project-role">Fondateur & Président</p>
+                <p class="project-description">
+                    Société de conseil tech (SAS, France) dédiée à la stratégie IA, à l'infrastructure technique et à 
+                    l'accompagnement à l'innovation. Partenaire technique et d'incubation pour des organismes de 
+                    formation, avec des livrables allant du schéma directeur technique aux dossiers de certification.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Conseil Stratégique</span>
+                    <span class="tech-tag">Infrastructure IA</span>
+                    <span class="tech-tag">Direction d'Entreprise</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-top">
+                    <span class="project-icon">🦂</span>
+                    <span class="project-status">Concept & Prototype</span>
+                </div>
+                <h3 class="project-title">VTLVS — Scorpion MK-I</h3>
+                <p class="project-role">Concepteur — Robotique de Recharge EV</p>
+                <p class="project-description">
+                    Conception d'un bras robotique en forme de scorpion pour la recharge sans fil de véhicules 
+                    électriques, avec modélisation 3D interactive et calculs de cinématique directe pour une insertion 
+                    de connecteur physiquement réaliste.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Robotique</span>
+                    <span class="tech-tag">Modélisation 3D</span>
+                    <span class="tech-tag">Ingénierie</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="expertise">
         <div class="section-header">
@@ -1758,6 +1746,20 @@
                     <li>Vente & Négociation</li>
                     <li>Relations Clients</li>
                     <li>Développement Commercial</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h4>IA & Automatisation</h4>
+                <ul>
+                    <li>Architecture Multi-Agents LLM</li>
+                    <li>Prompt Engineering</li>
+                    <li>Knowledge Graphs</li>
+                    <li>Automatisation de Workflows</li>
+                    <li>Intégration API IA</li>
+                    <li>Conception Human-in-the-Loop</li>
+                    <li>Outils No-Code / Low-Code</li>
+                    <li>IA Appliquée à la Croissance</li>
                 </ul>
             </div>
         </div>
