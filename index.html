@@ -3,2036 +3,1130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azer Rached | Expert Marketing & Croissance</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Azer Rached — Growth, Expérience Client & Systèmes IA</title>
+    <meta name="description" content="Azer Rached — Marketing Manager & entrepreneur. Expérience client, vente, tourisme, management PME et architecture de systèmes IA. Paris, France.">
+    <meta property="og:title" content="Azer Rached — Growth, CX & AI Systems">
+    <meta property="og:description" content="Marketing, expérience client, tourisme, management PME — et une flotte de produits IA construits en solo.">
+    <meta property="og:image" content="profile.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="profile.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #0a0a0f;
-            --secondary: #141420;
-            --accent: #00d4ff;
-            --accent-glow: #00ffff;
-            --purple: #8b5cf6;
-            --pink: #ec4899;
-            --orange: #f59e0b;
-            --text-light: #e8e8f0;
-            --text-muted: #a0a0b8;
+            --noir: #0a0a0c;
+            --noir-2: #101014;
+            --noir-3: #16161c;
+            --gold: #c9a962;
+            --gold-bright: #e8cf96;
+            --gold-dim: rgba(201, 169, 98, 0.35);
+            --glass: rgba(255, 255, 255, 0.035);
+            --glass-strong: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.09);
+            --ink: #f2efe9;
+            --ink-muted: #a8a49b;
+            --ink-faint: #6e6a63;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Manrope', 'Segoe UI', sans-serif;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(8deg); }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
-            50% { box-shadow: 0 0 60px rgba(0, 212, 255, 0.8); }
-        }
-
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--primary);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.5;
-            pointer-events: none;
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            animation: float 25s ease-in-out infinite;
-        }
-
-        .orb-1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            top: -10%;
-            left: -10%;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
-            top: 50%;
-            right: -10%;
-            animation-delay: 8s;
-        }
-
-        .orb-3 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--pink) 0%, transparent 70%);
-            bottom: -10%;
-            left: 30%;
-            animation-delay: 15s;
-        }
-
-        /* Audio Player */
-        .audio-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 10000;
-            background: rgba(20, 20, 32, 0.95);
-            backdrop-filter: blur(30px);
-            padding: 20px 30px;
-            border-radius: 60px;
-            border: 2px solid var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 10px 50px rgba(0, 212, 255, 0.4);
-            animation: pulse-glow 3s ease-in-out infinite;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .audio-player:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 60px rgba(0, 212, 255, 0.6);
-        }
-
-        .audio-btn {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent), var(--purple));
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .audio-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        .audio-info {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .audio-title {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        .audio-subtitle {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-        }
-
-        .audio-waves {
-            display: flex;
-            gap: 4px;
-            align-items: flex-end;
-            height: 30px;
-        }
-
-        .wave {
-            width: 4px;
-            background: linear-gradient(180deg, var(--accent), var(--purple));
-            border-radius: 2px;
-            animation: wave-anim 0.8s ease-in-out infinite;
-        }
-
-        .wave:nth-child(1) { animation-delay: 0s; }
-        .wave:nth-child(2) { animation-delay: 0.2s; }
-        .wave:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes wave-anim {
-            0%, 100% { height: 12px; }
-            50% { height: 30px; }
-        }
-
-        .audio-waves.paused .wave {
-            animation: none;
-            height: 12px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 15, 0.9);
-            backdrop-filter: blur(20px);
-            z-index: 9999;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s;
-        }
-
-        nav.scrolled {
-            padding: 1rem 0;
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
-        }
-
-        nav .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--purple), var(--pink));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient-shift 3s ease infinite;
-            letter-spacing: 2px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--purple));
-            transition: width 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 8rem 2rem 4rem;
-            z-index: 1;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            text-align: center;
-            position: relative;
-            animation: slideUp 1s ease-out;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 12px 30px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 2px solid var(--accent);
-            border-radius: 50px;
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        .hero h1 {
-            font-size: 6rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff 0%, var(--accent) 30%, var(--purple) 60%, var(--pink) 100%);
-            background-size: 300% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient-shift 4s ease infinite;
-            line-height: 1.1;
-            font-weight: 900;
-            letter-spacing: -2px;
-        }
-
-        .hero-subtitle {
-            font-size: 2rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-            opacity: 0.95;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 850px;
-            margin: 0 auto 3rem;
-            line-height: 1.9;
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin: 4rem auto 3rem;
-            max-width: 1100px;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            border-radius: 25px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--accent), var(--purple));
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4);
-        }
-
-        .stat-card:hover::before {
-            opacity: 0.15;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            background: linear-gradient(135deg, var(--accent), var(--purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            display: block;
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            font-weight: 600;
-            position: relative;
-        }
-
-        /* CTA Buttons */
-        .cta-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-primary {
-            display: inline-block;
-            padding: 1.3rem 3.5rem;
-            background: linear-gradient(135deg, var(--accent), var(--purple), var(--pink));
-            background-size: 200% auto;
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 700;
-            border-radius: 50px;
-            transition: all 0.4s;
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
-            position: relative;
-            overflow: hidden;
-            animation: gradient-shift 3s ease infinite;
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.6);
-        }
-
-        .cta-secondary {
-            display: inline-block;
-            padding: 1.3rem 3.5rem;
-            background: transparent;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 700;
-            border-radius: 50px;
-            border: 2px solid var(--accent);
-            transition: all 0.4s;
-        }
-
-        .cta-secondary:hover {
-            background: rgba(0, 212, 255, 0.1);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid var(--accent);
-            border-radius: 30px;
-            color: var(--accent);
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-title {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-light), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
-        .section-description {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 750px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .about-text {
-            font-size: 1.15rem;
-            line-height: 2;
-            color: var(--text-light);
-        }
-
-        .about-text p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .about-highlights {
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            border-radius: 25px;
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-highlights::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--accent), var(--purple), var(--pink));
-        }
-
-        .highlight-item {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-        }
-
-        .highlight-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .highlight-item h4 {
-            color: var(--accent);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .highlight-item p {
-            color: var(--text-muted);
-            font-size: 1rem;
+            font-family: var(--sans);
+            background: var(--noir);
+            color: var(--ink);
             line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Experience Timeline */
-        .experience-timeline {
-            position: relative;
-            padding-left: 3rem;
+        ::selection { background: var(--gold); color: var(--noir); }
+
+        /* ---------- Ambient background ---------- */
+        .bg {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% -10%, rgba(201,169,98,0.09), transparent 60%),
+                radial-gradient(ellipse 60% 45% at 90% 15%, rgba(120,110,180,0.07), transparent 60%),
+                radial-gradient(ellipse 70% 50% at 50% 110%, rgba(201,169,98,0.06), transparent 60%);
+        }
+        .bg::after {
+            content: ''; position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
         }
 
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--accent), var(--purple), var(--pink));
+        /* ---------- Scroll progress ---------- */
+        .progress {
+            position: fixed; top: 0; left: 0; height: 2px; width: 0;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+            z-index: 10001; transition: width 0.1s linear;
         }
 
-        .experience-item {
-            position: relative;
-            margin-bottom: 4rem;
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            border-radius: 25px;
-            padding: 3rem;
-            transition: all 0.4s;
+        /* ---------- Navigation ---------- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 10000;
+            padding: 1.4rem 0; transition: all 0.4s ease;
         }
-
-        .experience-item:hover {
-            border-color: var(--accent);
-            transform: translateX(15px);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        nav.scrolled {
+            padding: 0.9rem 0;
+            background: rgba(10, 10, 12, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border);
         }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -3.75rem;
-            top: 3rem;
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 30px var(--accent);
-            border: 3px solid var(--primary);
+        nav .container {
+            max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
         }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
+        .logo {
+            font-family: var(--serif); font-size: 1.45rem; font-weight: 600;
+            letter-spacing: 4px; color: var(--ink); text-decoration: none;
         }
-
-        .experience-title {
-            font-size: 1.6rem;
-            color: var(--text-light);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .logo em { color: var(--gold); font-style: normal; }
+        .nav-right { display: flex; align-items: center; gap: 2.2rem; }
+        nav ul { display: flex; list-style: none; gap: 2.2rem; }
+        nav ul a {
+            color: var(--ink-muted); text-decoration: none; font-size: 0.82rem;
+            font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+            transition: color 0.3s; position: relative;
         }
-
-        .experience-company {
-            font-size: 1.15rem;
-            color: var(--accent);
-            font-weight: 600;
+        nav ul a::after {
+            content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 1px;
+            background: var(--gold); transition: width 0.3s;
         }
+        nav ul a:hover { color: var(--ink); }
+        nav ul a:hover::after { width: 100%; }
 
-        .experience-period {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            background: rgba(0, 212, 255, 0.1);
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-        }
-
-        .experience-location {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 0.3rem;
-        }
-
-        .experience-description {
-            color: var(--text-muted);
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .experience-achievements {
-            list-style: none;
-            padding: 0;
-        }
-
-        .experience-achievements li {
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-            position: relative;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        .experience-achievements li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .experience-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
-        }
-
-        .metric-item {
-            text-align: center;
-        }
-
-        .metric-value {
-            font-size: 2.2rem;
-            background: linear-gradient(135deg, var(--accent), var(--purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        /* Certification Box */
-        .certification-box {
-            margin-top: 2.5rem;
-            padding: 2rem;
-            background: rgba(139, 92, 246, 0.05);
-            border: 2px solid rgba(139, 92, 246, 0.3);
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .certification-box:hover {
-            border-color: var(--purple);
-            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .cert-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: linear-gradient(135deg, var(--purple), var(--pink));
-            color: white;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-
-        .cert-content h5 {
-            color: var(--purple);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .cert-content p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-detail {
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        .cert-ref {
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        .cert-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .cert-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--purple);
-            text-decoration: none;
-            border: 2px solid var(--purple);
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .cert-btn:hover {
-            background: var(--purple);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
-        }
-
-        .cert-btn svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* PDF Preview Modal */
-        .pdf-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+        .lang-toggle {
+            display: flex; border: 1px solid var(--glass-border); border-radius: 30px;
+            overflow: hidden; background: var(--glass);
             backdrop-filter: blur(10px);
-            z-index: 99999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            animation: fadeIn 0.3s ease;
         }
-
-        .pdf-modal.active {
-            display: flex;
+        .lang-toggle button {
+            background: none; border: none; color: var(--ink-muted);
+            font-family: var(--sans); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 1px; padding: 7px 14px; cursor: pointer; transition: all 0.3s;
         }
+        .lang-toggle button.active { background: var(--gold); color: var(--noir); }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* ---------- Shared ---------- */
+        section { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 7rem 2rem; }
+        .eyebrow {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 14px;
         }
+        .eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold-dim); }
+        .section-title {
+            font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 500; line-height: 1.15; margin-bottom: 1.2rem; letter-spacing: 0.5px;
+        }
+        .section-title em { color: var(--gold); font-style: italic; }
+        .section-sub { color: var(--ink-muted); font-size: 1.05rem; max-width: 640px; margin-bottom: 3.5rem; }
 
-        .pdf-modal-content {
-            width: 100%;
-            max-width: 1200px;
-            height: 90vh;
-            background: white;
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 20px 100px rgba(0, 212, 255, 0.5);
-            animation: slideIn 0.4s ease;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.45s, box-shadow 0.45s, background 0.45s;
+        }
+        .glass-card:hover {
+            border-color: var(--gold-dim);
+            background: var(--glass-strong);
+            box-shadow: 0 24px 70px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,169,98,0.08) inset;
         }
 
-        @keyframes slideIn {
-            from { transform: scale(0.9) translateY(50px); opacity: 0; }
-            to { transform: scale(1) translateY(0); opacity: 1; }
-        }
+        .reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        .pdf-modal-header {
-            background: linear-gradient(135deg, var(--accent), var(--purple));
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
+        /* ---------- Hero ---------- */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding-top: 9rem; padding-bottom: 4rem;
         }
-
-        .pdf-modal-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+        .hero-grid {
+            display: grid; grid-template-columns: 1.35fr 1fr; gap: 5rem; align-items: center; width: 100%;
         }
-
-        .pdf-close-btn {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .pdf-close-btn:hover {
-            background: white;
-            color: var(--purple);
-            transform: rotate(90deg);
-        }
-
-        .pdf-iframe {
-            width: 100%;
-            height: calc(100% - 70px);
-            border: none;
-        }
-
-        .pdf-loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--accent);
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px solid rgba(139, 92, 246, 0.25);
-            border-radius: 25px;
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--purple), var(--pink), var(--accent));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s;
-        }
-
-        .project-card:hover {
-            border-color: var(--purple);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.3rem;
-            gap: 1rem;
-        }
-
-        .project-icon {
-            font-size: 2.3rem;
-            filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.5));
-        }
-
-        .project-status {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-radius: 20px;
-            background: rgba(139, 92, 246, 0.12);
-            border: 1px solid rgba(139, 92, 246, 0.4);
-            color: var(--purple);
-            white-space: nowrap;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-light);
-            margin-bottom: 0.3rem;
-        }
-
-        .project-role {
-            font-size: 0.95rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-        }
-
-        .project-description {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.85;
-            margin-bottom: 1.6rem;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .tech-tag {
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 20px;
-            background: rgba(0, 212, 255, 0.08);
-            border: 1px solid rgba(0, 212, 255, 0.25);
-            color: var(--accent);
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .skill-category {
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            border-radius: 25px;
-            padding: 3rem;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent), var(--purple), var(--pink));
-            transform: scaleX(0);
-            transition: transform 0.4s;
-        }
-
-        .skill-category:hover {
-            border-color: var(--accent);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
-        }
-
-        .skill-category:hover::before {
-            transform: scaleX(1);
-        }
-
-        .skill-category h4 {
-            color: var(--accent);
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 9px 20px; border: 1px solid var(--gold-dim); border-radius: 40px;
+            background: rgba(201,169,98,0.06); color: var(--gold-bright);
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
             margin-bottom: 2rem;
-            font-size: 1.4rem;
-            font-weight: 700;
         }
-
-        .skill-category ul {
-            list-style: none;
+        .hero-badge .dot {
+            width: 7px; height: 7px; border-radius: 50%; background: #6fd98f;
+            box-shadow: 0 0 10px #6fd98f; animation: breathe 2.4s ease-in-out infinite;
         }
-
-        .skill-category li {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-            padding-left: 2rem;
-            position: relative;
-            transition: all 0.3s;
-            font-size: 1.05rem;
+        @keyframes breathe { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+        .hero h1 {
+            font-family: var(--serif); font-size: clamp(3.2rem, 7vw, 5.6rem);
+            font-weight: 500; line-height: 1.05; letter-spacing: 1px; margin-bottom: 1.4rem;
         }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+        .hero-tagline { font-size: 1.25rem; color: var(--ink); font-weight: 300; margin-bottom: 1.2rem; letter-spacing: 0.3px; }
+        .hero-desc { color: var(--ink-muted); font-size: 1rem; max-width: 560px; margin-bottom: 2.8rem; }
 
-        .skill-category li:hover {
-            color: var(--text-light);
-            transform: translateX(8px);
+        .cta-row { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
+        .btn-gold {
+            display: inline-block; padding: 1.05rem 2.6rem; border-radius: 40px;
+            background: linear-gradient(120deg, var(--gold), var(--gold-bright), var(--gold));
+            background-size: 200% auto; color: var(--noir); text-decoration: none;
+            font-weight: 800; font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase;
+            transition: all 0.4s; box-shadow: 0 12px 40px rgba(201,169,98,0.22);
         }
-
-        .skill-category li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2rem;
+        .btn-gold:hover { background-position: right center; transform: translateY(-3px); box-shadow: 0 18px 55px rgba(201,169,98,0.35); }
+        .btn-ghost {
+            display: inline-block; padding: 1.05rem 2.6rem; border-radius: 40px;
+            border: 1px solid var(--glass-border); color: var(--ink); text-decoration: none;
+            font-weight: 700; font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase;
+            background: var(--glass); backdrop-filter: blur(10px); transition: all 0.4s;
         }
+        .btn-ghost:hover { border-color: var(--gold-dim); color: var(--gold-bright); transform: translateY(-3px); }
 
-        /* Languages Box */
-        .languages-box {
-            margin-top: 4rem;
-            text-align: center;
-            padding: 3rem;
-            background: rgba(0, 212, 255, 0.05);
-            border: 2px solid var(--accent);
-            border-radius: 25px;
-            position: relative;
-            overflow: hidden;
+        /* Portrait */
+        .portrait-wrap { position: relative; display: flex; justify-content: center; }
+        .portrait-frame {
+            position: relative; width: min(380px, 80vw); aspect-ratio: 1;
+            border-radius: 50%; padding: 10px;
+            background: conic-gradient(from 210deg, transparent 0%, var(--gold-dim) 25%, var(--gold) 50%, var(--gold-dim) 75%, transparent 100%);
+            animation: slow-spin 14s linear infinite;
         }
-
-        .languages-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            animation: float 20s ease-in-out infinite;
+        @keyframes slow-spin { to { transform: rotate(360deg); } }
+        .portrait-inner {
+            width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
+            border: 1px solid var(--glass-border);
+            animation: slow-spin 14s linear infinite reverse;
         }
-
-        .languages-box h4 {
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            position: relative;
+        .portrait-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .portrait-chip {
+            position: absolute; padding: 10px 18px; border-radius: 14px;
+            background: rgba(16,16,20,0.85); border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px); font-size: 0.78rem; font-weight: 600;
+            color: var(--ink); white-space: nowrap; z-index: 2;
+            box-shadow: 0 14px 40px rgba(0,0,0,0.5);
+            animation: chip-float 6s ease-in-out infinite;
         }
+        .portrait-chip strong { color: var(--gold-bright); }
+        .chip-1 { top: 8%; left: -6%; animation-delay: 0s; }
+        .chip-2 { bottom: 16%; right: -8%; animation-delay: 2s; }
+        .chip-3 { bottom: -3%; left: 6%; animation-delay: 4s; }
+        @keyframes chip-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        .languages-box p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.9;
-            position: relative;
+        /* Stats band */
+        .stats-band {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem;
+            margin-top: 4.5rem;
         }
-
-        .languages-box strong {
-            color: var(--accent);
+        .stat { padding: 1.8rem 1.4rem; text-align: center; }
+        .stat-num {
+            font-family: var(--serif); font-size: 2.7rem; font-weight: 600;
+            color: var(--gold-bright); display: block; line-height: 1.1;
         }
+        .stat-label { font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; }
 
-        /* Contact Section */
-        .contact {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 6rem 2rem;
-            text-align: center;
-            border-top: 2px solid rgba(0, 212, 255, 0.2);
-            border-radius: 40px;
-            position: relative;
-            overflow: hidden;
+        /* ---------- Pillars (interactive skills) ---------- */
+        .pillars-tabs { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 2.6rem; }
+        .pillar-tab {
+            padding: 11px 22px; border-radius: 40px; border: 1px solid var(--glass-border);
+            background: var(--glass); color: var(--ink-muted); font-family: var(--sans);
+            font-size: 0.82rem; font-weight: 700; letter-spacing: 0.6px; cursor: pointer;
+            transition: all 0.35s; backdrop-filter: blur(10px);
         }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            animation: float 25s ease-in-out infinite;
+        .pillar-tab:hover { color: var(--ink); border-color: var(--gold-dim); }
+        .pillar-tab.active { background: var(--gold); border-color: var(--gold); color: var(--noir); }
+        .pillar-panel { display: none; animation: panel-in 0.55s cubic-bezier(0.22, 1, 0.36, 1); }
+        .pillar-panel.active { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: start; }
+        @keyframes panel-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        .pillar-story h3 { font-family: var(--serif); font-size: 1.9rem; font-weight: 600; margin-bottom: 1.1rem; color: var(--ink); }
+        .pillar-story p { color: var(--ink-muted); margin-bottom: 1.1rem; font-size: 1rem; }
+        .pillar-proof { padding: 2.2rem; }
+        .pillar-proof h4 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
+        .pillar-proof ul { list-style: none; }
+        .pillar-proof li {
+            padding: 0.75rem 0 0.75rem 1.8rem; position: relative; color: var(--ink-muted);
+            font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
+        .pillar-proof li:last-child { border-bottom: none; }
+        .pillar-proof li::before { content: '◆'; position: absolute; left: 0; color: var(--gold); font-size: 0.6rem; top: 1.15rem; }
 
-        .contact h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-light), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            position: relative;
+        /* ---------- Experience ---------- */
+        .timeline { position: relative; padding-left: 2.6rem; }
+        .timeline::before {
+            content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 1px;
+            background: linear-gradient(180deg, var(--gold), var(--gold-dim), transparent);
         }
-
-        .contact p {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-            color: var(--text-muted);
-            position: relative;
+        .xp { position: relative; margin-bottom: 2.6rem; padding: 2.6rem; }
+        .xp::before {
+            content: ''; position: absolute; left: -2.6rem; top: 3rem; width: 13px; height: 13px;
+            border-radius: 50%; background: var(--noir); border: 2px solid var(--gold);
+            box-shadow: 0 0 16px rgba(201,169,98,0.5); transform: translateX(0.5px);
         }
-
-        .contact-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            position: relative;
+        .xp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+        .xp-title { font-family: var(--serif); font-size: 1.65rem; font-weight: 600; }
+        .xp-company { color: var(--gold-bright); font-weight: 700; font-size: 0.98rem; margin-top: 0.2rem; }
+        .xp-loc { color: var(--ink-faint); font-size: 0.85rem; margin-top: 0.2rem; }
+        .xp-period {
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; color: var(--gold);
+            padding: 8px 18px; border: 1px solid var(--gold-dim); border-radius: 30px;
+            background: rgba(201,169,98,0.06); white-space: nowrap;
         }
+        .xp-desc { color: var(--ink-muted); margin-bottom: 1.3rem; font-size: 0.98rem; }
+        .xp ul { list-style: none; }
+        .xp ul li {
+            padding: 0.5rem 0 0.5rem 1.7rem; position: relative; color: var(--ink-muted); font-size: 0.93rem;
+        }
+        .xp ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+        .xp-metrics {
+            display: flex; gap: 2.6rem; flex-wrap: wrap; margin-top: 1.6rem; padding-top: 1.6rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .xp-metric strong { font-family: var(--serif); font-size: 1.7rem; color: var(--gold-bright); display: block; line-height: 1.2; }
+        .xp-metric span { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; }
 
+        .cert-row { margin-top: 1.6rem; display: flex; gap: 0.9rem; flex-wrap: wrap; }
+        .cert-btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px;
+            border: 1px solid var(--glass-border); border-radius: 30px; background: var(--glass);
+            color: var(--ink-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600;
+            transition: all 0.3s; cursor: pointer;
+        }
+        .cert-btn:hover { border-color: var(--gold-dim); color: var(--gold-bright); transform: translateY(-2px); }
+        .cert-btn svg { width: 15px; height: 15px; }
+
+        /* ---------- Ventures gallery ---------- */
+        .ventures-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
+        .ventures-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.6rem;
+        }
+        .venture { padding: 2.4rem; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .venture::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0; transition: opacity 0.5s;
+        }
+        .venture:hover::before { opacity: 1; }
+        .venture-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.3rem; }
+        .venture-icon {
+            width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center;
+            justify-content: center; font-size: 1.5rem; background: rgba(201,169,98,0.08);
+            border: 1px solid var(--gold-dim);
+        }
+        .venture-status {
+            font-size: 0.68rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+            padding: 6px 14px; border-radius: 20px; border: 1px solid var(--glass-border);
+            color: var(--ink-muted); background: var(--glass);
+        }
+        .venture-status.live { color: #6fd98f; border-color: rgba(111,217,143,0.35); }
+        .venture-status.building { color: var(--gold-bright); border-color: var(--gold-dim); }
+        .venture h3 { font-family: var(--serif); font-size: 1.65rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .venture-role { color: var(--gold-bright); font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; }
+        .venture p.desc { color: var(--ink-muted); font-size: 0.93rem; margin-bottom: 1.5rem; flex: 1; }
+        .venture-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .venture-tags span {
+            font-size: 0.72rem; font-weight: 600; padding: 5px 12px; border-radius: 20px;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); color: var(--ink-muted);
+        }
+        .venture-note {
+            margin-top: 3rem; padding: 2.4rem 2.8rem; text-align: center;
+        }
+        .venture-note p { color: var(--ink-muted); font-size: 1.02rem; max-width: 820px; margin: 0 auto; }
+        .venture-note strong { color: var(--gold-bright); }
+
+        /* ---------- Languages ---------- */
+        .langs { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.2rem; margin-top: 2.5rem; }
+        .lang-card { padding: 1.6rem 1.2rem; text-align: center; }
+        .lang-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--ink); }
+        .lang-level { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-top: 0.3rem; }
+
+        /* ---------- Contact ---------- */
+        .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+        .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.2rem; }
         .contact-link {
-            padding: 1.2rem 2.5rem;
-            background: rgba(255, 255, 255, 0.02);
-            color: var(--accent);
-            text-decoration: none;
-            border: 2px solid var(--accent);
-            border-radius: 50px;
-            transition: all 0.3s;
-            font-weight: 700;
-            font-size: 1rem;
+            display: flex; align-items: center; gap: 14px; padding: 1.15rem 1.6rem;
+            border: 1px solid var(--glass-border); border-radius: 16px; background: var(--glass);
+            color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.95rem;
+            transition: all 0.35s; backdrop-filter: blur(10px);
         }
-
-        .contact-link:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        .contact-link:hover { border-color: var(--gold-dim); transform: translateX(8px); }
+        .contact-link .ico { font-size: 1.15rem; }
+        .contact-form { padding: 2.6rem; }
+        .form-group { margin-bottom: 1.4rem; }
+        .form-group label {
+            display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 0.55rem;
         }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.04);
+            border: 1px solid var(--glass-border); border-radius: 12px; color: var(--ink);
+            font-family: var(--sans); font-size: 0.95rem; transition: border-color 0.3s;
+            resize: vertical;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--ink-faint); }
+        .contact-form button {
+            width: 100%; padding: 1.1rem; border: none; border-radius: 40px; cursor: pointer;
+            background: linear-gradient(120deg, var(--gold), var(--gold-bright), var(--gold));
+            background-size: 200% auto; color: var(--noir); font-family: var(--sans);
+            font-weight: 800; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+            transition: all 0.4s;
+        }
+        .contact-form button:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 14px 44px rgba(201,169,98,0.3); }
 
-        /* Footer */
         footer {
-            background: var(--secondary);
-            padding: 3rem 2rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            position: relative; z-index: 1; text-align: center; padding: 3rem 2rem;
+            color: var(--ink-faint); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05);
         }
+        footer .logo { font-size: 1.1rem; display: block; margin-bottom: 0.8rem; }
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
+        /* ---------- PDF Modal ---------- */
+        .pdf-modal {
+            position: fixed; inset: 0; background: rgba(5,5,7,0.92); backdrop-filter: blur(12px);
+            z-index: 99999; display: none; align-items: center; justify-content: center; padding: 2rem;
+        }
+        .pdf-modal.active { display: flex; animation: panel-in 0.35s ease; }
+        .pdf-modal-content {
+            width: 100%; max-width: 1100px; height: 88vh; background: var(--noir-2);
+            border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden; position: relative;
+        }
+        .pdf-modal-header {
+            padding: 1.2rem 1.8rem; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .pdf-modal-title { font-family: var(--serif); font-size: 1.25rem; color: var(--gold-bright); }
+        .pdf-close-btn {
+            width: 38px; height: 38px; border: 1px solid var(--glass-border); border-radius: 50%;
+            background: var(--glass); color: var(--ink); font-size: 1.1rem; cursor: pointer; transition: all 0.3s;
+        }
+        .pdf-close-btn:hover { border-color: var(--gold); color: var(--gold); transform: rotate(90deg); }
+        .pdf-iframe { width: 100%; height: calc(100% - 72px); border: none; background: #fff; }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about-content,
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-timeline {
-                padding-left: 2rem;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .audio-player {
-                padding: 15px 20px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .audio-info {
-                display: none;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+            .portrait-wrap { order: -1; }
+            .pillar-panel.active { grid-template-columns: 1fr; }
+            .contact-wrap { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            section { padding: 4.5rem 1.4rem; }
+            .stats-band { grid-template-columns: repeat(2, 1fr); }
+            .timeline { padding-left: 1.8rem; }
+            .xp { padding: 1.8rem; }
+            .xp::before { left: -1.8rem; }
+            .portrait-chip { font-size: 0.68rem; padding: 8px 13px; }
+            .chip-1 { left: 0; } .chip-2 { right: 0; }
         }
     </style>
+</head>
+<body>
 
- <!-- Animated Background -->
-<div class="bg-animation">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-</div>
-
-<!-- 🎧 Audio Player -->
-<div class="audio-player" id="audioPlayer">
-    <button class="audio-btn" id="playBtn" aria-label="Play or pause voiceover">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-            <polygon id="playIcon" points="5 3 19 12 5 21 5 3"></polygon>
-            <rect id="pauseIcon1" x="6" y="4" width="4" height="16" style="display:none;"></rect>
-            <rect id="pauseIcon2" x="14" y="4" width="4" height="16" style="display:none;"></rect>
-        </svg>
-    </button>
-
-    <div class="audio-info">
-        <div class="audio-title">🎙️ Ma présentation</div>
-        <div class="audio-subtitle">Cliquez pour écouter</div>
-    </div>
-
-    <div class="audio-waves paused" id="audioWaves">
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
-</div>
-
-<!-- Background Voiceover -->
-<audio id="myAudio" preload="auto" autoplay muted loop>
-    <source src="voiceover.mp3" type="audio/mpeg">
-    Votre navigateur ne supporte pas la lecture audio.
-</audio>
-
-<script>
-    const audio = document.getElementById("myAudio");
-    const playBtn = document.getElementById("playBtn");
-    const playIcon = document.getElementById("playIcon");
-    const pauseIcon1 = document.getElementById("pauseIcon1");
-    const pauseIcon2 = document.getElementById("pauseIcon2");
-    const audioWaves = document.getElementById("audioWaves");
-
-    // Toggle play/pause manually
-    playBtn.addEventListener("click", () => {
-        if (audio.paused) {
-            audio.play().then(() => {
-                playIcon.style.display = "none";
-                pauseIcon1.style.display = "block";
-                pauseIcon2.style.display = "block";
-                audioWaves.classList.remove("paused");
-            }).catch(err => console.log("Playback blocked:", err));
-        } else {
-            audio.pause();
-            playIcon.style.display = "block";
-            pauseIcon1.style.display = "none";
-            pauseIcon2.style.display = "none";
-            audioWaves.classList.add("paused");
-        }
-    });
-
-    // 🔊 Auto-start on first interaction (click, touch, scroll)
-    const unlockAudio = () => {
-        if (audio.paused || audio.muted) {
-            audio.muted = false;
-            audio.volume = 0.8;
-            audio.play().then(() => {
-                playIcon.style.display = "none";
-                pauseIcon1.style.display = "block";
-                pauseIcon2.style.display = "block";
-                audioWaves.classList.remove("paused");
-            }).catch(() => {});
-        }
-        // Remove listeners so it runs only once
-        document.removeEventListener("click", unlockAudio);
-        document.removeEventListener("touchstart", unlockAudio);
-        document.removeEventListener("scroll", unlockAudio);
-    };
-
-    // Listen for user engagement: click, touch, scroll
-    document.addEventListener("click", unlockAudio, { once: true });
-    document.addEventListener("touchstart", unlockAudio, { once: true });
-    document.addEventListener("scroll", unlockAudio, { once: true });
-
-    // Initial setup
-    window.addEventListener("load", () => {
-        audio.volume = 0.8;
-    });
-</script>
+<div class="bg"></div>
+<div class="progress" id="progress"></div>
 
 <!-- Navigation -->
 <nav id="mainNav">
     <div class="container">
-        <div class="logo">AZER RACHED</div>
-        <ul>
-            <li><a href="#about">À Propos</a></li>
-            <li><a href="#experience">Expérience</a></li>
-            <li><a href="#projects">Projets & IA</a></li>
-            <li><a href="#expertise">Expertise</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <a href="#" class="logo">AZER <em>RACHED</em></a>
+        <div class="nav-right">
+            <ul>
+                <li><a href="#about" data-i18n="nav_about">À Propos</a></li>
+                <li><a href="#experience" data-i18n="nav_xp">Parcours</a></li>
+                <li><a href="#ventures" data-i18n="nav_ventures">Ventures</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+            <div class="lang-toggle">
+                <button id="btnFr" class="active" onclick="setLang('fr')">FR</button>
+                <button id="btnEn" onclick="setLang('en')">EN</button>
+            </div>
+        </div>
     </div>
 </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">🚀 Marketing Manager • Growth Expert • Fondateur Tech & IA</div>
-            <h1>AZER RACHED</h1>
-            <p class="hero-subtitle">Transformer les Données en Revenus, les Idées en Croissance</p>
-            <p class="hero-description">
-                Marketing Manager orienté résultats avec un parcours entrepreneurial prouvé. Spécialisé en marketing de performance, 
-                acquisition multicanaux et stratégies data-driven — et fondateur de plusieurs produits propulsés par l'IA, de 
-                l'orchestration multi-agents à l'automatisation de workflows business. 
-                <strong style="color: var(--accent);">Disponible dès maintenant</strong> pour mettre mon expertise au service 
-                d'une entreprise innovante à Paris.
-            </p>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-number">30K+</span>
-                    <span class="stat-label">Abonnés</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">20M+</span>
-                    <span class="stat-label">Vues Organiques</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">50K€</span>
-                    <span class="stat-label">CA Trimestriel</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">-7%</span>
-                    <span class="stat-label">Réduction Coûts</span>
-                </div>
-            </div>
-
-            <div class="cta-group">
-                <a href="mailto:azerrached3@gmail.com?subject=Opportunité Professionnelle&body=Bonjour Azer,%0D%0A%0D%0AJ'ai consulté votre portfolio..." class="cta-primary">Travaillons Ensemble</a>
-                <a href="tel:+33602560229" class="cta-secondary">📞 Appelez-moi</a>
+<!-- Hero -->
+<section class="hero" id="top">
+    <div class="hero-grid">
+        <div>
+            <div class="hero-badge"><span class="dot"></span><span data-i18n="hero_badge">Disponible — Paris & Île-de-France</span></div>
+            <h1 data-i18n-html="hero_h1">L'art de vendre,<br>la rigueur des <em>systèmes</em>.</h1>
+            <p class="hero-tagline" data-i18n="hero_tagline">Expérience client · Vente & Communication · Tourisme · Management PME · Systèmes IA</p>
+            <p class="hero-desc" data-i18n="hero_desc">Marketing manager et entrepreneur : j'ai dirigé des équipes de 125 personnes dans l'hôtellerie, bâti une agence de voyages premium de zéro, et je conçois aujourd'hui des produits propulsés par l'IA — de l'orchestration multi-agents aux plateformes SaaS complètes.</p>
+            <div class="cta-row">
+                <a href="#contact" class="btn-gold" data-i18n="hero_cta1">Travaillons ensemble</a>
+                <a href="#ventures" class="btn-ghost" data-i18n="hero_cta2">Voir mes ventures</a>
             </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="section-header">
-            <div class="section-badge">Qui Je Suis</div>
-            <h2 class="section-title">Professionnel du Marketing Stratégique</h2>
-            <p class="section-description">
-                Un marketeur orienté résultats avec un ADN entrepreneurial et une passion pour créer des systèmes de croissance scalables
-            </p>
+        <div class="portrait-wrap">
+            <div class="portrait-frame">
+                <div class="portrait-inner"><img src="profile.jpg" alt="Azer Rached"></div>
+            </div>
+            <div class="portrait-chip chip-1">🌍 <span data-i18n="chip1">7 langues</span></div>
+            <div class="portrait-chip chip-2">🤖 <strong data-i18n="chip2">Builder IA</strong></div>
+            <div class="portrait-chip chip-3">📈 <span data-i18n="chip3">Growth & CX</span></div>
         </div>
-
-        <div class="about-content">
-            <div class="about-text">
-                <p>
-                    Suite à mon immigration en France, j'ai complété mon diplôme <strong style="color: var(--accent);">Assistant Commercial chez STUDI (2025-2026)</strong> et je 
-                    recherche aujourd'hui une opportunité pour mettre mon expertise au service d'une entreprise innovante.
-                </p>
-                <p>
-                    Mon approche combine <strong>rigueur analytique</strong> et <strong>expérimentation créative</strong>. J'ai bâti des communautés de 0 à 30K+ abonnés, 
-                    généré des revenus substantiels via un positionnement stratégique premium, et livré des projets en avance tout en 
-                    réduisant les coûts de 7%.
-                </p>
-                <p>
-                    Ma force ? Créer des <strong style="color: var(--accent);">systèmes générateurs de revenus qui fonctionnent 24/7</strong> — des stratégies de contenu viral 
-                    aux funnels de vente optimisés et frameworks d'acquisition multicanaux.
-                </p>
-            </div>
-
-            <div class="about-highlights">
-                <div class="highlight-item">
-                    <h4>🎯 Philosophie Centrale</h4>
-                    <p>Chaque euro investi en marketing doit raconter une histoire — et cette histoire doit se terminer par un ROI mesurable.</p>
-                </div>
-                <div class="highlight-item">
-                    <h4>🚀 Ce Qui Me Motive</h4>
-                    <p>L'intersection entre data analytics, storytelling créatif et croissance business. Je m'épanouis là où les chiffres rencontrent le récit.</p>
-                </div>
-                <div class="highlight-item">
-                    <h4>🌍 Perspective Globale</h4>
-                    <p>Maîtrise de 7 langues (Arabe natif, Français C2, Anglais C1, Russe B2 + notions d'Allemand). Mon parcours multiculturel me permet de créer des campagnes qui résonnent au-delà des frontières.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="section-header">
-            <div class="section-badge">Mon Parcours</div>
-            <h2 class="section-title">Expérience Professionnelle</h2>
-            <p class="section-description">
-                Un parcours entrepreneurial diversifié démontrant leadership, innovation et résultats mesurables
-            </p>
-        </div>
-
-        <div class="experience-timeline">
-            <!-- Experience 1 -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Consultant Marketing & Entrepreneur Digital</h3>
-                        <p class="experience-company">Indépendant</p>
-                        <p class="experience-location">📍 Paris, France</p>
-                    </div>
-                    <div class="experience-period">2024 – Présent</div>
-                </div>
-                <p class="experience-description">
-                    Construction d'une communauté de 30K+ abonnés et génération de revenus récurrents via stratégies 
-                    multicanaux et monétisation diversifiée (dropshipping, affiliation, sponsoring).
-                </p>
-                <ul class="experience-achievements">
-                    <li>Croissance communauté 0 → 30K+ abonnés, 20M+ vues organiques via contenu multiplateforme (Instagram, LinkedIn, YouTube, TikTok)</li>
-                    <li>Monétisation diversifiée : dropshipping, affiliation, sponsoring générant revenus récurrents mensuels</li>
-                    <li>Optimisation data-driven : budgets publicitaires et décisions stratégiques basées sur KPIs et analytics</li>
-                    <li>Innovation acquisition : canaux émergents et optimisation funnels pour maximiser conversion</li>
-                </ul>
-                <div class="experience-metrics">
-                    <div class="metric-item">
-                        <span class="metric-value">30K+</span>
-                        <span class="metric-label">Abonnés</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">20M+</span>
-                        <span class="metric-label">Vues</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">Multiple</span>
-                        <span class="metric-label">Revenus</span>
-                    </div>
-                </div>
-                
-                <div class="certification-box">
-                    <div class="cert-badge">📜 Attestation d'Admission</div>
-                    <div class="cert-content">
-                        <h5>Graduate Assistant Commercial - STUDI</h5>
-                        <p><strong>📍 Paris, France</strong> • Admission confirmée le 20/08/2024</p>
-                        <p class="cert-detail">Formation par apprentissage (2025-2026) validée par Illiana Vallognes, Conseillère en Formation</p>
-                        <p class="cert-ref">N° déclaration d'activité : 11 75 65568 75 • UAI : 0756369R</p>
-                        <div class="cert-buttons">
-                            <a href="#" onclick="openPdfModal('https://drive.google.com/file/d/1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx/preview', 'Attestation d\'Admission STUDI'); return false;" class="cert-btn">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                                Voir l'attestation
-                            </a>
-                            <a href="https://drive.google.com/uc?export=download&id=1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx" target="_blank" class="cert-btn">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                Télécharger
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience 2 -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Chef de Projet Digital</h3>
-                        <p class="experience-company">RealSmile (Technologies Médicales)</p>
-                        <p class="experience-location">📍 Paris, France</p>
-                    </div>
-                    <div class="experience-period">2023 – 2024</div>
-                </div>
-                <p class="experience-description">
-                    Direction complète du développement de l'écosystème digital RealSmile — plateforme française d'aligneurs 
-                    dentaires avec parcours patient 100% digitalisé (site web + application mobile).
-                </p>
-                <ul class="experience-achievements">
-                    <li>Direction site web + app mobile : parcours patient 100% digitalisé pour soins dentaires internationaux</li>
-                    <li>Coordination équipes pluridisciplinaires (tech, design, médical) : livraison 10 jours en avance</li>
-                    <li>Optimisation budgétaire : réduction coûts 7% vs marché via gestion efficace des ressources</li>
-                    <li>Développement app "My Realsmile" avec rappels aligneurs et consultations vidéo dentistes</li>
-                </ul>
-                <div class="experience-metrics">
-                    <div class="metric-item">
-                        <span class="metric-value">-10j</span>
-                        <span class="metric-label">Avance</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">-7%</span>
-                        <span class="metric-label">Coûts</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">100%</span>
-                        <span class="metric-label">Digital</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience 3 -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Co-Fondateur & Directeur Général</h3>
-                        <p class="experience-company">RTS Voyages (Tourisme Premium)</p>
-                        <p class="experience-location">📍 Jemmel, Monastir, Tunisie</p>
-                    </div>
-                    <div class="experience-period">2021 – 2023</div>
-                </div>
-                <p class="experience-description">
-                    Création et développement d'une agence de voyages premium de 0 à 50K€ CA trimestriel via positionnement 
-                    haut de gamme et stratégie marketing ciblée.
-                </p>
-                <ul class="experience-achievements">
-                    <li>Participation active à la création et au développement stratégique de RTS Travel Service</li>
-                    <li>Définition de la vision, des objectifs et des orientations de l'entreprise</li>
-                    <li>Gestion des partenariats, des investissements et des relations institutionnelles</li>
-                    <li>Supervision des équipes et des opérations quotidiennes</li>
-                    <li>Construction marque haut de gamme via stratégie marketing ciblée et storytelling efficace</li>
-                </ul>
-                <div class="experience-metrics">
-                    <div class="metric-item">
-                        <span class="metric-value">~50K€</span>
-                        <span class="metric-label">CA Trimestriel</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">Premium</span>
-                        <span class="metric-label">Positionnement</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">0→1</span>
-                        <span class="metric-label">Business</span>
-                    </div>
-                </div>
-                
-                <div class="certification-box">
-                    <div class="cert-badge">📜 Attestation de Travail</div>
-                    <div class="cert-content">
-                        <h5>RTS Travel Service - Co-Fondateur</h5>
-                        <p><strong>Période :</strong> 20/03/2020 - 25/12/2023</p>
-                        <p class="cert-detail">Attestation délivrée par Madame Dalila Amara, Responsable de RTS Travel Service</p>
-                        <p class="cert-ref">Matricule Fiscal : 1515678 L/A/M/000 • Adresse : Imm Elbaraka, Bureau N°1, Jemmel, Monastir</p>
-                        <div class="cert-buttons">
-                            <a href="#" onclick="openPdfModal('https://drive.google.com/file/d/17_cBlbw1WFdZmCylBlNWTMHLhWlX2evd/preview', 'Attestation RTS Travel Service'); return false;" class="cert-btn">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                                Voir l'attestation
-                            </a>
-                            <a href="https://drive.google.com/uc?export=download&id=17_cBlbw1WFdZmCylBlNWTMHLhWlX2evd" target="_blank" class="cert-btn">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                Télécharger
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience 4 -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Directeur d'Animation Touristique</h3>
-                        <p class="experience-company">DreamTeam Animation</p>
-                        <p class="experience-location">📍 Zermadine, Monastir, Tunisie</p>
-                    </div>
-                    <div class="experience-period">2021 – 2022</div>
-                </div>
-                <p class="experience-description">
-                    Management multi-sites de ~25 membres par établissement sur 5 hôtels. Supervision plannings, 
-                    performance commerciale et satisfaction client.
-                </p>
-                <ul class="experience-achievements">
-                    <li>Management ~25 membres par site (5 établissements) : plannings, supervision, satisfaction client</li>
-                    <li>Performance commerciale : ~25K€/saison via stratégies innovation et ventes on-site</li>
-                    <li>Coordination événements, animations et expériences clients haut de gamme</li>
-                </ul>
-                <div class="experience-metrics">
-                    <div class="metric-item">
-                        <span class="metric-value">~125</span>
-                        <span class="metric-label">Personnes</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">5</span>
-                        <span class="metric-label">Sites</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">~25K€</span>
-                        <span class="metric-label">CA/Saison</span>
-                    </div>
-                </div>
-                
-                <div class="certification-box">
-                    <div class="cert-badge">📜 Attestation de Travail</div>
-                    <div class="cert-content">
-                        <h5>DREAM TEAM ANIMATION - Directeur d'Animation</h5>
-                        <p><strong>Période :</strong> 06/08/2021 - 25/08/2022</p>
-                        <p class="cert-detail">Attestation délivrée par Mr. Sami Mansour, Gérant de la société</p>
-                        <p class="cert-ref">Matricule Fiscal : 1722156T • Adresse : Rue Aouled Abid Zermadine Monastir</p>
-                        <div class="cert-buttons">
-                            <a href="#" onclick="openPdfModal('https://drive.google.com/file/d/1qQUZMlfPd-6vEB_XEgC1EezC_F3tJ6Mj/preview', 'Attestation Dream Team Animation'); return false;" class="cert-btn">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                                Voir l'attestation
-                            </a>
-                            <a href="https://drive.google.com/uc?export=download&id=1qQUZMlfPd-6vEB_XEgC1EezC_F3tJ6Mj" target="_blank" class="cert-btn">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                Télécharger
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects & AI Section -->
-    <section id="projects">
-        <div class="section-header">
-            <div class="section-badge">Innovation & IA</div>
-            <h2 class="section-title">Projets Entrepreneuriaux & IA</h2>
-            <p class="section-description">
-                En parallèle de mon parcours marketing, je conçois et développe des produits propulsés par l'IA — 
-                de l'architecture multi-agents à l'automatisation de workflows business complets
-            </p>
-        </div>
-
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-card-top">
-                    <span class="project-icon">🤖</span>
-                    <span class="project-status">En Développement</span>
-                </div>
-                <h3 class="project-title">JobBoaT</h3>
-                <p class="project-role">Fondateur — Plateforme RH augmentée par IA</p>
-                <p class="project-description">
-                    Plateforme SaaS de recrutement B2B construite autour d'un orchestrateur multi-agents ("Collective 
-                    Orchestrator") qui fait délibérer plusieurs IA pour évaluer chaque candidat sur 15 dimensions. 
-                    Repositionnée vers une offre d'outplacement pour entreprises, avec une feuille de route d'acquisition 
-                    B2C et B2B complète.
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Orchestration Multi-LLM</span>
-                    <span class="tech-tag">Scoring Automatisé</span>
-                    <span class="tech-tag">SaaS B2B</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-card-top">
-                    <span class="project-icon">🧠</span>
-                    <span class="project-status">En Développement</span>
-                </div>
-                <h3 class="project-title">VIGIL</h3>
-                <p class="project-role">Fondateur — Espace de Travail IA "Human-in-the-Loop"</p>
-                <p class="project-description">
-                    Environnement de travail assisté par IA conçu autour de la supervision humaine : "Le Conseil" 
-                    orchestre plusieurs IA conseillères pour éclairer une décision, tandis que "Le Bureau" prépare des 
-                    exécutions (ex. trading) qui restent soumises à validation humaine avant tout passage à l'action.
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">LLM Orchestration</span>
-                    <span class="tech-tag">Knowledge Graphs</span>
-                    <span class="tech-tag">Human-in-the-Loop</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-card-top">
-                    <span class="project-icon">🏢</span>
-                    <span class="project-status">Actif — 2026</span>
-                </div>
-                <h3 class="project-title">AZZ&CO LABS</h3>
-                <p class="project-role">Fondateur & Président</p>
-                <p class="project-description">
-                    Société de conseil tech (SAS, France) dédiée à la stratégie IA, à l'infrastructure technique et à 
-                    l'accompagnement à l'innovation. Partenaire technique et d'incubation pour des organismes de 
-                    formation, avec des livrables allant du schéma directeur technique aux dossiers de certification.
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Conseil Stratégique</span>
-                    <span class="tech-tag">Infrastructure IA</span>
-                    <span class="tech-tag">Direction d'Entreprise</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-card-top">
-                    <span class="project-icon">🦂</span>
-                    <span class="project-status">Concept & Prototype</span>
-                </div>
-                <h3 class="project-title">VTLVS — Scorpion MK-I</h3>
-                <p class="project-role">Concepteur — Robotique de Recharge EV</p>
-                <p class="project-description">
-                    Conception d'un bras robotique en forme de scorpion pour la recharge sans fil de véhicules 
-                    électriques, avec modélisation 3D interactive et calculs de cinématique directe pour une insertion 
-                    de connecteur physiquement réaliste.
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Robotique</span>
-                    <span class="tech-tag">Modélisation 3D</span>
-                    <span class="tech-tag">Ingénierie</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="expertise">
-        <div class="section-header">
-            <div class="section-badge">Expertise</div>
-            <h2 class="section-title">Compétences & Capacités</h2>
-            <p class="section-description">
-                Une boîte à outils complète développée à travers l'expérience pratique et l'apprentissage continu
-            </p>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h4>Marketing & Croissance</h4>
-                <ul>
-                    <li>Marketing de Performance</li>
-                    <li>Acquisition Multicanaux</li>
-                    <li>Stratégie de Contenu</li>
-                    <li>Social Media Marketing</li>
-                    <li>SEO/SEM</li>
-                    <li>Sales Funnels</li>
-                    <li>A/B Testing</li>
-                    <li>Community Building</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h4>Analytics & Outils</h4>
-                <ul>
-                    <li>Google Analytics & GTM</li>
-                    <li>Meta Ads & Google Ads</li>
-                    <li>SQL & Excel Avancé</li>
-                    <li>Plateformes CRM</li>
-                    <li>Tracking UTM</li>
-                    <li>Visualisation de Données</li>
-                    <li>Design Dashboards KPI</li>
-                    <li>Shopify & E-commerce</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h4>Business & Leadership</h4>
-                <ul>
-                    <li>Planification Stratégique</li>
-                    <li>Gestion de Projet</li>
-                    <li>Leadership d'Équipe</li>
-                    <li>Optimisation Budgétaire</li>
-                    <li>Gestion Parties Prenantes</li>
-                    <li>Vente & Négociation</li>
-                    <li>Relations Clients</li>
-                    <li>Développement Commercial</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h4>IA & Automatisation</h4>
-                <ul>
-                    <li>Architecture Multi-Agents LLM</li>
-                    <li>Prompt Engineering</li>
-                    <li>Knowledge Graphs</li>
-                    <li>Automatisation de Workflows</li>
-                    <li>Intégration API IA</li>
-                    <li>Conception Human-in-the-Loop</li>
-                    <li>Outils No-Code / Low-Code</li>
-                    <li>IA Appliquée à la Croissance</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="languages-box">
-            <h4>🌍 Langues : Une Perspective Globale</h4>
-            <p>
-                <strong>Maîtrise de 7 langues :</strong> Arabe (natif), Français (C2), Anglais (C1), Russe (B2), 
-                plus notions d'Espagnol, Italien et Allemand
-            </p>
-        </div>
-    </section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact">
-  <h2>Créons Quelque Chose d'Exceptionnel</h2>
-  <p>Disponible dès maintenant à Paris & en Île-de-France — Diplômé STUDI 2025-2026.</p>
-
-  <div class="contact-buttons">
-    <a href="mailto:azerrached3@gmail.com" class="contact-link">✉️ Email</a>
-    <a href="tel:+33602560229" class="contact-link">📞 +33 6 02 56 02 29</a>
-    <a href="https://www.linkedin.com/in/azer-rached-239258377/" target="_blank" class="contact-link">💼 LinkedIn</a>
-    <a href="https://linktr.ee/AZER_rached" target="_blank" class="contact-link">🔗 Tous mes liens</a>
-  </div>
-
-  <!-- 📬 Embedded Contact Form -->
-  <div class="contact-form-container">
-    <h3>Ou envoyez-moi un message</h3>
-    <form action="https://formspree.io/f/meorppla" method="POST" class="contact-form">
-      <div class="form-group">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" required placeholder="Votre nom" />
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="_replyto" required placeholder="Votre email" />
-      </div>
-
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Votre message..."></textarea>
-      </div>
-
-      <button type="submit" class="btn-primary">Envoyer le message</button>
-    </form>
-  </div>
+    </div>
 </section>
 
+<!-- Stats -->
+<section style="padding-top: 0;">
+    <div class="stats-band">
+        <div class="stat glass-card reveal"><span class="stat-num" data-count="30" data-suffix="K+">0</span><span class="stat-label" data-i18n="stat1">Abonnés bâtis</span></div>
+        <div class="stat glass-card reveal"><span class="stat-num" data-count="20" data-suffix="M+">0</span><span class="stat-label" data-i18n="stat2">Vues organiques</span></div>
+        <div class="stat glass-card reveal"><span class="stat-num" data-count="50" data-suffix="K€">0</span><span class="stat-label" data-i18n="stat3">CA trimestriel généré</span></div>
+        <div class="stat glass-card reveal"><span class="stat-num" data-count="8" data-suffix="+">0</span><span class="stat-label" data-i18n="stat4">Produits construits</span></div>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Azer Rached. Tous droits réservés. | Basé à Paris, France 🇫🇷</p>
-    </footer>
+<!-- About / Pillars -->
+<section id="about">
+    <div class="eyebrow reveal" data-i18n="about_eyebrow">Ce que j'apporte</div>
+    <h2 class="section-title reveal" data-i18n-html="about_title">Quatre piliers, <em>une obsession</em> : le client.</h2>
+    <p class="section-sub reveal" data-i18n="about_sub">Cliquez sur chaque pilier pour découvrir comment je l'ai prouvé sur le terrain — du hall d'hôtel au code de production.</p>
 
-    <!-- PDF Preview Modal -->
-    <div class="pdf-modal" id="pdfModal">
-        <div class="pdf-modal-content">
-            <div class="pdf-modal-header">
-                <div class="pdf-modal-title" id="pdfModalTitle">Aperçu du document</div>
-                <button class="pdf-close-btn" onclick="closePdfModal()">✕</button>
-            </div>
-            <div class="pdf-loading" id="pdfLoading">Chargement du document...</div>
-            <iframe class="pdf-iframe" id="pdfIframe" style="display:none;"></iframe>
+    <div class="pillars-tabs reveal">
+        <button class="pillar-tab active" onclick="setPillar(0)" data-i18n="tab1">🤝 Expérience Client & Vente</button>
+        <button class="pillar-tab" onclick="setPillar(1)" data-i18n="tab2">🏝️ Tourisme & Hospitalité</button>
+        <button class="pillar-tab" onclick="setPillar(2)" data-i18n="tab3">🏢 Management PME</button>
+        <button class="pillar-tab" onclick="setPillar(3)" data-i18n="tab4">🧠 Systèmes & IA</button>
+    </div>
+
+    <div class="pillar-panel active" id="pillar0">
+        <div class="pillar-story">
+            <h3 data-i18n="p1_h">Vendre, c'est écouter d'abord</h3>
+            <p data-i18n="p1_t1">De la vente on-site dans des hôtels 5 étoiles à la construction de funnels digitaux qui convertissent, j'ai appris la vente là où elle ne pardonne pas : face au client. ~25K€ de CA par saison générés en vente directe, puis des communautés en ligne transformées en revenus récurrents.</p>
+            <p data-i18n="p1_t2">Ma formation Assistant Commercial (STUDI, Paris) a structuré ce que le terrain m'avait appris : négociation, relation client, développement commercial.</p>
+        </div>
+        <div class="pillar-proof glass-card">
+            <h4 data-i18n="proof">Preuves terrain</h4>
+            <ul>
+                <li data-i18n="p1_l1">~25K€/saison en ventes on-site (DreamTeam Animation)</li>
+                <li data-i18n="p1_l2">Funnels de vente & monétisation multi-canaux (30K+ abonnés)</li>
+                <li data-i18n="p1_l3">Storytelling premium : positionnement haut de gamme RTS Voyages</li>
+                <li data-i18n="p1_l4">Diplôme Assistant Commercial — STUDI Paris (2025-2026)</li>
+            </ul>
         </div>
     </div>
 
-    <script>
-        // Audio Player Functionality
-        const audio = document.getElementById('myAudio');
-        const playBtn = document.getElementById('playBtn');
-        const audioPlayer = document.getElementById('audioPlayer');
-        const audioWaves = document.getElementById('audioWaves');
-        const playIcon = document.getElementById('playIcon');
-        const pauseIcon1 = document.getElementById('pauseIcon1');
-        const pauseIcon2 = document.getElementById('pauseIcon2');
-        
-        let isPlaying = false;
-        audio.volume = 0.5;
-        
-        // Check if audio can load
-        audio.addEventListener('loadeddata', () => {
-            console.log('✅ Audio chargé avec succès');
-        });
-        
-        audio.addEventListener('error', (e) => {
-            console.log('❌ Erreur de chargement audio:', e);
-            console.log('Essai de source alternative...');
-        });
-        
-        // Auto-play function with multiple fallbacks
-        function autoPlay() {
-            audio.play()
-                .then(() => {
-                    isPlaying = true;
-                    updatePlayerUI();
-                    console.log('✅ Audio démarré automatiquement');
-                })
-                .catch(() => {
-                    console.log('⚠️ Auto-play bloqué - en attente d\'interaction utilisateur');
-                    audioPlayer.style.animation = 'pulse-glow 1s ease-in-out infinite';
-                    
-                    const startAudio = () => {
-                        audio.play().then(() => {
-                            isPlaying = true;
-                            updatePlayerUI();
-                            audioPlayer.style.animation = 'pulse-glow 3s ease-in-out infinite';
-                            document.removeEventListener('click', startAudio);
-                            document.removeEventListener('touchstart', startAudio);
-                            document.removeEventListener('scroll', startAudio);
-                            document.removeEventListener('keydown', startAudio);
-                        });
-                    };
-                    
-                    document.addEventListener('click', startAudio, { once: true });
-                    document.addEventListener('touchstart', startAudio, { once: true });
-                    document.addEventListener('scroll', startAudio, { once: true });
-                    document.addEventListener('keydown', startAudio, { once: true });
-                });
-        }
-        
-        // Try to auto-play immediately
-        autoPlay();
-        
-        // Also try after page fully loads
-        window.addEventListener('load', () => {
-            setTimeout(autoPlay, 300);
-        });
-        
-        // Manual play/pause toggle
-        playBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (isPlaying) {
-                audio.pause();
-                isPlaying = false;
-            } else {
-                audio.play();
-                isPlaying = true;
-            }
-            updatePlayerUI();
-            audioPlayer.style.animation = 'pulse-glow 3s ease-in-out infinite';
-        });
-        
-        // Update UI based on play state
-        function updatePlayerUI() {
-            if (isPlaying) {
-                playIcon.style.display = 'none';
-                pauseIcon1.style.display = 'block';
-                pauseIcon2.style.display = 'block';
-                audioWaves.classList.remove('paused');
-            } else {
-                playIcon.style.display = 'block';
-                pauseIcon1.style.display = 'none';
-                pauseIcon2.style.display = 'none';
-                audioWaves.classList.add('paused');
-            }
-        }
-        
-        // Handle audio end
-        audio.addEventListener('ended', () => {
-            isPlaying = false;
-            updatePlayerUI();
-        });
-        
-        // Navbar scroll effect
-        const mainNav = document.getElementById('mainNav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                mainNav.classList.add('scrolled');
-            } else {
-                mainNav.classList.remove('scrolled');
-            }
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all sections for animations
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'all 0.8s ease-out';
-            observer.observe(section);
-        });
+    <div class="pillar-panel" id="pillar1">
+        <div class="pillar-story">
+            <h3 data-i18n="p2_h">Le tourisme, école de l'excellence client</h3>
+            <p data-i18n="p2_t1">Co-fondateur d'une agence de voyages premium montée de zéro à ~50K€ de CA trimestriel, et directeur d'animation supervisant 5 hôtels simultanément. Le tourisme m'a appris à orchestrer des expériences où chaque détail compte — et où la satisfaction client se mesure en temps réel.</p>
+            <p data-i18n="p2_t2">Plannings, événements, équipes multiculturelles, clients exigeants : l'hospitalité est le meilleur laboratoire de l'expérience client.</p>
+        </div>
+        <div class="pillar-proof glass-card">
+            <h4 data-i18n="proof">Preuves terrain</h4>
+            <ul>
+                <li data-i18n="p2_l1">RTS Voyages : 0 → ~50K€ CA trimestriel, positionnement premium</li>
+                <li data-i18n="p2_l2">5 hôtels supervisés, ~125 collaborateurs coordonnés</li>
+                <li data-i18n="p2_l3">Événements & animations haut de gamme, satisfaction client continue</li>
+                <li data-i18n="p2_l4">Partenariats institutionnels & relations investisseurs</li>
+            </ul>
+        </div>
+    </div>
 
-        // PDF Modal Functions
-        function openPdfModal(pdfUrl, title) {
-            const modal = document.getElementById('pdfModal');
-            const iframe = document.getElementById('pdfIframe');
-            const loading = document.getElementById('pdfLoading');
-            const modalTitle = document.getElementById('pdfModalTitle');
-            
-            // Set title
-            modalTitle.textContent = title;
-            
-            // Show modal
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Show loading
-            loading.style.display = 'block';
-            iframe.style.display = 'none';
-            
-            // Load PDF
-            iframe.src = pdfUrl;
-            
-            // Hide loading when iframe loads
-            iframe.onload = function() {
-                loading.style.display = 'none';
-                iframe.style.display = 'block';
-            };
+    <div class="pillar-panel" id="pillar2">
+        <div class="pillar-story">
+            <h3 data-i18n="p3_h">Diriger une PME, de la vision au quotidien</h3>
+            <p data-i18n="p3_t1">J'ai vécu chaque casquette du dirigeant de PME : stratégie, budgets, recrutement, opérations, partenariats. Chez RealSmile, j'ai livré un écosystème digital complet 10 jours en avance avec 7% d'économies. Aujourd'hui je préside AZZ&CO LABS, ma société de conseil tech (SAS, France).</p>
+            <p data-i18n="p3_t2">Je parle le langage du dirigeant parce que je le suis — les contraintes de trésorerie, les arbitrages et la responsabilité des équipes, je les connais de l'intérieur.</p>
+        </div>
+        <div class="pillar-proof glass-card">
+            <h4 data-i18n="proof">Preuves terrain</h4>
+            <ul>
+                <li data-i18n="p3_l1">Chef de projet digital RealSmile : livraison J-10, coûts -7%</li>
+                <li data-i18n="p3_l2">Direction générale RTS Voyages : équipes, finances, partenariats</li>
+                <li data-i18n="p3_l3">Président fondateur AZZ&CO LABS (SAS) — conseil tech & IA</li>
+                <li data-i18n="p3_l4">Accompagnement d'organismes de formation (certification, infra)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="pillar-panel" id="pillar3">
+        <div class="pillar-story">
+            <h3 data-i18n="p4_h">Je ne fais pas qu'utiliser l'IA — je la construis</h3>
+            <p data-i18n="p4_t1">En parallèle du marketing, je conçois des systèmes complets : orchestrateurs multi-agents où plusieurs IA délibèrent, agents autonomes qui rejoignent des visioconférences et parlent, plateformes SaaS avec paiement, routage de modèles selon la difficulté des tâches, graphes de connaissances.</p>
+            <p data-i18n="p4_t2">Cette double compétence — vision business et architecture technique — me permet de repérer où l'IA crée réellement de la valeur pour une entreprise, et de la déployer moi-même.</p>
+        </div>
+        <div class="pillar-proof glass-card">
+            <h4 data-i18n="proof">Preuves terrain</h4>
+            <ul>
+                <li data-i18n="p4_l1">Orchestration multi-LLM : conseils d'IA délibérantes (VIGIL, JobBoaT)</li>
+                <li data-i18n="p4_l2">Agents autonomes : bot Google Meet qui écoute et répond en voix</li>
+                <li data-i18n="p4_l3">Full-stack : Next.js, Python, Supabase, Stripe, Docker, VPS</li>
+                <li data-i18n="p4_l4">Routage IA coût-performance & graphes de connaissances</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+    <div class="eyebrow reveal" data-i18n="xp_eyebrow">Parcours</div>
+    <h2 class="section-title reveal" data-i18n-html="xp_title">Une trajectoire <em>entrepreneuriale</em></h2>
+    <p class="section-sub reveal" data-i18n="xp_sub">Chaque étape documentée, attestations vérifiables à l'appui.</p>
+
+    <div class="timeline">
+        <div class="xp glass-card reveal">
+            <div class="xp-head">
+                <div>
+                    <div class="xp-title" data-i18n="xp1_title">Consultant Marketing & Entrepreneur Digital</div>
+                    <div class="xp-company" data-i18n="xp1_co">Indépendant — AZZ&CO LABS</div>
+                    <div class="xp-loc">📍 Paris, France</div>
+                </div>
+                <div class="xp-period" data-i18n="xp1_period">2024 — Présent</div>
+            </div>
+            <p class="xp-desc" data-i18n="xp1_desc">Construction d'une audience de 30K+ abonnés, monétisation multi-canaux, et développement d'une flotte de produits IA en solo — du concept au déploiement en production.</p>
+            <ul>
+                <li data-i18n="xp1_l1">Croissance 0 → 30K+ abonnés, 20M+ vues organiques (Instagram, LinkedIn, YouTube, TikTok)</li>
+                <li data-i18n="xp1_l2">Monétisation : dropshipping, affiliation, sponsoring — revenus récurrents</li>
+                <li data-i18n="xp1_l3">Décisions pilotées par la data : KPIs, analytics, optimisation de budgets pub</li>
+                <li data-i18n="xp1_l4">Conception & déploiement de 8+ produits web et IA (voir Ventures)</li>
+            </ul>
+            <div class="xp-metrics">
+                <div class="xp-metric"><strong>30K+</strong><span data-i18n="m_abonnes">Abonnés</span></div>
+                <div class="xp-metric"><strong>20M+</strong><span data-i18n="m_vues">Vues</span></div>
+                <div class="xp-metric"><strong>8+</strong><span data-i18n="m_produits">Produits</span></div>
+            </div>
+            <div class="cert-row">
+                <button class="cert-btn" onclick="openPdfModal('https://drive.google.com/file/d/1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx/preview', 'Attestation STUDI')">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <span data-i18n="cert_studi">Attestation STUDI (2025-2026)</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="xp glass-card reveal">
+            <div class="xp-head">
+                <div>
+                    <div class="xp-title" data-i18n="xp2_title">Chef de Projet Digital</div>
+                    <div class="xp-company">RealSmile <span style="color: var(--ink-faint); font-weight: 400;" data-i18n="xp2_co_sub">(Technologies Médicales)</span></div>
+                    <div class="xp-loc">📍 Paris, France</div>
+                </div>
+                <div class="xp-period">2023 — 2024</div>
+            </div>
+            <p class="xp-desc" data-i18n="xp2_desc">Direction du développement de l'écosystème digital RealSmile — plateforme française d'aligneurs dentaires avec parcours patient 100% digitalisé (site + application mobile).</p>
+            <ul>
+                <li data-i18n="xp2_l1">Coordination d'équipes pluridisciplinaires (tech, design, médical)</li>
+                <li data-i18n="xp2_l2">Livraison 10 jours en avance, coûts réduits de 7% vs marché</li>
+                <li data-i18n="xp2_l3">App "My RealSmile" : rappels aligneurs, consultations vidéo</li>
+            </ul>
+            <div class="xp-metrics">
+                <div class="xp-metric"><strong>J-10</strong><span data-i18n="m_avance">Avance</span></div>
+                <div class="xp-metric"><strong>-7%</strong><span data-i18n="m_couts">Coûts</span></div>
+                <div class="xp-metric"><strong>100%</strong><span>Digital</span></div>
+            </div>
+        </div>
+
+        <div class="xp glass-card reveal">
+            <div class="xp-head">
+                <div>
+                    <div class="xp-title" data-i18n="xp3_title">Co-Fondateur & Directeur Général</div>
+                    <div class="xp-company">RTS Voyages <span style="color: var(--ink-faint); font-weight: 400;" data-i18n="xp3_co_sub">(Tourisme Premium)</span></div>
+                    <div class="xp-loc">📍 Monastir, Tunisie</div>
+                </div>
+                <div class="xp-period">2021 — 2023</div>
+            </div>
+            <p class="xp-desc" data-i18n="xp3_desc">Création et direction d'une agence de voyages premium, de zéro à ~50K€ de CA trimestriel, via un positionnement haut de gamme et un marketing ciblé.</p>
+            <ul>
+                <li data-i18n="xp3_l1">Vision, stratégie et pilotage quotidien de l'entreprise</li>
+                <li data-i18n="xp3_l2">Partenariats, investissements et relations institutionnelles</li>
+                <li data-i18n="xp3_l3">Construction d'une marque premium par le storytelling</li>
+            </ul>
+            <div class="xp-metrics">
+                <div class="xp-metric"><strong>~50K€</strong><span data-i18n="m_ca">CA Trimestriel</span></div>
+                <div class="xp-metric"><strong>0→1</strong><span>Business</span></div>
+            </div>
+            <div class="cert-row">
+                <button class="cert-btn" onclick="openPdfModal('https://drive.google.com/file/d/17_cBlbw1WFdZmCylBlNWTMHLhWlX2evd/preview', 'Attestation RTS Travel Service')">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <span data-i18n="cert_view">Voir l'attestation</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="xp glass-card reveal">
+            <div class="xp-head">
+                <div>
+                    <div class="xp-title" data-i18n="xp4_title">Directeur d'Animation Touristique</div>
+                    <div class="xp-company">DreamTeam Animation</div>
+                    <div class="xp-loc">📍 Monastir, Tunisie</div>
+                </div>
+                <div class="xp-period">2021 — 2022</div>
+            </div>
+            <p class="xp-desc" data-i18n="xp4_desc">Management multi-sites de ~25 collaborateurs par établissement sur 5 hôtels : plannings, performance commerciale et satisfaction client.</p>
+            <ul>
+                <li data-i18n="xp4_l1">~125 collaborateurs coordonnés sur 5 établissements</li>
+                <li data-i18n="xp4_l2">~25K€/saison en performance commerciale on-site</li>
+                <li data-i18n="xp4_l3">Événements et expériences clients haut de gamme</li>
+            </ul>
+            <div class="xp-metrics">
+                <div class="xp-metric"><strong>~125</strong><span data-i18n="m_personnes">Personnes</span></div>
+                <div class="xp-metric"><strong>5</strong><span data-i18n="m_sites">Hôtels</span></div>
+                <div class="xp-metric"><strong>~25K€</strong><span data-i18n="m_saison">CA/Saison</span></div>
+            </div>
+            <div class="cert-row">
+                <button class="cert-btn" onclick="openPdfModal('https://drive.google.com/file/d/1qQUZMlfPd-6vEB_XEgC1EezC_F3tJ6Mj/preview', 'Attestation DreamTeam Animation')">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <span data-i18n="cert_view">Voir l'attestation</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ventures -->
+<section id="ventures">
+    <div class="ventures-intro">
+        <div>
+            <div class="eyebrow reveal" data-i18n="v_eyebrow">La route entrepreneuriale</div>
+            <h2 class="section-title reveal" data-i18n-html="v_title">Ventures & <em>side hustles</em></h2>
+            <p class="section-sub reveal" data-i18n="v_sub">Une galerie de produits imaginés, architecturés et construits en solo — la preuve vivante d'une vision créative des systèmes et d'une maîtrise de l'IA appliquée.</p>
+        </div>
+    </div>
+
+    <div class="ventures-grid">
+        <div class="venture glass-card reveal">
+            <div class="venture-top">
+                <div class="venture-icon">🧠</div>
+                <span class="venture-status building" data-i18n="st_building">En développement</span>
+            </div>
+            <h3>VIGIL</h3>
+            <div class="venture-role" data-i18n="v1_role">Fondateur — Espace de travail IA "Human-in-the-Loop"</div>
+            <p class="desc" data-i18n="v1_desc">Environnement de travail où "Le Conseil" fait délibérer plusieurs IA conseillères pour éclairer une décision, et où "Le Bureau" prépare des exécutions (ex. trading) soumises à validation humaine avant toute action.</p>
+            <div class="venture-tags"><span>Orchestration LLM</span><span>Knowledge Graphs</span><span>Human-in-the-Loop</span></div>
+        </div>
+
+        <div class="venture glass-card reveal">
+            <div class="venture-top">
+                <div class="venture-icon">🤖</div>
+                <span class="venture-status building" data-i18n="st_building">En développement</span>
+            </div>
+            <h3>JobBoaT</h3>
+            <div class="venture-role" data-i18n="v2_role">Fondateur — Plateforme RH augmentée par IA</div>
+            <p class="desc" data-i18n="v2_desc">SaaS de recrutement B2B construit autour d'un "Collective Orchestrator" : plusieurs IA délibèrent pour évaluer chaque candidat sur 15 dimensions. Repositionné vers l'outplacement pour entreprises.</p>
+            <div class="venture-tags"><span>Multi-LLM</span><span>Scoring IA</span><span>SaaS B2B</span></div>
+        </div>
+
+        <div class="venture glass-card reveal">
+            <div class="venture-top">
+                <div class="venture-icon">🏢</div>
+                <span class="venture-status live" data-i18n="st_active">Actif</span>
+            </div>
+            <h3>AZZ&CO LABS</h3>
+            <div class="venture-role" data-i18n="v3_role">Fondateur & Président — SAS, France</div>
+            <p class="desc" data-i18n="v3_desc">Société de conseil tech dédiée à la stratégie IA, l'infrastructure et l'accompagnement à l'innovation. Partenaire technique et d'incubation pour des organismes de formation.</p>
+            <div class="venture-tags"><span data-i18n="v3_tag1">Conseil Stratégique</span><span data-i18n="v3_tag2">Infrastructure IA</span><span data-i18n="v3_tag3">Direction d'Entreprise</span></div>
+        </div>
+
+        <div class="venture glass-card reveal">
+            <div class="venture-top">
+                <div class="venture-icon">🎓</div>
+                <span class="venture-status live" data-i18n="st_live">En ligne</span>
+            </div>
+            <h3>HBS Formation</h3>
+            <div class="venture-role" data-i18n="v4_role">Architecte & Développeur — Site d'organisme de formation</div>
+            <p class="desc" data-i18n="v4_desc">Conception et développement complet du site d'un organisme de formation français certifié : Next.js 14, gestion de contenus, déploiement Vercel. Un livrable client de bout en bout.</p>
+            <div class="venture-tags"><span>Next.js 14</span><span>Supabase</span><span>Vercel</span></div>
+        </div>
+
+        <div class="venture glass-card reveal">
+            <div class="venture-top">
+                <div class="venture-icon">📞</div>
+                <span class="venture-status building" data-i18n="st_rd">R&D</span>
+            </div>
+            <h3>Hermes Agent</h3>
+            <div class="venture-role" data-i18n="v5_role">Concepteur — Agent IA autonome d'opérations</div>
+            <p class="desc" data-i18n="v5_desc">Agent autonome hébergé sur VPS qui gère des opérations réelles : il rejoint des réunions Google Meet, écoute, transcrit et répond à la voix en direct grâce à la synthèse vocale.</p>
+            <div class="venture-tags"><span>Agents Autonomes</span><span>Voice IA</span><span>Playwright</span></div>
+        </div>
+
+        <div class="venture glass-card reveal">
+            <div class="venture-top">
+                <div class="venture-icon">🦂</div>
+                <span class="venture-status" data-i18n="st_concept">Concept</span>
+            </div>
+            <h3>VTLVS — Scorpion MK-I</h3>
+            <div class="venture-role" data-i18n="v6_role">Concepteur — Robotique de recharge EV</div>
+            <p class="desc" data-i18n="v6_desc">Bras robotique en forme de scorpion pour la recharge de véhicules électriques : modélisation 3D interactive et cinématique directe pour une insertion de connecteur réaliste.</p>
+            <div class="venture-tags"><span data-i18n="v6_tag1">Robotique</span><span data-i18n="v6_tag2">Modélisation 3D</span><span data-i18n="v6_tag3">Ingénierie</span></div>
+        </div>
+    </div>
+
+    <div class="venture-note glass-card reveal">
+        <p data-i18n-html="v_note">Chaque produit ci-dessus a été <strong>imaginé, architecturé et construit en solo</strong> — avec l'IA comme co-équipier. C'est cette capacité à passer de l'idée au système déployé qui fait la différence, que ce soit pour un produit tech ou une campagne marketing.</p>
+    </div>
+</section>
+
+<!-- Languages -->
+<section id="languages" style="padding-top: 2rem;">
+    <div class="eyebrow reveal" data-i18n="lg_eyebrow">Langues</div>
+    <h2 class="section-title reveal" data-i18n-html="lg_title">Une perspective <em>globale</em></h2>
+    <div class="langs">
+        <div class="lang-card glass-card reveal"><div class="lang-name" data-i18n="lg_ar">Arabe</div><div class="lang-level" data-i18n="lg_ar_lv">Natif</div></div>
+        <div class="lang-card glass-card reveal"><div class="lang-name" data-i18n="lg_fr">Français</div><div class="lang-level">C2</div></div>
+        <div class="lang-card glass-card reveal"><div class="lang-name" data-i18n="lg_en">Anglais</div><div class="lang-level">C1</div></div>
+        <div class="lang-card glass-card reveal"><div class="lang-name" data-i18n="lg_ru">Russe</div><div class="lang-level">B2</div></div>
+        <div class="lang-card glass-card reveal"><div class="lang-name" data-i18n="lg_others">+ ES · IT · DE</div><div class="lang-level" data-i18n="lg_others_lv">Notions</div></div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="contact-wrap">
+        <div>
+            <div class="eyebrow reveal" data-i18n="c_eyebrow">Contact</div>
+            <h2 class="section-title reveal" data-i18n-html="c_title">Créons quelque chose <em>d'exceptionnel</em></h2>
+            <p class="section-sub reveal" style="margin-bottom: 0;" data-i18n="c_sub">Disponible dès maintenant à Paris & en Île-de-France. Réponse sous 24h.</p>
+            <div class="contact-links reveal">
+                <a href="mailto:azerrached3@gmail.com" class="contact-link"><span class="ico">✉️</span> azerrached3@gmail.com</a>
+                <a href="tel:+33602560229" class="contact-link"><span class="ico">📞</span> +33 6 02 56 02 29</a>
+                <a href="https://www.linkedin.com/in/azer-rached-239258377/" target="_blank" rel="noopener" class="contact-link"><span class="ico">💼</span> LinkedIn</a>
+                <a href="https://linktr.ee/AZER_rached" target="_blank" rel="noopener" class="contact-link"><span class="ico">🔗</span> <span data-i18n="c_links">Tous mes liens</span></a>
+            </div>
+        </div>
+        <form action="https://formspree.io/f/meorppla" method="POST" class="contact-form glass-card reveal">
+            <div class="form-group">
+                <label for="name" data-i18n="f_name">Nom</label>
+                <input type="text" id="name" name="name" required data-i18n-ph="f_name_ph" placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="_replyto" required data-i18n-ph="f_email_ph" placeholder="Votre email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required data-i18n-ph="f_msg_ph" placeholder="Votre message..."></textarea>
+            </div>
+            <button type="submit" data-i18n="f_send">Envoyer le message</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <span class="logo">AZER <em>RACHED</em></span>
+    <p data-i18n="footer">© 2026 Azer Rached — Paris, France 🇫🇷</p>
+</footer>
+
+<!-- PDF Modal -->
+<div class="pdf-modal" id="pdfModal">
+    <div class="pdf-modal-content">
+        <div class="pdf-modal-header">
+            <div class="pdf-modal-title" id="pdfModalTitle">Document</div>
+            <button class="pdf-close-btn" onclick="closePdfModal()">✕</button>
+        </div>
+        <iframe class="pdf-iframe" id="pdfIframe"></iframe>
+    </div>
+</div>
+
+<script>
+/* ---------------- i18n ---------------- */
+const i18n = {
+    fr: {
+        nav_about: "À Propos", nav_xp: "Parcours", nav_ventures: "Ventures", nav_contact: "Contact",
+        hero_badge: "Disponible — Paris & Île-de-France",
+        hero_h1: "L'art de vendre,<br>la rigueur des <em>systèmes</em>.",
+        hero_tagline: "Expérience client · Vente & Communication · Tourisme · Management PME · Systèmes IA",
+        hero_desc: "Marketing manager et entrepreneur : j'ai dirigé des équipes de 125 personnes dans l'hôtellerie, bâti une agence de voyages premium de zéro, et je conçois aujourd'hui des produits propulsés par l'IA — de l'orchestration multi-agents aux plateformes SaaS complètes.",
+        hero_cta1: "Travaillons ensemble", hero_cta2: "Voir mes ventures",
+        chip1: "7 langues", chip2: "Builder IA", chip3: "Growth & CX",
+        stat1: "Abonnés bâtis", stat2: "Vues organiques", stat3: "CA trimestriel généré", stat4: "Produits construits",
+        about_eyebrow: "Ce que j'apporte",
+        about_title: "Quatre piliers, <em>une obsession</em> : le client.",
+        about_sub: "Cliquez sur chaque pilier pour découvrir comment je l'ai prouvé sur le terrain — du hall d'hôtel au code de production.",
+        tab1: "🤝 Expérience Client & Vente", tab2: "🏝️ Tourisme & Hospitalité", tab3: "🏢 Management PME", tab4: "🧠 Systèmes & IA",
+        proof: "Preuves terrain",
+        p1_h: "Vendre, c'est écouter d'abord",
+        p1_t1: "De la vente on-site dans des hôtels 5 étoiles à la construction de funnels digitaux qui convertissent, j'ai appris la vente là où elle ne pardonne pas : face au client. ~25K€ de CA par saison générés en vente directe, puis des communautés en ligne transformées en revenus récurrents.",
+        p1_t2: "Ma formation Assistant Commercial (STUDI, Paris) a structuré ce que le terrain m'avait appris : négociation, relation client, développement commercial.",
+        p1_l1: "~25K€/saison en ventes on-site (DreamTeam Animation)",
+        p1_l2: "Funnels de vente & monétisation multi-canaux (30K+ abonnés)",
+        p1_l3: "Storytelling premium : positionnement haut de gamme RTS Voyages",
+        p1_l4: "Diplôme Assistant Commercial — STUDI Paris (2025-2026)",
+        p2_h: "Le tourisme, école de l'excellence client",
+        p2_t1: "Co-fondateur d'une agence de voyages premium montée de zéro à ~50K€ de CA trimestriel, et directeur d'animation supervisant 5 hôtels simultanément. Le tourisme m'a appris à orchestrer des expériences où chaque détail compte — et où la satisfaction client se mesure en temps réel.",
+        p2_t2: "Plannings, événements, équipes multiculturelles, clients exigeants : l'hospitalité est le meilleur laboratoire de l'expérience client.",
+        p2_l1: "RTS Voyages : 0 → ~50K€ CA trimestriel, positionnement premium",
+        p2_l2: "5 hôtels supervisés, ~125 collaborateurs coordonnés",
+        p2_l3: "Événements & animations haut de gamme, satisfaction client continue",
+        p2_l4: "Partenariats institutionnels & relations investisseurs",
+        p3_h: "Diriger une PME, de la vision au quotidien",
+        p3_t1: "J'ai vécu chaque casquette du dirigeant de PME : stratégie, budgets, recrutement, opérations, partenariats. Chez RealSmile, j'ai livré un écosystème digital complet 10 jours en avance avec 7% d'économies. Aujourd'hui je préside AZZ&CO LABS, ma société de conseil tech (SAS, France).",
+        p3_t2: "Je parle le langage du dirigeant parce que je le suis — les contraintes de trésorerie, les arbitrages et la responsabilité des équipes, je les connais de l'intérieur.",
+        p3_l1: "Chef de projet digital RealSmile : livraison J-10, coûts -7%",
+        p3_l2: "Direction générale RTS Voyages : équipes, finances, partenariats",
+        p3_l3: "Président fondateur AZZ&CO LABS (SAS) — conseil tech & IA",
+        p3_l4: "Accompagnement d'organismes de formation (certification, infra)",
+        p4_h: "Je ne fais pas qu'utiliser l'IA — je la construis",
+        p4_t1: "En parallèle du marketing, je conçois des systèmes complets : orchestrateurs multi-agents où plusieurs IA délibèrent, agents autonomes qui rejoignent des visioconférences et parlent, plateformes SaaS avec paiement, routage de modèles selon la difficulté des tâches, graphes de connaissances.",
+        p4_t2: "Cette double compétence — vision business et architecture technique — me permet de repérer où l'IA crée réellement de la valeur pour une entreprise, et de la déployer moi-même.",
+        p4_l1: "Orchestration multi-LLM : conseils d'IA délibérantes (VIGIL, JobBoaT)",
+        p4_l2: "Agents autonomes : bot Google Meet qui écoute et répond en voix",
+        p4_l3: "Full-stack : Next.js, Python, Supabase, Stripe, Docker, VPS",
+        p4_l4: "Routage IA coût-performance & graphes de connaissances",
+        xp_eyebrow: "Parcours", xp_title: "Une trajectoire <em>entrepreneuriale</em>",
+        xp_sub: "Chaque étape documentée, attestations vérifiables à l'appui.",
+        xp1_title: "Consultant Marketing & Entrepreneur Digital", xp1_co: "Indépendant — AZZ&CO LABS", xp1_period: "2024 — Présent",
+        xp1_desc: "Construction d'une audience de 30K+ abonnés, monétisation multi-canaux, et développement d'une flotte de produits IA en solo — du concept au déploiement en production.",
+        xp1_l1: "Croissance 0 → 30K+ abonnés, 20M+ vues organiques (Instagram, LinkedIn, YouTube, TikTok)",
+        xp1_l2: "Monétisation : dropshipping, affiliation, sponsoring — revenus récurrents",
+        xp1_l3: "Décisions pilotées par la data : KPIs, analytics, optimisation de budgets pub",
+        xp1_l4: "Conception & déploiement de 8+ produits web et IA (voir Ventures)",
+        m_abonnes: "Abonnés", m_vues: "Vues", m_produits: "Produits", m_avance: "Avance", m_couts: "Coûts",
+        m_ca: "CA Trimestriel", m_personnes: "Personnes", m_sites: "Hôtels", m_saison: "CA/Saison",
+        cert_studi: "Attestation STUDI (2025-2026)", cert_view: "Voir l'attestation",
+        xp2_title: "Chef de Projet Digital", xp2_co_sub: "(Technologies Médicales)",
+        xp2_desc: "Direction du développement de l'écosystème digital RealSmile — plateforme française d'aligneurs dentaires avec parcours patient 100% digitalisé (site + application mobile).",
+        xp2_l1: "Coordination d'équipes pluridisciplinaires (tech, design, médical)",
+        xp2_l2: "Livraison 10 jours en avance, coûts réduits de 7% vs marché",
+        xp2_l3: "App \"My RealSmile\" : rappels aligneurs, consultations vidéo",
+        xp3_title: "Co-Fondateur & Directeur Général", xp3_co_sub: "(Tourisme Premium)",
+        xp3_desc: "Création et direction d'une agence de voyages premium, de zéro à ~50K€ de CA trimestriel, via un positionnement haut de gamme et un marketing ciblé.",
+        xp3_l1: "Vision, stratégie et pilotage quotidien de l'entreprise",
+        xp3_l2: "Partenariats, investissements et relations institutionnelles",
+        xp3_l3: "Construction d'une marque premium par le storytelling",
+        xp4_title: "Directeur d'Animation Touristique",
+        xp4_desc: "Management multi-sites de ~25 collaborateurs par établissement sur 5 hôtels : plannings, performance commerciale et satisfaction client.",
+        xp4_l1: "~125 collaborateurs coordonnés sur 5 établissements",
+        xp4_l2: "~25K€/saison en performance commerciale on-site",
+        xp4_l3: "Événements et expériences clients haut de gamme",
+        v_eyebrow: "La route entrepreneuriale", v_title: "Ventures & <em>side hustles</em>",
+        v_sub: "Une galerie de produits imaginés, architecturés et construits en solo — la preuve vivante d'une vision créative des systèmes et d'une maîtrise de l'IA appliquée.",
+        st_building: "En développement", st_active: "Actif", st_live: "En ligne", st_rd: "R&D", st_concept: "Concept",
+        v1_role: "Fondateur — Espace de travail IA \"Human-in-the-Loop\"",
+        v1_desc: "Environnement de travail où \"Le Conseil\" fait délibérer plusieurs IA conseillères pour éclairer une décision, et où \"Le Bureau\" prépare des exécutions (ex. trading) soumises à validation humaine avant toute action.",
+        v2_role: "Fondateur — Plateforme RH augmentée par IA",
+        v2_desc: "SaaS de recrutement B2B construit autour d'un \"Collective Orchestrator\" : plusieurs IA délibèrent pour évaluer chaque candidat sur 15 dimensions. Repositionné vers l'outplacement pour entreprises.",
+        v3_role: "Fondateur & Président — SAS, France",
+        v3_desc: "Société de conseil tech dédiée à la stratégie IA, l'infrastructure et l'accompagnement à l'innovation. Partenaire technique et d'incubation pour des organismes de formation.",
+        v3_tag1: "Conseil Stratégique", v3_tag2: "Infrastructure IA", v3_tag3: "Direction d'Entreprise",
+        v4_role: "Architecte & Développeur — Site d'organisme de formation",
+        v4_desc: "Conception et développement complet du site d'un organisme de formation français certifié : Next.js 14, gestion de contenus, déploiement Vercel. Un livrable client de bout en bout.",
+        v5_role: "Concepteur — Agent IA autonome d'opérations",
+        v5_desc: "Agent autonome hébergé sur VPS qui gère des opérations réelles : il rejoint des réunions Google Meet, écoute, transcrit et répond à la voix en direct grâce à la synthèse vocale.",
+        v6_role: "Concepteur — Robotique de recharge EV",
+        v6_desc: "Bras robotique en forme de scorpion pour la recharge de véhicules électriques : modélisation 3D interactive et cinématique directe pour une insertion de connecteur réaliste.",
+        v6_tag1: "Robotique", v6_tag2: "Modélisation 3D", v6_tag3: "Ingénierie",
+        v_note: "Chaque produit ci-dessus a été <strong>imaginé, architecturé et construit en solo</strong> — avec l'IA comme co-équipier. C'est cette capacité à passer de l'idée au système déployé qui fait la différence, que ce soit pour un produit tech ou une campagne marketing.",
+        lg_eyebrow: "Langues", lg_title: "Une perspective <em>globale</em>",
+        lg_ar: "Arabe", lg_ar_lv: "Natif", lg_fr: "Français", lg_en: "Anglais", lg_ru: "Russe",
+        lg_others: "+ ES · IT · DE", lg_others_lv: "Notions",
+        c_eyebrow: "Contact", c_title: "Créons quelque chose <em>d'exceptionnel</em>",
+        c_sub: "Disponible dès maintenant à Paris & en Île-de-France. Réponse sous 24h.",
+        c_links: "Tous mes liens",
+        f_name: "Nom", f_name_ph: "Votre nom", f_email_ph: "Votre email", f_msg_ph: "Votre message...", f_send: "Envoyer le message",
+        footer: "© 2026 Azer Rached — Paris, France 🇫🇷"
+    },
+    en: {
+        nav_about: "About", nav_xp: "Journey", nav_ventures: "Ventures", nav_contact: "Contact",
+        hero_badge: "Available — Paris & Île-de-France",
+        hero_h1: "The art of selling,<br>the rigor of <em>systems</em>.",
+        hero_tagline: "Customer Experience · Sales & Communication · Tourism · SMB Management · AI Systems",
+        hero_desc: "Marketing manager and entrepreneur: I've led 125-person teams in hospitality, built a premium travel agency from scratch, and now design AI-powered products — from multi-agent orchestration to full SaaS platforms.",
+        hero_cta1: "Let's work together", hero_cta2: "See my ventures",
+        chip1: "7 languages", chip2: "AI Builder", chip3: "Growth & CX",
+        stat1: "Followers built", stat2: "Organic views", stat3: "Quarterly revenue generated", stat4: "Products built",
+        about_eyebrow: "What I bring",
+        about_title: "Four pillars, <em>one obsession</em>: the customer.",
+        about_sub: "Click each pillar to see how I proved it in the field — from hotel lobbies to production code.",
+        tab1: "🤝 Customer Experience & Sales", tab2: "🏝️ Tourism & Hospitality", tab3: "🏢 SMB Management", tab4: "🧠 Systems & AI",
+        proof: "Field-proven",
+        p1_h: "Selling starts with listening",
+        p1_t1: "From on-site sales in 5-star hotels to building digital funnels that convert, I learned sales where it's unforgiving: face to face with the customer. ~€25K per season generated in direct sales, then online communities turned into recurring revenue.",
+        p1_t2: "My Sales Assistant diploma (STUDI, Paris) structured what the field had taught me: negotiation, client relations, business development.",
+        p1_l1: "~€25K/season in on-site sales (DreamTeam Animation)",
+        p1_l2: "Sales funnels & multi-channel monetization (30K+ followers)",
+        p1_l3: "Premium storytelling: high-end positioning for RTS Voyages",
+        p1_l4: "Sales Assistant diploma — STUDI Paris (2025-2026)",
+        p2_h: "Tourism, the school of customer excellence",
+        p2_t1: "Co-founder of a premium travel agency grown from zero to ~€50K quarterly revenue, and entertainment director supervising 5 hotels at once. Tourism taught me to orchestrate experiences where every detail matters — and where customer satisfaction is measured in real time.",
+        p2_t2: "Schedules, events, multicultural teams, demanding clients: hospitality is the best laboratory for customer experience.",
+        p2_l1: "RTS Voyages: 0 → ~€50K quarterly revenue, premium positioning",
+        p2_l2: "5 hotels supervised, ~125 team members coordinated",
+        p2_l3: "High-end events & entertainment, continuous customer satisfaction",
+        p2_l4: "Institutional partnerships & investor relations",
+        p3_h: "Running an SMB, from vision to daily grind",
+        p3_t1: "I've worn every hat of an SMB leader: strategy, budgets, hiring, operations, partnerships. At RealSmile, I delivered a complete digital ecosystem 10 days early with 7% savings. Today I chair AZZ&CO LABS, my tech consulting company (SAS, France).",
+        p3_t2: "I speak the language of business owners because I am one — cash-flow constraints, trade-offs and responsibility for teams, I know them from the inside.",
+        p3_l1: "RealSmile digital project lead: delivered 10 days early, -7% costs",
+        p3_l2: "General management at RTS Voyages: teams, finances, partnerships",
+        p3_l3: "Founding president of AZZ&CO LABS (SAS) — tech & AI consulting",
+        p3_l4: "Supporting training organizations (certification, infrastructure)",
+        p4_h: "I don't just use AI — I build with it",
+        p4_t1: "Alongside marketing, I design complete systems: multi-agent orchestrators where several AIs deliberate, autonomous agents that join video calls and speak, SaaS platforms with payments, cost-aware model routing, knowledge graphs.",
+        p4_t2: "This dual skill set — business vision and technical architecture — lets me spot where AI truly creates value for a company, and deploy it myself.",
+        p4_l1: "Multi-LLM orchestration: deliberating AI councils (VIGIL, JobBoaT)",
+        p4_l2: "Autonomous agents: a Google Meet bot that listens and answers by voice",
+        p4_l3: "Full-stack: Next.js, Python, Supabase, Stripe, Docker, VPS",
+        p4_l4: "Cost-performance AI routing & knowledge graphs",
+        xp_eyebrow: "Journey", xp_title: "An <em>entrepreneurial</em> trajectory",
+        xp_sub: "Every step documented, with verifiable certificates.",
+        xp1_title: "Marketing Consultant & Digital Entrepreneur", xp1_co: "Independent — AZZ&CO LABS", xp1_period: "2024 — Present",
+        xp1_desc: "Built a 30K+ follower audience, multi-channel monetization, and a fleet of AI products developed solo — from concept to production deployment.",
+        xp1_l1: "Growth 0 → 30K+ followers, 20M+ organic views (Instagram, LinkedIn, YouTube, TikTok)",
+        xp1_l2: "Monetization: dropshipping, affiliation, sponsorships — recurring revenue",
+        xp1_l3: "Data-driven decisions: KPIs, analytics, ad budget optimization",
+        xp1_l4: "Designed & shipped 8+ web and AI products (see Ventures)",
+        m_abonnes: "Followers", m_vues: "Views", m_produits: "Products", m_avance: "Early", m_couts: "Costs",
+        m_ca: "Quarterly Rev.", m_personnes: "People", m_sites: "Hotels", m_saison: "Rev./Season",
+        cert_studi: "STUDI Certificate (2025-2026)", cert_view: "View certificate",
+        xp2_title: "Digital Project Manager", xp2_co_sub: "(Medical Technology)",
+        xp2_desc: "Led development of the RealSmile digital ecosystem — a French dental aligner platform with a fully digital patient journey (website + mobile app).",
+        xp2_l1: "Coordinated multidisciplinary teams (tech, design, medical)",
+        xp2_l2: "Delivered 10 days ahead of schedule, 7% below market cost",
+        xp2_l3: "\"My RealSmile\" app: aligner reminders, video consultations",
+        xp3_title: "Co-Founder & General Manager", xp3_co_sub: "(Premium Tourism)",
+        xp3_desc: "Created and led a premium travel agency from zero to ~€50K quarterly revenue through high-end positioning and targeted marketing.",
+        xp3_l1: "Vision, strategy and day-to-day management of the company",
+        xp3_l2: "Partnerships, investments and institutional relations",
+        xp3_l3: "Built a premium brand through storytelling",
+        xp4_title: "Tourism Entertainment Director",
+        xp4_desc: "Multi-site management of ~25 team members per venue across 5 hotels: schedules, sales performance and customer satisfaction.",
+        xp4_l1: "~125 team members coordinated across 5 venues",
+        xp4_l2: "~€25K/season in on-site sales performance",
+        xp4_l3: "High-end events and customer experiences",
+        v_eyebrow: "The entrepreneurial road", v_title: "Ventures & <em>side hustles</em>",
+        v_sub: "A gallery of products imagined, architected and built solo — living proof of a creative systems mindset and applied AI mastery.",
+        st_building: "In development", st_active: "Active", st_live: "Live", st_rd: "R&D", st_concept: "Concept",
+        v1_role: "Founder — \"Human-in-the-Loop\" AI Workspace",
+        v1_desc: "A workspace where \"The Council\" has several advisor AIs deliberate to inform a decision, and \"The Bureau\" prepares executions (e.g. trading) that require human validation before any action.",
+        v2_role: "Founder — AI-Augmented HR Platform",
+        v2_desc: "B2B recruiting SaaS built around a \"Collective Orchestrator\": several AIs deliberate to score each candidate across 15 dimensions. Repositioned toward corporate outplacement.",
+        v3_role: "Founder & President — SAS, France",
+        v3_desc: "Tech consulting company focused on AI strategy, infrastructure and innovation support. Technical and incubation partner for training organizations.",
+        v3_tag1: "Strategic Consulting", v3_tag2: "AI Infrastructure", v3_tag3: "Company Leadership",
+        v4_role: "Architect & Developer — Training Organization Website",
+        v4_desc: "End-to-end design and development of a certified French training organization's website: Next.js 14, content management, Vercel deployment. A complete client deliverable.",
+        v5_role: "Designer — Autonomous AI Operations Agent",
+        v5_desc: "A VPS-hosted autonomous agent handling real operations: it joins Google Meet calls, listens, transcribes and answers out loud in real time using voice synthesis.",
+        v6_role: "Designer — EV Charging Robotics",
+        v6_desc: "A scorpion-shaped robotic arm for electric vehicle charging: interactive 3D modeling and forward kinematics for physically realistic connector insertion.",
+        v6_tag1: "Robotics", v6_tag2: "3D Modeling", v6_tag3: "Engineering",
+        v_note: "Every product above was <strong>imagined, architected and built solo</strong> — with AI as a teammate. That ability to go from idea to deployed system is what makes the difference, whether it's a tech product or a marketing campaign.",
+        lg_eyebrow: "Languages", lg_title: "A <em>global</em> perspective",
+        lg_ar: "Arabic", lg_ar_lv: "Native", lg_fr: "French", lg_en: "English", lg_ru: "Russian",
+        lg_others: "+ ES · IT · DE", lg_others_lv: "Basics",
+        c_eyebrow: "Contact", c_title: "Let's build something <em>exceptional</em>",
+        c_sub: "Available now in Paris & Île-de-France. Reply within 24h.",
+        c_links: "All my links",
+        f_name: "Name", f_name_ph: "Your name", f_email_ph: "Your email", f_msg_ph: "Your message...", f_send: "Send message",
+        footer: "© 2026 Azer Rached — Paris, France 🇫🇷"
+    }
+};
+
+function setLang(lang) {
+    const dict = i18n[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key]) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-i18n-ph');
+        if (dict[key]) el.placeholder = dict[key];
+    });
+    document.getElementById('btnFr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+try {
+    const saved = localStorage.getItem('lang');
+    if (saved === 'en') setLang('en');
+} catch (e) {}
+
+/* ---------------- Pillars tabs ---------------- */
+function setPillar(i) {
+    document.querySelectorAll('.pillar-tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
+    document.querySelectorAll('.pillar-panel').forEach((p, idx) => p.classList.toggle('active', idx === i));
+}
+
+/* ---------------- Nav + progress ---------------- */
+const mainNav = document.getElementById('mainNav');
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+    mainNav.classList.toggle('scrolled', window.scrollY > 60);
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (window.scrollY / h * 100) + '%';
+}, { passive: true });
+
+/* ---------------- Reveal on scroll ---------------- */
+const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            revealObserver.unobserve(e.target);
         }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        function closePdfModal() {
-            const modal = document.getElementById('pdfModal');
-            const iframe = document.getElementById('pdfIframe');
-            
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            
-            // Clear iframe after animation
-            setTimeout(() => {
-                iframe.src = '';
-            }, 300);
+/* ---------------- Animated counters ---------------- */
+const counterObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        counterObserver.unobserve(el);
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        const dur = 1600;
+        const start = performance.now();
+        function tick(now) {
+            const p = Math.min((now - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
         }
+        requestAnimationFrame(tick);
+    });
+}, { threshold: 0.6 });
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
-        // Close modal on background click
-        document.getElementById('pdfModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePdfModal();
-            }
+/* ---------------- Card tilt (subtle) ---------------- */
+if (window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.venture, .stat').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - 0.5;
+            const y = (e.clientY - r.top) / r.height - 0.5;
+            card.style.transform = `perspective(900px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-4px)`;
         });
+        card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+}
 
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closePdfModal();
-            }
-        });
-    </script>
+/* ---------------- Smooth anchors ---------------- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+});
+
+/* ---------------- PDF modal ---------------- */
+function openPdfModal(url, title) {
+    document.getElementById('pdfModalTitle').textContent = title;
+    document.getElementById('pdfIframe').src = url;
+    document.getElementById('pdfModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closePdfModal() {
+    document.getElementById('pdfModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+    setTimeout(() => { document.getElementById('pdfIframe').src = ''; }, 300);
+}
+document.getElementById('pdfModal').addEventListener('click', function (e) {
+    if (e.target === this) closePdfModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePdfModal(); });
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
