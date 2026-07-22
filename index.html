@@ -332,6 +332,24 @@
             font-size: 0.72rem; font-weight: 600; padding: 5px 12px; border-radius: 20px;
             background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); color: var(--ink-muted);
         }
+        .venture-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+        .venture-foot .venture-tags { margin: 0; }
+        .venture-link {
+            display: inline-flex; align-items: center; gap: 7px; white-space: nowrap;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.4px; color: var(--gold-bright);
+            text-decoration: none; padding: 8px 15px; border-radius: 30px;
+            border: 1px solid var(--gold-dim); background: rgba(201,169,98,0.06); transition: all 0.3s;
+        }
+        .venture-link:hover { background: var(--gold); color: var(--noir); transform: translateY(-2px); }
+        .venture-link svg { width: 14px; height: 14px; }
+        .venture p.desc { flex: 1; }
+        /* Education entry accent */
+        .xp.education::before { background: var(--noir); border-color: var(--gold-bright); }
+        .edu-badge {
+            display: inline-block; font-size: 0.68rem; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--gold-bright); padding: 5px 13px; border-radius: 20px;
+            border: 1px solid var(--gold-dim); background: rgba(201,169,98,0.06); margin-bottom: 0.9rem;
+        }
         .venture-note {
             margin-top: 3rem; padding: 2.4rem 2.8rem; text-align: center;
         }
@@ -572,6 +590,30 @@
     <p class="section-sub reveal" data-i18n="xp_sub">Chaque étape documentée, attestations vérifiables à l'appui.</p>
 
     <div class="timeline">
+        <div class="xp education glass-card reveal">
+            <span class="edu-badge" data-i18n="edu_badge">📘 Formation</span>
+            <div class="xp-head">
+                <div>
+                    <div class="xp-title" data-i18n="edu_title">Assistant Commercial — Titre Professionnel</div>
+                    <div class="xp-company">STUDI <span style="color: var(--ink-faint); font-weight: 400;" data-i18n="edu_school_sub">(École en ligne, par apprentissage)</span></div>
+                    <div class="xp-loc">📍 Paris, France</div>
+                </div>
+                <div class="xp-period" data-i18n="edu_period">2025 — 2026</div>
+            </div>
+            <p class="xp-desc" data-i18n="edu_desc">Formation certifiante en apprentissage : négociation commerciale, relation client, développement des ventes et administration commerciale — structurant sur le plan académique une décennie d'expérience terrain.</p>
+            <ul>
+                <li data-i18n="edu_l1">Techniques de vente, négociation et prospection commerciale</li>
+                <li data-i18n="edu_l2">Relation client, fidélisation et administration des ventes</li>
+                <li data-i18n="edu_l3">Admission confirmée le 20/08/2024 — N° déclaration d'activité 11 75 65568 75</li>
+            </ul>
+            <div class="cert-row">
+                <button class="cert-btn" onclick="openPdfModal('https://drive.google.com/file/d/1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx/preview', 'Attestation d\'admission STUDI')">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <span data-i18n="cert_studi">Attestation d'admission STUDI</span>
+                </button>
+            </div>
+        </div>
+
         <div class="xp glass-card reveal">
             <div class="xp-head">
                 <div>
@@ -592,12 +634,6 @@
                 <div class="xp-metric"><strong>30K+</strong><span data-i18n="m_abonnes">Abonnés</span></div>
                 <div class="xp-metric"><strong>20M+</strong><span data-i18n="m_vues">Vues</span></div>
                 <div class="xp-metric"><strong>8+</strong><span data-i18n="m_produits">Produits</span></div>
-            </div>
-            <div class="cert-row">
-                <button class="cert-btn" onclick="openPdfModal('https://drive.google.com/file/d/1sEFKOzexUxCYAavWvT7hE6sIXdxPWsSx/preview', 'Attestation STUDI')">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                    <span data-i18n="cert_studi">Attestation STUDI (2025-2026)</span>
-                </button>
             </div>
         </div>
 
@@ -630,7 +666,7 @@
                     <div class="xp-company">RTS Voyages <span style="color: var(--ink-faint); font-weight: 400;" data-i18n="xp3_co_sub">(Tourisme Premium)</span></div>
                     <div class="xp-loc">📍 Monastir, Tunisie</div>
                 </div>
-                <div class="xp-period">2021 — 2023</div>
+                <div class="xp-period">2020 — 2023</div>
             </div>
             <p class="xp-desc" data-i18n="xp3_desc">Création et direction d'une agence de voyages premium, de zéro à ~50K€ de CA trimestriel, via un positionnement haut de gamme et un marketing ciblé.</p>
             <ul>
@@ -699,7 +735,10 @@
             <h3>VIGIL</h3>
             <div class="venture-role" data-i18n="v1_role">Fondateur — Espace de travail IA "Human-in-the-Loop"</div>
             <p class="desc" data-i18n="v1_desc">Environnement de travail où "Le Conseil" fait délibérer plusieurs IA conseillères pour éclairer une décision, et où "Le Bureau" prépare des exécutions (ex. trading) soumises à validation humaine avant toute action.</p>
-            <div class="venture-tags"><span>Orchestration LLM</span><span>Knowledge Graphs</span><span>Human-in-the-Loop</span></div>
+            <div class="venture-foot">
+                <div class="venture-tags"><span>Orchestration LLM</span><span>Knowledge Graphs</span></div>
+                <a href="https://vigil-ai.xyz" target="_blank" rel="noopener" class="venture-link"><span data-i18n="v_visit">Visiter</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+            </div>
         </div>
 
         <div class="venture glass-card reveal">
@@ -710,7 +749,10 @@
             <h3>JobBoaT</h3>
             <div class="venture-role" data-i18n="v2_role">Fondateur — Plateforme RH augmentée par IA</div>
             <p class="desc" data-i18n="v2_desc">SaaS de recrutement B2B construit autour d'un "Collective Orchestrator" : plusieurs IA délibèrent pour évaluer chaque candidat sur 15 dimensions. Repositionné vers l'outplacement pour entreprises.</p>
-            <div class="venture-tags"><span>Multi-LLM</span><span>Scoring IA</span><span>SaaS B2B</span></div>
+            <div class="venture-foot">
+                <div class="venture-tags"><span>Multi-LLM</span><span>Scoring IA</span></div>
+                <a href="https://demo.jobboat.xyz" target="_blank" rel="noopener" class="venture-link"><span data-i18n="v_demo">Démo</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+            </div>
         </div>
 
         <div class="venture glass-card reveal">
@@ -720,8 +762,11 @@
             </div>
             <h3>AZZ&CO LABS</h3>
             <div class="venture-role" data-i18n="v3_role">Fondateur & Président — SAS, France</div>
-            <p class="desc" data-i18n="v3_desc">Société de conseil tech dédiée à la stratégie IA, l'infrastructure et l'accompagnement à l'innovation. Partenaire technique et d'incubation pour des organismes de formation.</p>
-            <div class="venture-tags"><span data-i18n="v3_tag1">Conseil Stratégique</span><span data-i18n="v3_tag2">Infrastructure IA</span><span data-i18n="v3_tag3">Direction d'Entreprise</span></div>
+            <p class="desc" data-i18n="v3_desc">Studio d'ingénierie IA basé à Paris : « on installe l'IA agentique dans votre entreprise — et on construit les produits qui le prouvent ». Cinq pôles : automatisation IA, systèmes agentiques, architecture, développement web et data.</p>
+            <div class="venture-foot">
+                <div class="venture-tags"><span data-i18n="v3_tag2">Infrastructure IA</span><span data-i18n="v3_tag3">Direction d'Entreprise</span></div>
+                <a href="https://azzcolabs.business" target="_blank" rel="noopener" class="venture-link"><span data-i18n="v_visit">Visiter</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+            </div>
         </div>
 
         <div class="venture glass-card reveal">
@@ -732,7 +777,10 @@
             <h3>HBS Formation</h3>
             <div class="venture-role" data-i18n="v4_role">Architecte & Développeur — Site d'organisme de formation</div>
             <p class="desc" data-i18n="v4_desc">Conception et développement complet du site d'un organisme de formation français certifié : Next.js 14, gestion de contenus, déploiement Vercel. Un livrable client de bout en bout.</p>
-            <div class="venture-tags"><span>Next.js 14</span><span>Supabase</span><span>Vercel</span></div>
+            <div class="venture-foot">
+                <div class="venture-tags"><span>Next.js 14</span><span>Vercel</span></div>
+                <a href="https://hbs-formation.vercel.app" target="_blank" rel="noopener" class="venture-link"><span data-i18n="v_visit">Visiter</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+            </div>
         </div>
 
         <div class="venture glass-card reveal">
@@ -748,13 +796,30 @@
 
         <div class="venture glass-card reveal">
             <div class="venture-top">
-                <div class="venture-icon">🦂</div>
-                <span class="venture-status" data-i18n="st_concept">Concept</span>
+                <div class="venture-icon">🔌</div>
+                <span class="venture-status building" data-i18n="st_proto">Prototype</span>
             </div>
-            <h3>VTLVS — Scorpion MK-I</h3>
-            <div class="venture-role" data-i18n="v6_role">Concepteur — Robotique de recharge EV</div>
-            <p class="desc" data-i18n="v6_desc">Bras robotique en forme de scorpion pour la recharge de véhicules électriques : modélisation 3D interactive et cinématique directe pour une insertion de connecteur réaliste.</p>
-            <div class="venture-tags"><span data-i18n="v6_tag1">Robotique</span><span data-i18n="v6_tag2">Modélisation 3D</span><span data-i18n="v6_tag3">Ingénierie</span></div>
+            <h3>VTLVS</h3>
+            <div class="venture-role" data-i18n="v6_role">Concepteur — Recharge EV sans fil</div>
+            <p class="desc" data-i18n="v6_desc">« L'USB-C de la mobilité électrique » : un pad de recharge sans fil qui détecte le véhicule par son poids et délivre la puissance adaptée (250W à 22kW) en moins de 600ms — du vélo au SUV. Prototype robotique associé : le bras Scorpion MK-I (modélisation 3D + cinématique).</p>
+            <div class="venture-foot">
+                <div class="venture-tags"><span data-i18n="v6_tag2">Modélisation 3D</span><span data-i18n="v6_tag3">Ingénierie</span></div>
+                <a href="https://vtlvs.com" target="_blank" rel="noopener" class="venture-link"><span data-i18n="v_visit">Visiter</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+            </div>
+        </div>
+
+        <div class="venture glass-card reveal">
+            <div class="venture-top">
+                <div class="venture-icon">🌱</div>
+                <span class="venture-status live" data-i18n="st_live">En ligne</span>
+            </div>
+            <h3>AFEJE</h3>
+            <div class="venture-role" data-i18n="v7_role">Fondateur — Association à but non lucratif</div>
+            <p class="desc" data-i18n="v7_desc">Association Française d'Encadrement des Jeunes Entrepreneurs : un programme gratuit de 12 mois qui accompagne les jeunes dès 15 ans en Île-de-France — mentorat, intelligence émotionnelle et accès à l'infrastructure business (en partenariat avec AZZ&CO LABS). « Le problème, ce n'est pas le talent. C'est l'accès. »</p>
+            <div class="venture-foot">
+                <div class="venture-tags"><span data-i18n="v7_tag1">Impact Social</span><span data-i18n="v7_tag2">Mentorat</span></div>
+                <a href="https://afeje.com" target="_blank" rel="noopener" class="venture-link"><span data-i18n="v_visit">Visiter</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+            </div>
         </div>
     </div>
 
@@ -784,7 +849,7 @@
             <h2 class="section-title reveal" data-i18n-html="c_title">Créons quelque chose <em>d'exceptionnel</em></h2>
             <p class="section-sub reveal" style="margin-bottom: 0;" data-i18n="c_sub">Disponible dès maintenant à Paris & en Île-de-France. Réponse sous 24h.</p>
             <div class="contact-links reveal">
-                <a href="mailto:azerrached3@gmail.com" class="contact-link"><span class="ico">✉️</span> azerrached3@gmail.com</a>
+                <a href="mailto:rached.azer@azzcolabs.business" class="contact-link"><span class="ico">✉️</span> rached.azer@azzcolabs.business</a>
                 <a href="tel:+33602560229" class="contact-link"><span class="ico">📞</span> +33 6 02 56 02 29</a>
                 <a href="https://www.linkedin.com/in/azer-rached-239258377/" target="_blank" rel="noopener" class="contact-link"><span class="ico">💼</span> LinkedIn</a>
                 <a href="https://linktr.ee/AZER_rached" target="_blank" rel="noopener" class="contact-link"><span class="ico">🔗</span> <span data-i18n="c_links">Tous mes liens</span></a>
@@ -871,6 +936,12 @@ const i18n = {
         p4_l4: "Routage IA coût-performance & graphes de connaissances",
         xp_eyebrow: "Parcours", xp_title: "Une trajectoire <em>entrepreneuriale</em>",
         xp_sub: "Chaque étape documentée, attestations vérifiables à l'appui.",
+        edu_badge: "📘 Formation",
+        edu_title: "Assistant Commercial — Titre Professionnel", edu_school_sub: "(École en ligne, par apprentissage)", edu_period: "2025 — 2026",
+        edu_desc: "Formation certifiante en apprentissage : négociation commerciale, relation client, développement des ventes et administration commerciale — structurant sur le plan académique une décennie d'expérience terrain.",
+        edu_l1: "Techniques de vente, négociation et prospection commerciale",
+        edu_l2: "Relation client, fidélisation et administration des ventes",
+        edu_l3: "Admission confirmée le 20/08/2024 — N° déclaration d'activité 11 75 65568 75",
         xp1_title: "Consultant Marketing & Entrepreneur Digital", xp1_co: "Indépendant — AZZ&CO LABS", xp1_period: "2024 — Présent",
         xp1_desc: "Construction d'une audience de 30K+ abonnés, monétisation multi-canaux, et développement d'une flotte de produits IA en solo — du concept au déploiement en production.",
         xp1_l1: "Croissance 0 → 30K+ abonnés, 20M+ vues organiques (Instagram, LinkedIn, YouTube, TikTok)",
@@ -879,7 +950,7 @@ const i18n = {
         xp1_l4: "Conception & déploiement de 8+ produits web et IA (voir Ventures)",
         m_abonnes: "Abonnés", m_vues: "Vues", m_produits: "Produits", m_avance: "Avance", m_couts: "Coûts",
         m_ca: "CA Trimestriel", m_personnes: "Personnes", m_sites: "Hôtels", m_saison: "CA/Saison",
-        cert_studi: "Attestation STUDI (2025-2026)", cert_view: "Voir l'attestation",
+        cert_studi: "Attestation d'admission STUDI", cert_view: "Voir l'attestation",
         xp2_title: "Chef de Projet Digital", xp2_co_sub: "(Technologies Médicales)",
         xp2_desc: "Direction du développement de l'écosystème digital RealSmile — plateforme française d'aligneurs dentaires avec parcours patient 100% digitalisé (site + application mobile).",
         xp2_l1: "Coordination d'équipes pluridisciplinaires (tech, design, médical)",
@@ -897,21 +968,25 @@ const i18n = {
         xp4_l3: "Événements et expériences clients haut de gamme",
         v_eyebrow: "La route entrepreneuriale", v_title: "Ventures & <em>side hustles</em>",
         v_sub: "Une galerie de produits imaginés, architecturés et construits en solo — la preuve vivante d'une vision créative des systèmes et d'une maîtrise de l'IA appliquée.",
-        st_building: "En développement", st_active: "Actif", st_live: "En ligne", st_rd: "R&D", st_concept: "Concept",
+        st_building: "En développement", st_active: "Actif", st_live: "En ligne", st_rd: "R&D", st_concept: "Concept", st_proto: "Prototype",
+        v_visit: "Visiter", v_demo: "Démo",
         v1_role: "Fondateur — Espace de travail IA \"Human-in-the-Loop\"",
         v1_desc: "Environnement de travail où \"Le Conseil\" fait délibérer plusieurs IA conseillères pour éclairer une décision, et où \"Le Bureau\" prépare des exécutions (ex. trading) soumises à validation humaine avant toute action.",
         v2_role: "Fondateur — Plateforme RH augmentée par IA",
         v2_desc: "SaaS de recrutement B2B construit autour d'un \"Collective Orchestrator\" : plusieurs IA délibèrent pour évaluer chaque candidat sur 15 dimensions. Repositionné vers l'outplacement pour entreprises.",
         v3_role: "Fondateur & Président — SAS, France",
-        v3_desc: "Société de conseil tech dédiée à la stratégie IA, l'infrastructure et l'accompagnement à l'innovation. Partenaire technique et d'incubation pour des organismes de formation.",
+        v3_desc: "Studio d'ingénierie IA basé à Paris : « on installe l'IA agentique dans votre entreprise — et on construit les produits qui le prouvent ». Cinq pôles : automatisation IA, systèmes agentiques, architecture, développement web et data.",
         v3_tag1: "Conseil Stratégique", v3_tag2: "Infrastructure IA", v3_tag3: "Direction d'Entreprise",
         v4_role: "Architecte & Développeur — Site d'organisme de formation",
         v4_desc: "Conception et développement complet du site d'un organisme de formation français certifié : Next.js 14, gestion de contenus, déploiement Vercel. Un livrable client de bout en bout.",
         v5_role: "Concepteur — Agent IA autonome d'opérations",
         v5_desc: "Agent autonome hébergé sur VPS qui gère des opérations réelles : il rejoint des réunions Google Meet, écoute, transcrit et répond à la voix en direct grâce à la synthèse vocale.",
-        v6_role: "Concepteur — Robotique de recharge EV",
-        v6_desc: "Bras robotique en forme de scorpion pour la recharge de véhicules électriques : modélisation 3D interactive et cinématique directe pour une insertion de connecteur réaliste.",
+        v6_role: "Concepteur — Recharge EV sans fil",
+        v6_desc: "« L'USB-C de la mobilité électrique » : un pad de recharge sans fil qui détecte le véhicule par son poids et délivre la puissance adaptée (250W à 22kW) en moins de 600ms — du vélo au SUV. Prototype robotique associé : le bras Scorpion MK-I (modélisation 3D + cinématique).",
         v6_tag1: "Robotique", v6_tag2: "Modélisation 3D", v6_tag3: "Ingénierie",
+        v7_role: "Fondateur — Association à but non lucratif",
+        v7_desc: "Association Française d'Encadrement des Jeunes Entrepreneurs : un programme gratuit de 12 mois qui accompagne les jeunes dès 15 ans en Île-de-France — mentorat, intelligence émotionnelle et accès à l'infrastructure business (en partenariat avec AZZ&CO LABS). « Le problème, ce n'est pas le talent. C'est l'accès. »",
+        v7_tag1: "Impact Social", v7_tag2: "Mentorat",
         v_note: "Chaque produit ci-dessus a été <strong>imaginé, architecturé et construit en solo</strong> — avec l'IA comme co-équipier. C'est cette capacité à passer de l'idée au système déployé qui fait la différence, que ce soit pour un produit tech ou une campagne marketing.",
         lg_eyebrow: "Langues", lg_title: "Une perspective <em>globale</em>",
         lg_ar: "Arabe", lg_ar_lv: "Natif", lg_fr: "Français", lg_en: "Anglais", lg_ru: "Russe",
@@ -966,6 +1041,12 @@ const i18n = {
         p4_l4: "Cost-performance AI routing & knowledge graphs",
         xp_eyebrow: "Journey", xp_title: "An <em>entrepreneurial</em> trajectory",
         xp_sub: "Every step documented, with verifiable certificates.",
+        edu_badge: "📘 Education",
+        edu_title: "Sales Assistant — Professional Certificate", edu_school_sub: "(Online school, apprenticeship)", edu_period: "2025 — 2026",
+        edu_desc: "A certified apprenticeship program: sales negotiation, client relations, sales development and commercial administration — academically structuring a decade of field experience.",
+        edu_l1: "Sales techniques, negotiation and commercial prospecting",
+        edu_l2: "Client relations, retention and sales administration",
+        edu_l3: "Admission confirmed 20/08/2024 — Activity declaration no. 11 75 65568 75",
         xp1_title: "Marketing Consultant & Digital Entrepreneur", xp1_co: "Independent — AZZ&CO LABS", xp1_period: "2024 — Present",
         xp1_desc: "Built a 30K+ follower audience, multi-channel monetization, and a fleet of AI products developed solo — from concept to production deployment.",
         xp1_l1: "Growth 0 → 30K+ followers, 20M+ organic views (Instagram, LinkedIn, YouTube, TikTok)",
@@ -974,7 +1055,7 @@ const i18n = {
         xp1_l4: "Designed & shipped 8+ web and AI products (see Ventures)",
         m_abonnes: "Followers", m_vues: "Views", m_produits: "Products", m_avance: "Early", m_couts: "Costs",
         m_ca: "Quarterly Rev.", m_personnes: "People", m_sites: "Hotels", m_saison: "Rev./Season",
-        cert_studi: "STUDI Certificate (2025-2026)", cert_view: "View certificate",
+        cert_studi: "STUDI admission certificate", cert_view: "View certificate",
         xp2_title: "Digital Project Manager", xp2_co_sub: "(Medical Technology)",
         xp2_desc: "Led development of the RealSmile digital ecosystem — a French dental aligner platform with a fully digital patient journey (website + mobile app).",
         xp2_l1: "Coordinated multidisciplinary teams (tech, design, medical)",
@@ -992,21 +1073,25 @@ const i18n = {
         xp4_l3: "High-end events and customer experiences",
         v_eyebrow: "The entrepreneurial road", v_title: "Ventures & <em>side hustles</em>",
         v_sub: "A gallery of products imagined, architected and built solo — living proof of a creative systems mindset and applied AI mastery.",
-        st_building: "In development", st_active: "Active", st_live: "Live", st_rd: "R&D", st_concept: "Concept",
+        st_building: "In development", st_active: "Active", st_live: "Live", st_rd: "R&D", st_concept: "Concept", st_proto: "Prototype",
+        v_visit: "Visit", v_demo: "Demo",
         v1_role: "Founder — \"Human-in-the-Loop\" AI Workspace",
         v1_desc: "A workspace where \"The Council\" has several advisor AIs deliberate to inform a decision, and \"The Bureau\" prepares executions (e.g. trading) that require human validation before any action.",
         v2_role: "Founder — AI-Augmented HR Platform",
         v2_desc: "B2B recruiting SaaS built around a \"Collective Orchestrator\": several AIs deliberate to score each candidate across 15 dimensions. Repositioned toward corporate outplacement.",
         v3_role: "Founder & President — SAS, France",
-        v3_desc: "Tech consulting company focused on AI strategy, infrastructure and innovation support. Technical and incubation partner for training organizations.",
+        v3_desc: "Paris-based AI engineering studio: \"we install agentic AI inside your business — and build the products that prove it works.\" Five practices: AI automation, agentic systems, system design, web development and data.",
         v3_tag1: "Strategic Consulting", v3_tag2: "AI Infrastructure", v3_tag3: "Company Leadership",
         v4_role: "Architect & Developer — Training Organization Website",
         v4_desc: "End-to-end design and development of a certified French training organization's website: Next.js 14, content management, Vercel deployment. A complete client deliverable.",
         v5_role: "Designer — Autonomous AI Operations Agent",
         v5_desc: "A VPS-hosted autonomous agent handling real operations: it joins Google Meet calls, listens, transcribes and answers out loud in real time using voice synthesis.",
-        v6_role: "Designer — EV Charging Robotics",
-        v6_desc: "A scorpion-shaped robotic arm for electric vehicle charging: interactive 3D modeling and forward kinematics for physically realistic connector insertion.",
+        v6_role: "Designer — Wireless EV Charging",
+        v6_desc: "\"The USB-C of electric mobility\": a wireless charging pad that detects the vehicle by weight and delivers the right power (250W to 22kW) in under 600ms — from bicycle to SUV. Associated robotic prototype: the Scorpion MK-I arm (3D modeling + kinematics).",
         v6_tag1: "Robotics", v6_tag2: "3D Modeling", v6_tag3: "Engineering",
+        v7_role: "Founder — Non-profit Association",
+        v7_desc: "Association Française d'Encadrement des Jeunes Entrepreneurs: a free 12-month program mentoring young people aged 15+ across Île-de-France — mentorship, emotional intelligence and access to business infrastructure (partnered with AZZ&CO LABS). \"The problem is rarely talent. It's access.\"",
+        v7_tag1: "Social Impact", v7_tag2: "Mentorship",
         v_note: "Every product above was <strong>imagined, architected and built solo</strong> — with AI as a teammate. That ability to go from idea to deployed system is what makes the difference, whether it's a tech product or a marketing campaign.",
         lg_eyebrow: "Languages", lg_title: "A <em>global</em> perspective",
         lg_ar: "Arabic", lg_ar_lv: "Native", lg_fr: "French", lg_en: "English", lg_ru: "Russian",
